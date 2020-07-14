@@ -1,28 +1,41 @@
-# A starter webpack project for React
+# Pantree
 
-This is a starter project that uses webpack to transpile and bundle ES6 React code. To use, consider these steps:
+## Team Schedule:
 
-* Fork this repo
-* Rename your repo according to the app you're building
+*Expected daily meeting:* 9am stand-up
 
-```sh
-git clone https://github.com/[your-account]/[your-app].git
-cd [your-app] && npm i
-```
+**Fai:** Not after 7pm, Sunday off
+**BenM:** Not after 6:30, Saturday off
+**Joe:** Not after 6:30, try not to work on weekend
+**Jefferson:** Late is fine, Tuesday 21st off
+**Aisyah:** Not after 7:30, Sunday off
+**Rose:** Not after 7, can work weekend but need atleast half day off
 
-To start the development server with a watcher that rebuilds your code, run `npm run dev`. The assets built by webpack are placed in `server/public`. This folder is defined as a static folder in an Express.js server that can be started with `npm run server`.
+*Check-in before weekend, get rest and not burn out*
 
-Additional components should be placed in `client/components`.
+## Team Roles:
 
-## Separate client/server
+**P.O.:** Joe
+- Customer perspective
+- Doubles as the project lead
+- SCRUM master
+- Keep product ducumentation up to date
 
-The boilerplate is also set up to host the client using `webpack-dev-server` with hot module reloading etc. To use this method, in one terminal run:
-```sh
-npm run client
-```
-and in the other:
-```sh
-npm run server
-```
-The client will be available on http://localhost:8080 and the server on http://localhost:3000. Note that you will still need to manage CORS between the two, as they are on different ports.
+**Git Floater:** Fai
+- Knowing where everyone is at with the code
+- Guiding when conflict arise
+- Deals with issues after code is written in GitHub
+- Making sure that the person responsible deals with the conflict
+- Deployment
 
+**Vibes/Fun checker:** Jefferson
+- Be aware of the state of the group and individuals
+- Call out when the vibe is not good
+- Respond appropriately when someone's vibe drops
+- Stop everyone at 4pm to make sure team has some fun
+
+**Teach Lead:** BenM (frontend) / Rose (backend)
+- Making sure that everyone follows set conventions
+- Leads solve technical problems during the coding process, first port of call, does not need to be the expert
+- Keeping technical documentation up to date
+- Final call on technical decisions/ approaches/ standardization
