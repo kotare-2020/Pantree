@@ -39,3 +39,7 @@
 - Leads solve technical problems during the coding process, first port of call, does not need to be the expert
 - Keeping technical documentation up to date
 - Final call on technical decisions/ approaches/ standardization
+
+**Co-helper:** Aisyah
+- Float
+- Pitch in when needed/available
