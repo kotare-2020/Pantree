@@ -4,9 +4,9 @@
 
 *Expected daily meeting:* 9am stand-up
 
-**Fai:** Not after 7pm, Sunday off. 
-**BenM:** Not after 6:30, Saturday off.   
-**Joe:** Not after 6:30, try not to work on weekend. 
+**Fai:** Not after 7pm, Sunday off.      
+**BenM:** Not after 6:30, Saturday off.     
+**Joe:** Not after 6:30, try not to work on weekend.    
 **Jefferson:** Late is fine, Tuesday 21st off.  
 **Aisyah:** Not after 7:30, Sunday off.   
 **Rose:** Not after 7, can work weekend but need atleast half day off.    
