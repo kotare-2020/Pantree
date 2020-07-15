@@ -23,14 +23,14 @@ function getUserByUsername (username, db = connection) {
     .first()
 }
 
-// function getUsers (db = connection) {
-//   return db('users')
-//       .select()
-// }
+function getUsers (db = connection) {
+  return db('users')
+      .select()
+}
 
 module.exports = {
   createUser,
   userExists,
   getUserByUsername,
-//   getUsers,
+  getUsers,
 }
