@@ -400,22 +400,22 @@ Shopping List = '/shopping-list'
 
 Local Suppliers = '/supplier'      
 
-### Views (Client Side) // conponents needed -> needs  to be updated!
+### Views (Client Side)
   | name | purpose |
   | --- | --- |
-  | Nav |  |
-  | Landing |  |
-  | LandingAbout |  |
-  | SignIn |  |
-  | Register |  |
-  | Plan |  |
-  | PlanColumn |  |
-  | PlanRecipeCard |  |
-  | Recipes |  |
-  | RecipeThumbnail |  |
-  | RecipeView |  |
-  | ShoppingList |  |
-  | Suppliers |  |
+  | Nav | Nav bar for all pages except the landing page |
+  | Landing | Landing page component allowing a user to sign in or register |
+  | LandingAbout | Logo and description of Pantree, shown on the landing page |
+  | SignIn | Shown on landing page by default, allowing an existing user to sign in |
+  | Register | Alternative component allowing a new user to register, shown conditionally instead of SignIn |
+  | Plan | The main plan table, parent component |
+  | PlanColumn | Child of Plan, represents recipes entered for a single day |
+  | PlanRecipeCard | Child of PlanColumn, represents a single recipe entry |
+  | Recipes | Recipes page |
+  | RecipeThumbnail | Child of Recipes, a card showing basic details about a recipe stored in the Pantree recipe book |
+  | RecipeView | A page showing a detailed view of a recipe |
+  | ShoppingList | A page showing a users shopping list, based on their meal plan |
+  | Suppliers | A page showing a list of local suppliers with sustainably sourced produce |
 
  ## Actions
 
