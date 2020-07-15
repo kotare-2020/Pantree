@@ -46,11 +46,11 @@
 - Pitch in when needed/available
 
 ## Git Branching Strategy:
-**Key Branch**
+**Key Branch:**
 - Master => Deploy
 - Development => pull, fetch
 - 'branch_name' => feature currently working on
-**General Git rules**
+**General Git rules:**
 - All members to solve own conflict if able
 - Branch creater deletes the branch once feature is finished
 - Talk to Git master if there is a problem
