@@ -226,3 +226,135 @@ As a user, I want:
  | plan_id | Integer |
  | day_number | Interger |
  | recipe_id | Interger |
+ 
+--------
+
+## Frontend
+
+### Global State
+```js
+{
+  // what we expect to see
+}
+```
+
+## API Endpoints
+
+### GET plan by id
+
+***GET*** /plans/:planId
+
+Response Body:
+```JSON
+{ 
+  days [
+    { 
+      dayNumber: 1,
+      recipes: [
+        { 
+          recipeId: 1,
+          recipeName: 'pancake'
+        },
+        {
+          recipeId: 2,
+          recipeName: 'stew',
+        }
+      ],
+      dayNumber: 2,
+      recipes: [{...}, {...}]
+    }
+  ]
+}
+    
+```
+
+### GET recipes
+
+***GET*** /recipes
+
+Response Body:
+```JSON
+{
+  recipes [
+    {
+      recipeId: 1,
+      recipeName: 'pancake',
+      image: 'images/1.jpg.'
+    },
+    {....}
+  ]
+}
+```
+
+### GET recipe by recipe id
+
+***GET*** /recipes/:recipeId
+
+Response Body:
+```JSON
+{
+  recipeId: 1,
+  recipeName: 'pancake',
+  image: 'images/1.jpg',
+  method: '....',
+  ingredients: [
+    {
+      ingredientName: 'carrot',
+      quantity: 5,
+      unit: each
+    }
+  ] 
+}
+```
+
+### Get shopping list
+
+***Get*** /shopping-list/:planId
+
+Response Body:
+```JSON
+[
+  {
+    ingredientName: 'carrot',
+    quantity: 5, // total
+    unit: each
+  },
+  {
+    ingredientName: 'flour',
+    quantity: 2.5,
+    unit: kg
+  }
+]
+```
+
+***POST*** /plans/
+
+Request Body:
+```JSON
+{
+  // userId: 2,
+}
+```
+
+Response Body:
+```JSON
+{
+  // planId: 12,
+}
+```
+
+***PATCH*** /plans/:planId
+
+Request Body:
+```JSON
+{
+  // same content as GET /plans/:planId
+}
+```
+
+Response Body:
+```JSON
+{
+  // status 200
+}
+```
