@@ -112,7 +112,7 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
   | image | String |
   | method | String |
   
-### recipes_ingredients (join M2M)
+### recipes_ingredients (M2M)
 
   | Column Name | Data Type |
   | --- | --- |
@@ -139,7 +139,7 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
  | email | String |
  | hash | String |
 
-### plans
+### plans (1 to many)
 
  | Column Name | Data Type |
  | --- | --- |
@@ -147,7 +147,7 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
  | user_id | Interger |
  | name | String |
 
-### plan_days
+### plan_days (1 to many)
 
  | Column Name | Data Type |
  | --- | --- |
