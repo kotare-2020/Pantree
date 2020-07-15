@@ -92,7 +92,7 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
 - Pitch in when needed/available
 
 ## Git Branching Strategy:
-- Master = Deploy
+- Master = deploy
 - Development = pull, fetch
 - 'branch_name' = feature currently working on
 - All members to solve own conflict if able
@@ -182,7 +182,7 @@ As a user, I want:
  | user_id | Interger |
  | name | String |
 
-### plan_days (1 to many)
+### plan_days (M2M)
 
  | Column Name | Data Type |
  | --- | --- |
