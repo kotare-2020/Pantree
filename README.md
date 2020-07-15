@@ -142,14 +142,37 @@ As a user, I want:
 
 ## Wireframes
 
-- Landing page
-- Landing page - sign in component
-- Landing page - register component
-- My plan page
-- Recipes (Pantree catalogue)
-- Recipe view
-- Shopping list
-- Local suppliers
+### Landing page
+
+![alt text](./project/images/landing_page.jpg "Landing page")
+
+### Landing page - sign in component
+
+![alt text](./project/images/signin_component.jpg "Sign in component")
+
+### Landing page - register component
+
+![alt text](./project/images/register_component.jpg "Register component")
+
+### My plan page
+
+![alt text](./project/images/plan.jpg "My plan page")
+
+### Pantree recipe catalogue
+
+![alt text](./project/images/catalogue.jpg "Pantree recipe catalogue")
+
+### Recipe view
+
+![alt text](./project/images/view_recipe.jpg "Recipe view")
+
+### Shopping list
+
+![alt text](./project/images/shopping_list.jpg "Shopping list")
+
+### Local supplier list
+
+![alt text](./project/images/supplier_list.jpg "Local supplier list")
 
 ## DB (Server Side)
 
