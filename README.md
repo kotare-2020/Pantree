@@ -239,7 +239,11 @@ As a user, I want:
 {
   plan:
   selectedDay: 1,
-  loading: false
+  loading: false,
+  auth: 
+  recipes: [...],
+  message: "...",
+  shoppingList: [{...}]
 }
 ```
 
@@ -396,18 +400,60 @@ Shopping List = '/shopping-list'
 
 Local Suppliers = '/supplier'      
 
-### Components required
+### Views (Client Side) // conponents needed -> needs  to be updated!
+  | name | purpose |
+  | --- | --- |
+  | Nav |  |
+  | Landing |  |
+  | LandingAbout |  |
+  | SignIn |  |
+  | Register |  |
+  | Plan |  |
+  | PlanColumn |  |
+  | PlanRecipeCard |  |
+  | Recipes |  |
+  | RecipeThumbnail |  |
+  | RecipeView |  |
+  | ShoppingList |  |
+  | Suppliers |  |
 
-- Nav
-- Landing
-- LandingAbout
-- SignIn
-- Register
-- Plan
-- PlanColumn
-- PlanRecipeCard
-- Recipes
-- RecipeThumbnail
-- RecipeView
-- ShoppingList
-- Suppliers
+ ## Actions
+
+ ### plan
+
+ | type | data | purpose |
+ | --- | --- | --- |
+ | GET_PLAN | plan | retreive plan from the db and store in redux, set loading : true |
+ | SET_PLAN | plan | save plan to store |
+ | SAVE_PLAN | plan | save plan to db |
+ | ADD_PLAN | recipe/day | add selected recipe/day from globalState |
+ | REMOVE_PLAN | recipe/day | remove selected recipe/day from globalState |
+
+ ### loading
+ | type | data | purpose |
+ | --- | --- | --- |
+ | LOADING | boolean | show loadng anmation for async |
+ 
+ ### selected day
+ | type | data | purpose |
+ | --- | --- | --- |
+ | SET_DAY | selected_day | set specific day to add recipe to |
+ 
+  ### recipes
+ | type | data | purpose |
+ | --- | --- | --- |
+ | GET_RECIPES | recipe | retreive recipes from db and store in redux |
+ | SET_RECIPES | recipe | save recipes to store |
+ | SAVE_RECIPES | recipe | save recipes to db |
+ 
+ ### recipe
+ | type | data | purpose |
+ | --- | --- | --- |
+ | GET_RECIPE | recipeId | retreive recipe from db and store in redux |
+ | SET_RECIPE | recipeId | save recipe to store |
+
+### shopping list
+ | type | data | purpose |
+ | --- | --- | --- |
+ | GET_LIST | planId | retreive recipe from db and store in redux |
+ | SET_LIST | shoppingList | save recipe to store |
