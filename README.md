@@ -375,6 +375,8 @@ Response Body:
 }
 ```
 
+## Flow plan
+
 ### URL
 
 Landing = '/'   
@@ -393,3 +395,14 @@ View = 'recipe/:recipeId'
 Shopping List = '/shopping-list'    
 
 Local Suppliers = '/supplier'      
+
+### Conponents required
+
+- Nav
+- Landing
+- SignIn
+- Register
+- Plan
+- LandingAbout
+- PlanColumn
+- PlanRecipeCards
