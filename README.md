@@ -247,21 +247,21 @@ As a user, I want:
 Response Body:
 ```JSON
 { 
-  days [
+  "days" [
     { 
-      dayNumber: 1,
-      recipes: [
+      "dayNumber": 1,
+      "recipes": [
         { 
-          recipeId: 1,
-          recipeName: 'pancake'
+          "recipeId": 1,
+          "recipeName": "pancake"
         },
         {
-          recipeId: 2,
-          recipeName: 'stew',
+          "recipeId": 2,
+          "recipeName": "stew",
         }
       ],
-      dayNumber: 2,
-      recipes: [{...}, {...}]
+      "dayNumber": 2,
+      "recipes": [{...}, {...}]
     }
   ]
 }
@@ -275,11 +275,11 @@ Response Body:
 Response Body:
 ```JSON
 {
-  recipes [
+  "recipes" [
     {
-      recipeId: 1,
-      recipeName: 'pancake',
-      image: 'images/1.jpg.'
+      "recipeId": 1,
+      "recipeName": "pancake",
+      "image": "images/1.jpg"
     },
     {....}
   ]
@@ -293,15 +293,15 @@ Response Body:
 Response Body:
 ```JSON
 {
-  recipeId: 1,
-  recipeName: 'pancake',
-  image: 'images/1.jpg',
-  method: '....',
-  ingredients: [
+  "recipeId": 1,
+  "recipeName": "pancake",
+  "image": "images/1.jpg",
+  "method": "....",
+  "ingredients": [
     {
-      ingredientName: 'carrot',
-      quantity: 5,
-      unit: each
+      "ingredientName": "carrot",
+      "quantity": 5,
+      "unit": "each"
     }
   ] 
 }
@@ -315,14 +315,14 @@ Response Body:
 ```JSON
 [
   {
-    ingredientName: 'carrot',
-    quantity: 5, // total
-    unit: each
+    "ingredientName": "carrot",
+    "quantity": 5, // total
+    "unit": "each"
   },
   {
-    ingredientName: 'flour',
-    quantity: 2.5,
-    unit: kg
+    "ingredientName": "flour",
+    "quantity": 2.5,
+    "unit": "kg"
   }
 ]
 ```
