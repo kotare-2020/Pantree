@@ -130,3 +130,27 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
  | id | Integer |
  | name | String |
  | unit | String |
+ 
+### users
+
+ | Column Name | Data Type |
+ | --- | --- |
+ | id | Integer |
+ | email | String |
+ | hash | String |
+
+### plans
+
+ | Column Name | Data Type |
+ | --- | --- |
+ | id | Integer |
+ | user_id | Interger |
+ | name | String |
+
+### plan_days
+
+ | Column Name | Data Type |
+ | --- | --- |
+ | plan_id | Integer |
+ | day_number | Interger |
+ | recipe_id | Interger |
