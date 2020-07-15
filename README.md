@@ -45,10 +45,12 @@ If I’m pair up, maybe let me know to take a breath if it’s too obvious.
 
 **Aisyah**      
 ***Stress Sign:***       
-   
+I become quiet and need to disappear and/or go for a walk to decompress on my own.    
 
 ***What to do:***
-   
+Normally I'd tell my pair/team that I need to take a break/go for a walk but sometimes 
+if there's a noticeable drop in energy and change in facial expression I may need a reminder 
+to drop whatever I'm doing immediately and retreat/go for a walk.     
 
 **Rose**      
 ***Stress Sign:***       
