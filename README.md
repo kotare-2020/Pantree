@@ -1,5 +1,8 @@
 # Pantree
 
+- Trello: https://trello.com/b/m8VRdMO4/plantree
+- Heroku: _soon..._
+
 ## Team Schedule:
 
 *Expected daily meeting:* 9am stand-up
@@ -136,6 +139,17 @@ As a user, I want:
 - Pantree to suggest wine pairings with my meals and the option to add the wine to my shopping cart
 - Pantree to suggest places where I can get my sustainably sourced produce
 - To export my shopping list to another tool of my choice (eg. google shopping list, trello, etc.)
+
+## Wireframes
+
+- Landing page
+- Landing page - sign in component
+- Landing page - register component
+- My plan page
+- Recipes (Pantree catalogue)
+- Recipe view
+- Shopping list
+- Local suppliers
 
 ## DB (Server Side)
 
