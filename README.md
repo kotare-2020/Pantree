@@ -11,7 +11,7 @@
 **Aisyah:** Not after 7:30, Sunday off.   
 **Rose:** Not after 7, can work weekend but need atleast half day off.    
 
-*4pm fun time*
+*4pm fun time*.    
 *Check-in before weekend, get rest and not burn out*
 
 ## Team Roles:
