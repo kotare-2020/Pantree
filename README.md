@@ -11,7 +11,7 @@
 **Aisyah:** Not after 7:30, Sunday off.   
 **Rose:** Not after 7, can work weekend but need atleast half day off.    
 
-*4pm fun time*.    
+*4pm fun time*       
 *Check-in before weekend, get rest and not burn out*
 
 ## Team Roles:
@@ -46,11 +46,11 @@
 - Pitch in when needed/available
 
 ## Git Branching Strategy:
-**Key Branch:**
+**Key Branch:**   
 - Master => Deploy
 - Development => pull, fetch
 - 'branch_name' => feature currently working on
-**General Git rules:**
+**General Git rules:**     
 - All members to solve own conflict if able
 - Branch creater deletes the branch once feature is finished
 - Talk to Git master if there is a problem
