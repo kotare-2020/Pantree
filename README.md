@@ -219,7 +219,7 @@ As a user, I want:
  | user_id | Interger |
  | name | String |
 
-### plan_days (M2M)
+### plans_recipes (M2M)
 
  | Column Name | Data Type |
  | --- | --- |
