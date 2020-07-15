@@ -226,3 +226,183 @@ As a user, I want:
  | plan_id | Integer |
  | day_number | Interger |
  | recipe_id | Interger |
+ 
+--------
+
+## Frontend
+
+### Global State
+
+***Reducers***
+
+```js
+{
+  plan:
+  selectedDay: 1,
+  loading: false
+}
+```
+
+### Local States
+
+***Reducers***
+
+```js
+{
+  slectedRecipe: // id
+  recipes: // all
+  shoppingList: // result
+}
+```
+
+## API Endpoints
+
+### GET plan by id
+
+***GET*** /plans/:planId
+
+Response Body:
+```JSON
+{ 
+  "days": [
+    { 
+      "dayNumber": 1,
+      "recipes": [
+        { 
+          "recipeId": 1,
+          "recipeName": "pancake"
+        },
+        {
+          "recipeId": 2,
+          "recipeName": "stew",
+        }
+      ],
+      "dayNumber": 2,
+      "recipes": [{"..."}, {"..."}]
+    }
+  ]
+}
+```
+
+### GET recipes
+
+***GET*** /recipes
+
+Response Body:
+```JSON
+{
+  "recipes": [
+    {
+      "recipeId": 1,
+      "recipeName": "pancake",
+      "image": "images/1.jpg"
+    },
+    {"...."}
+  ]
+}
+```
+
+### GET recipe by recipe id
+
+***GET*** /recipes/:recipeId
+
+Response Body:
+```JSON
+{
+  "recipeId": 1,
+  "recipeName": "pancake",
+  "image": "images/1.jpg",
+  "method": "....",
+  "ingredients": [
+    {
+      "ingredientName": "carrot",
+      "quantity": 5,
+      "unit": "each"
+    }
+  ] 
+}
+```
+
+### Get shopping list
+
+***Get*** /shopping-list/:planId
+
+Response Body:
+```JSON
+[
+  {
+    "ingredientName": "carrot",
+    "quantity": 5,
+    "unit": "each"
+  },
+  {
+    "ingredientName": "flour",
+    "quantity": 2.5,
+    "unit": "kg"
+  }
+]
+```
+
+***POST*** /plans/
+
+Request Body:
+```js
+{
+  // userId: 2,
+}
+```
+
+Response Body:
+```js
+{
+  // planId: 12,
+}
+```
+
+***PATCH*** /plans/:planId
+
+Request Body:
+```js
+{
+  // same content as GET /plans/:planId
+}
+```
+
+Response Body:
+```js
+{
+  // status 200
+}
+```
+
+## Flow plan
+
+### URL
+
+Landing = '/'   
+- once signed in redirect to plan
+
+Plan = '/plan'     
+- redirects to recipe, view, shopping list and suppliers
+
+Recipes = '/recipes'    
+- redirects to view of item clicked
+- button to go back to plan
+
+View = 'recipe/:recipeId'     
+- if 'add' or 'back' is clicked then redirects back to recipes
+
+Shopping List = '/shopping-list'    
+
+Local Suppliers = '/supplier'      
+
+### Conponents required
+
+- Nav
+- Landing
+- SignIn
+- Register
+- Plan
+- LandingAbout
+- PlanColumn
+- PlanRecipeCards
