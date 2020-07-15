@@ -97,3 +97,35 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
 - Talk to Git master if there is a problem
 - Let Git master know once code has be reviewed
 - Git master to merge major feature
+
+
+## DB (Server Side)
+
+### recipes
+  | Column Name | Data Type |
+  | --- | --- |
+  | id | Integer |
+  | recipe | String |
+  | image | String |
+  | method | String |
+  
+### recipes_ingredients (Join M2M)
+
+  | Column Name | Data Type |
+  | --- | --- |
+  | id | Integer |
+  | quantity | Interger |
+  | recipe_id | Interger |
+  | ingredient_id | Interger |
+
+### ingredients
+
+  Many Users attend Many Meetings
+
+ | Column Name | Data Type |
+ | --- | --- |
+ | id | Integer |
+ | name | String |
+ | unit | String |
+
+ ---
