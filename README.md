@@ -180,7 +180,7 @@ As a user, I want:
   | Column Name | Data Type |
   | --- | --- |
   | id | Integer |
-  | recipe | String |
+  | name | String |
   | image | String |
   | method | String |
   
@@ -316,7 +316,7 @@ Response Body:
   "recipeId": 1,
   "recipeName": "pancake",
   "image": "images/1.jpg",
-  "method": "....",
+  "method": [],
   "ingredients": [
     {
       "ingredientName": "carrot",
