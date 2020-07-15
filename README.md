@@ -109,7 +109,7 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
   | image | String |
   | method | String |
   
-### recipes_ingredients (Join M2M)
+### recipes_ingredients (join M2M)
 
   | Column Name | Data Type |
   | --- | --- |
@@ -127,5 +127,3 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
  | id | Integer |
  | name | String |
  | unit | String |
-
- ---
