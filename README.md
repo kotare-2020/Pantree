@@ -396,13 +396,18 @@ Shopping List = '/shopping-list'
 
 Local Suppliers = '/supplier'      
 
-### Conponents required
+### Components required
 
 - Nav
 - Landing
+- LandingAbout
 - SignIn
 - Register
 - Plan
-- LandingAbout
 - PlanColumn
-- PlanRecipeCards
+- PlanRecipeCard
+- Recipes
+- RecipeThumbnail
+- RecipeView
+- ShoppingList
+- Suppliers
