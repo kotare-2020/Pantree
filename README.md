@@ -232,9 +232,26 @@ As a user, I want:
 ## Frontend
 
 ### Global State
+
+***Reducers***
+
 ```js
 {
-  // what we expect to see
+  plan:
+  selectedDay: 1,
+  loading: false
+}
+```
+
+### Local States
+
+***Reducers***
+
+```js
+{
+  slectedRecipe: // id
+  recipes: // all
+  shoppingList: // result
 }
 ```
 
@@ -265,7 +282,6 @@ Response Body:
     }
   ]
 }
-    
 ```
 
 ### GET recipes
@@ -358,3 +374,22 @@ Response Body:
   // status 200
 }
 ```
+
+### URL
+
+Landing = '/'   
+- once signed in redirect to plan
+
+Plan = '/plan'     
+- redirects to recipe, view, shopping list and suppliers
+
+Recipes = '/recipes'    
+- redirects to view of item clicked
+- button to go back to plan
+
+View = 'recipe/:recipeId'     
+- if 'add' or 'back' is clicked then redirects back to recipes
+
+Shopping List = '/shopping-list'    
+
+Local Suppliers = '/supplier'      
