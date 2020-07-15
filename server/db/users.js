@@ -11,17 +11,17 @@ function createUser (user, db = connection) {
     })
 }
 
-function userExists (username, db = connection) {
-  return db('users')
-    .where('username', username)
-    .then(users => users.length > 0)
-}
+// function userExists (username, db = connection) {
+//   return db('users')
+//     .where('username', username)
+//     .then(users => users.length > 0)
+// }
 
-function getUserByUsername (username, db = connection) {
-  return db('users')
-    .where('username', username)
-    .first()
-}
+// function getUserByUsername (username, db = connection) {
+//   return db('users')
+//     .where('username', username)
+//     .first()
+// }
 
 function getUsers (db = connection) {
   return db('users')
@@ -30,7 +30,7 @@ function getUsers (db = connection) {
 
 module.exports = {
   createUser,
-  userExists,
-  getUserByUsername,
+//   userExists,
+//   getUserByUsername,
   getUsers,
 }
