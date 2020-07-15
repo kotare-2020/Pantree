@@ -247,7 +247,7 @@ As a user, I want:
 Response Body:
 ```JSON
 { 
-  "days" [
+  "days": [
     { 
       "dayNumber": 1,
       "recipes": [
@@ -261,7 +261,7 @@ Response Body:
         }
       ],
       "dayNumber": 2,
-      "recipes": [{...}, {...}]
+      "recipes": [{"..."}, {"..."}]
     }
   ]
 }
@@ -275,13 +275,13 @@ Response Body:
 Response Body:
 ```JSON
 {
-  "recipes" [
+  "recipes": [
     {
       "recipeId": 1,
       "recipeName": "pancake",
       "image": "images/1.jpg"
     },
-    {....}
+    {"...."}
   ]
 }
 ```
@@ -316,7 +316,7 @@ Response Body:
 [
   {
     "ingredientName": "carrot",
-    "quantity": 5, // total
+    "quantity": 5,
     "unit": "each"
   },
   {
@@ -330,14 +330,14 @@ Response Body:
 ***POST*** /plans/
 
 Request Body:
-```JSON
+```js
 {
   // userId: 2,
 }
 ```
 
 Response Body:
-```JSON
+```js
 {
   // planId: 12,
 }
@@ -346,14 +346,14 @@ Response Body:
 ***PATCH*** /plans/:planId
 
 Request Body:
-```JSON
+```js
 {
   // same content as GET /plans/:planId
 }
 ```
 
 Response Body:
-```JSON
+```js
 {
   // status 200
 }
