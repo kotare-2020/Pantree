@@ -1,5 +1,8 @@
 # Pantree
 
+- Trello: https://trello.com/b/m8VRdMO4/plantree
+- Heroku: _soon..._
+
 ## Team Schedule:
 
 *Expected daily meeting:* 9am stand-up
@@ -15,42 +18,45 @@
 *Check-in before weekend, get rest and not burn out*
 
 ## Stress Profiles:
-**Fai**      
+
+### Fai      
 ***Stress Sign:***       
 I go silent and become a little withdrawn.    
 
 ***What to do:***
-Give me space, but keep me up to date with anychanges if they happen.    
+Give me space, but keep me up to date with any major changes as they happen.    
 
-**BenM**      
+### BenM      
 ***Stress Sign:***       
 When I feel stressed my mouth works faster than my brain. My tells are that I bite my fingers and play with my earring.    
 
 ***What to do:***
 I need someone to check in and tell me to go for a walk.     
 
-**Joe**      
+### Joe      
 ***Stress Sign:***       
 When I feel stressed I sigh a lot and go kinda quiet.    
 
 ***What to do:***
 I need someone to check in and tell me to take a breather.    
 
-**Jefferson**     
+### Jefferson     
 ***Stress Sign:***       
 I go silence and go for a wander —if I do, I’ll let the team know.    
 
 ***What to do:***
 If I’m pair up, maybe let me know to take a breath if it’s too obvious.     
 
-**Aisyah**      
+### Aisyah      
 ***Stress Sign:***       
-   
+I become quiet and need to disappear and/or go for a walk to decompress on my own.    
 
 ***What to do:***
-   
+Normally I'd tell my pair/team that I need to take a break/go for a walk but sometimes 
+if there's a noticeable drop in energy and change in facial expression I may need a reminder 
+to drop whatever I'm doing immediately and retreat/go for a walk.     
 
-**Rose**      
+### Rose      
 ***Stress Sign:***       
 I become quiet, my typing gets worse than normal and I trial and error lots of things.   
 
@@ -89,7 +95,7 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
 - Pitch in when needed/available
 
 ## Git Branching Strategy:
-- Master = Deploy
+- Master = deploy
 - Development = pull, fetch
 - 'branch_name' = feature currently working on
 - All members to solve own conflict if able
@@ -98,6 +104,52 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
 - Let Git master know once code has be reviewed
 - Git master to merge major feature
 
+# User stories
+
+## MVP
+
+As a user, I want:
+
+- A landing page, so that I can be introduced to Pantree
+- To be able to sign in from the landing page, so that I can look at my meal plan
+- To be able to register from the landing page, so that I can start using Pantree
+- A 'My plan' page, so that I can review my meal plan for the week. Days are numbered 1-7. Meals are listed by number, and I can add an indefinite number of meals to each day
+- To add a recipe from the Pantree recipe catalogue to my plan, on the day I selected from My plan page
+- A 'Recipes' page, to see what recipes are available for Pantree's catalogue for me to choose from. Each recipe should have a name, image, View and Add button
+- To remove a recipe from my plan
+- To view more details about a recipe from the recipe catalogue, so that I can see what ingredients are needed and how to make it. Each recipe makes 1 portion and assumes no leftovers
+- To go back to the recipe catalogue if I choose not to add a recipe from View mode
+- To view my shopping list, so I can see the total ingredients required for my entire weekly plan
+- To see a list of local suppliers with fresh, sustainable produce
+- A nav bar on all screens except the landing page, so that I can navigate between My plan, Shopping list, Local suppliers, or Log out
+
+## Stretch
+
+As a user, I want:
+
+- To be able to manually enter recipes to my own recipe catalogue, so I'm not limited by only Pantree's recipe catalogue
+- To be able to add recipes by URL using screenscraping, so I can manually add recipes from the internet
+- The ability to save a meal plan with a name, so that I can use it again in future if I liked it
+- The option to sort my shopping list by category, so I have an easier time when I go shopping for the ingredients
+- To be able to drag and drop recipes on my plan, so I can shuffle things around easily
+- To be able to clone recipes on my plan, so it's easy for me to plan out multiple days with the same recipe
+- To have my recipe units converted into something much easier
+- The ability to save a list of items I have in my pantry already, so I can remove them from my shopping list
+- Pantree to compare my total recipe list with what's already in my pantry, so I don't have ingredients already in my pantry in my final shopping list
+- Pantree to suggest wine pairings with my meals and the option to add the wine to my shopping cart
+- Pantree to suggest places where I can get my sustainably sourced produce
+- To export my shopping list to another tool of my choice (eg. google shopping list, trello, etc.)
+
+## Wireframes
+
+- Landing page
+- Landing page - sign in component
+- Landing page - register component
+- My plan page
+- Recipes (Pantree catalogue)
+- Recipe view
+- Shopping list
+- Local suppliers
 
 ## DB (Server Side)
 
@@ -109,7 +161,7 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
   | image | String |
   | method | String |
   
-### recipes_ingredients (join M2M)
+### recipes_ingredients (M2M)
 
   | Column Name | Data Type |
   | --- | --- |
@@ -127,3 +179,27 @@ I need someone to tell me to go for a walk or for someone to take over typing fo
  | id | Integer |
  | name | String |
  | unit | String |
+ 
+### users
+
+ | Column Name | Data Type |
+ | --- | --- |
+ | id | Integer |
+ | email | String |
+ | hash | String |
+
+### plans (1 to many)
+
+ | Column Name | Data Type |
+ | --- | --- |
+ | id | Integer |
+ | user_id | Interger |
+ | name | String |
+
+### plan_days (M2M)
+
+ | Column Name | Data Type |
+ | --- | --- |
+ | plan_id | Integer |
+ | day_number | Interger |
+ | recipe_id | Interger |

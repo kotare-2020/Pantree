@@ -1,8 +1,8 @@
 {
-  "name": "boilerplate-react-webpack",
-  "version": "0.2.2",
-  "description": "A webpack React starter",
-  "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
+  "name": "pantree",
+  "version": "0.1.0",
+  "description": "A meal planner app connecting you to locally sourced, sustainable produce",
+  "repository": "https://github.com/kotare-2020/Pantree",
   "main": "server/index.js",
   "author": "EDA",
   "license": "ISC",
