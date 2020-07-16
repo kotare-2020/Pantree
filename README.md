@@ -272,8 +272,7 @@ As a user, I want:
 
 Response Body:
 ```JSON
-{ 
-  "days": [
+ [
     { 
       "dayNumber": 1,
       "recipes": [
@@ -290,7 +289,7 @@ Response Body:
       "recipes": [{"..."}, {"..."}]
     }
   ]
-}
+
 ```
 
 ### GET recipes
