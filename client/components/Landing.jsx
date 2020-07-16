@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { HashRouter as Redirect, withRouter } from 'react-router-dom'
+import { HashRouter as Redirect } from 'react-router-dom'
 import { checkAuth } from '../actions/auth'
 
 import LandingAbout from './LandingAbout'
@@ -14,22 +14,20 @@ class Landing extends React.Component {
     }
 
     render() {
-        const { auth } = this.props
         return (
             <div>
-                {auth.isAuthenticated && <Redirect to='/plan' />}
                 <LandingAbout/>
-                <SignIn/>
-                <Register/>
+                <SignIn history={this.props.history}/>
+                <Register history={this.props.history}/>
             </div>
         )
     }
 }
 
-const mapStateToProps = ({ auth }) => {
-    return { 
-        auth,
-    }
-}
+// const mapStateToProps = ({ auth }) => {
+//     return { 
+//         auth,
+//     }
+// }
 
-export default withRouter(connect(mapStateToProps)(Landing))
+export default connect()(Landing)
