@@ -1,7 +1,7 @@
 # Pantree
 
 - Trello: https://trello.com/b/m8VRdMO4/plantree
-- Heroku: _soon..._
+- Heroku: https://pantree-app.herokuapp.com/
 
 ## Team Schedule:
 
