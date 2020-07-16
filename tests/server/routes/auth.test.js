@@ -4,7 +4,6 @@ jest.mock('../../../server/db/users', () => ({
   userExists: jest.fn(),
   createUser: jest.fn(),
   getUserByUsername: jest.fn(),
-  getUsers: jest.fn(),
 }))
 
 const usersDb = require('../../../server/db/users')
@@ -20,7 +19,7 @@ test('/register succeeds for new user', () => {
   // Mock getUserByUsername to work (resolve)
   usersDb.getUserByUsername.mockImplementation((username) => Promise.resolve({ username: username }))
 
-  return request(server).post('/api/v1/register')
+  return request(server).post('/api/v1/auth/register')
   .expect(200)
   .then(res => {
     let actual = res.body.message
@@ -35,7 +34,7 @@ test('/register fails for existing user', () => {
   // Mock userExists to return true
   usersDb.userExists.mockImplementation(username => Promise.resolve(true))
 
-  return request(server).post('/api/v1/register')
+  return request(server).post('/api/v1/auth/register')
   .expect(400)
   .then(res => {
     let actual = res.body.errorType

@@ -11,42 +11,15 @@ jest.mock('../../../server/db/users', () => ({
 const usersDb = require('../../../server/db/users')
 const server = require('../../../server/server')
 
-test('/getMeetingHistory api works', () => {
-    let expected = 1111
-  
-    meetingsDb.getMeetingHistory.mockImplementation((user) => Promise.resolve(
-        [{ "id": 1111 }, { "id": 1111 }]
-    ))
-    return request(server).get('/api/v1/meetings')
-        .then(res => {
-        let actual = res.body[0].id
-        expect(actual).toEqual(expected)
-        })
-})
+test('getUsers api works', () => {
+    let expected = [{ "username": "admin" }, { "username": "plane" }]
 
-test('/getMeetingAttendees api works', () => {
-    let expected = "admin"
-
-    meetingsDb.getMeetingAttendees.mockImplementation((data) => Promise.resolve(
+    usersDb.getUsers.mockImplementation((data) => Promise.resolve(
         [{ "username": "admin" }, { "username": "plane" }]
     ))
-    return request(server).get('/api/v1/meetings/1/users')
+    return request(server).get('/api/v1/users')
         .then(res => {
-            let actual = res.body.data[0].username
-            expect(actual).toEqual(expected)
-        })
-})
-
-test('/getAllMeetings api works', () => {
-    let expected = 2
-
-    meetingsDb.getAllMeetings.mockImplementation(() => Promise.resolve(
-        [{ "username": "admin" }, { "username": "plane" }]
-    ))
-
-    return request(server).get('/api/v1/meetings/all')
-        .then(res => {
-            let actual = res.body.data.length
+            let actual = res.body.users
             expect(actual).toEqual(expected)
         })
 })

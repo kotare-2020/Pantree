@@ -10,20 +10,15 @@ module.exports = {
     useNullAsDefault: true
   },
 
-  staging: {
-    client: 'postgresql',
+  test: {
+    client: 'sqlite3',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
+      filename: ':memory:'
     },
-    pool: {
-      min: 2,
-      max: 10
+    seeds: {
+      directory: './tests/seeds'
     },
-    migrations: {
-      tableName: 'knex_migrations'
-    }
+    useNullAsDefault: true
   },
 
   production: {
