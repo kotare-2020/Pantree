@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { HashRouter as Redirect } from 'react-router-dom'
+import { HashRouter as Redirect, withRouter } from 'react-router-dom'
 import { checkAuth } from '../actions/auth'
 
 import LandingAbout from './LandingAbout'
@@ -32,4 +32,4 @@ const mapStateToProps = ({ auth }) => {
     }
 }
 
-export default connect(mapStateToProps)(Landing)
+export default withRouter(connect(mapStateToProps)(Landing))
