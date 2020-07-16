@@ -12,5 +12,11 @@ router.get('/', (req, res) => {
         })
 })
 
+router.get('/:recipeId', (req, res) => {
+    db.getRecipeAndIngredientsById(req.params.recipeId)
+        .then(recipe => {
+            res.json(recipe)
+        })
+})
 
 module.exports = router
