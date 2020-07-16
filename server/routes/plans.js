@@ -1,16 +1,18 @@
 const express = require('express')
-const db = require('../db/plans')
-
 const router = express.Router()
+
+const db = require('../db/plans')
 
 // root URL 'api/v1/plans'
 
 router.get("/:id", (req, res) => {
+  console.log('plans route')
   const id = req.params.id
-  db.getPlan(id)
+
+  db.joinPlanRecipes(id)
   .then(plan=>{
-      res.json( plan)
-      console.log("route "+ plan)
+      res.json({plan})
+      // console.log("route "+ plan)
   })
   .catch(err => {
       res.status(500).send( "it broke :/" )
@@ -18,6 +20,10 @@ router.get("/:id", (req, res) => {
   })
 })
 
+// router.post('/', (req, res)=>{
+
+
+// })
 
 
 

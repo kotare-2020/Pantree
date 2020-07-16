@@ -1,10 +1,11 @@
-import connection from './connection'
+const connection = require('./connection')
 
-function getPlan(id, db = connection){
-  console.log("DB "+ id)
-  return db('plans')
-    .where('id', id)
-}
+// function getPlan(id, db = connection){
+//   console.log("DB "+ id)
+//   return db('plans')
+//     .where('id', id)
+//     .select()
+// }
 
 function addPlan(user_id,plan, db=connection){
   console.log("DB "+ user_id + plan)
@@ -19,17 +20,18 @@ function editPlan(id, plan, db=connection){
   .update(plan)
 }
 
-function joinPlanRecipes(plan, db=connection){
-  console.log("DB " + plan)
+function joinPlanRecipes(planId, db=connection){
+  console.log("DB " + planId)
+  
   return db('plans')
-  .join('recipes', 'plans.id', 'plans_recipes.plan_id')
-  .join('recipes', 'recipe.id', 'plans_recipes.recipe_id')
-  .where('plan_id', plan)
-
+  .join('plans_recipes', 'plans.id', 'plans_recipes.plan_id' )
+  .join('recipes','plans_recipes.recipe_id', 'recipes.id')
+  .where('plans.id', planId)
+  .select( 'recipes.id as recipeId', 'plans.id as planId', 'plans_recipes.day_number', ' recipes.name')
 }
 
 module.exports = {
-  getPlan,
+  // getPlan,
   addPlan,
   joinPlanRecipes,
   editPlan,
