@@ -1,9 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 
-const App = () => {
+import Landing from './Landing'
+import Plan from './Plan'
+
+const App = (props) => {
+  const { auth } = props
   return (
-    <h1>React development has begun!</h1>
+    <Router>
+      <Route exact path='/' component={Landing}/>
+      <Route path='/plan' component={Plan}/>
+      {auth.isAuthenticated && <Redirect to="/plan"/>}
+    </Router>
   )
 }
 
-export default App
+const mapStateToProps = ({ auth }) => {
+  return { 
+      auth,
+  }
+}
+
+export default connect(mapStateToProps)(App)
