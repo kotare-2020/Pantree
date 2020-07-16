@@ -247,6 +247,7 @@ As a user, I want:
   loading: false,
   auth: 
   recipes: [...],
+  selectedRecipe: // id
   message: "...",
   shoppingList: [{...}]
 }
@@ -258,8 +259,6 @@ As a user, I want:
 
 ```js
 {
-  slectedRecipe: // id
-  recipes: // all
   shoppingList: // result
 }
 ```
@@ -448,7 +447,7 @@ Local Suppliers = '/supplier'
   ### recipes
  | type | data | purpose |
  | --- | --- | --- |
- | GET_RECIPES | recipe | retreive recipes from db and store in redux |
+ | fetchRecipes | recipes | retreive recipes from db and store in redux - thunk action |
  | SET_RECIPES | recipe | save recipes to store |
  | SAVE_RECIPES | recipe | save recipes to db |
  

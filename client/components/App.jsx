@@ -4,13 +4,15 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import Landing from './Landing'
 import Plan from './Plan'
+import Recipes from './Recipes'
 
-const App = (props) => {
+export const App = (props) => {
   const { auth } = props
   return (
     <Router>
       <Route exact path='/' component={Landing}/>
       <Route path='/plan' component={Plan}/>
+      <Route path='/recipes' component={Recipes}/>
       {auth.isAuthenticated && <Redirect to="/plan"/>}
     </Router>
   )

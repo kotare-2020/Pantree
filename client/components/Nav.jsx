@@ -19,12 +19,7 @@ const Nav = props => {
             <a href="/shopping-list">Shopping list</a>
           </li>
           <li>
-            <Link
-              to="/"
-              onClick={() => {
-                logout()
-              }}
-            >
+            <Link to="/" onClick={() => {logout()}}>
               Log out
             </Link>
           </li>
