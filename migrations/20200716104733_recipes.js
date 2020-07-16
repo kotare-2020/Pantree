@@ -4,7 +4,7 @@ exports.up = function(knex) {
         table.increments('id').primary()
         table.string('name')
         table.string('image')
-        table.string('method')
+        table.string('method', 1000000)
     })
 }
 
