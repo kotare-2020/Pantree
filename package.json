@@ -28,7 +28,7 @@
   },
   "jest": {
     "setupFiles": [
-      "./tests/setup.js"
+      "./tests/setup-dotenv.js"
     ]
   },
   "dependencies": {

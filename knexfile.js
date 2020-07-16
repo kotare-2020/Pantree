@@ -11,12 +11,12 @@ module.exports = {
   test: {
     client: 'sqlite3',
     connection: {
-      filename: ':memory:',
+      filename: ':memory:'
     },
     seeds: {
-      directory: './tests/seeds',
+      directory: './tests/seeds'
     },
-    useNullAsDefault: true,
+    useNullAsDefault: true
   },
 
   production: {
