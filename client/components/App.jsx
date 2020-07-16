@@ -5,7 +5,7 @@ import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 import Landing from './Landing'
 import Plan from './Plan'
 
-const App = (props) => {
+export const App = (props) => {
   const { auth } = props
   return (
     <Router>
