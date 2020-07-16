@@ -21,7 +21,6 @@ function getRecipeAndIngredientsById(id, db = connection) {
                         image: recipeAndIngredients.image,
                         method: recipeAndIngredients.method,
                         ingredients: []
-
                     }
                 }
 
