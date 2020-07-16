@@ -294,16 +294,18 @@ Response Body:
 
 Response Body:
 ```JSON
-{
-  "recipes": [
-    {
-      "recipeId": 1,
-      "recipeName": "pancake",
-      "image": "images/1.jpg"
-    },
-    {"...."}
-  ]
-}
+[
+  {
+    "recipeId": 1,
+    "recipeName": "pancake",
+    "image": "images/1.jpg"
+  },
+  {
+    "recipeId": 2,
+    "recipeName": "stew",
+    "image": "images/2.jpg"
+  },
+]
 ```
 
 ### GET recipe by recipe id
