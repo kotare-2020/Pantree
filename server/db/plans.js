@@ -27,7 +27,32 @@ function joinPlanRecipes(planId, db=connection){
   .join('plans_recipes', 'plans.id', 'plans_recipes.plan_id' )
   .join('recipes','plans_recipes.recipe_id', 'recipes.id')
   .where('plans.id', planId)
-  .select( 'recipes.id as recipeId', 'plans.id as planId', 'plans_recipes.day_number', ' recipes.name')
+  .select( 'recipes.id as recipeId', 'plans.id as planId', 'plans_recipes.day_number as dayNumber', ' recipes.name as recipeName')
+  .then(days => {
+    return days.reduce((reducedPlan, planAndRecipes)=>{
+      const id = planAndRecipes.planId
+
+      if(!reducedPlan[id]){
+        reducedPlan[id] = {
+          dayNumber: planAndRecipes.dayNumber,
+          recipes: []
+        }
+      }
+
+      reducedPlan[id].recipes.push({
+          recipeId: planAndRecipes.recipeId,
+          recipeName: planAndRecipes.recipeName
+        })
+
+
+
+
+      return reducedPlan
+      }, {})
+    })
+    .then(reducedPlan => {
+      return Object.values(reducedPlan)
+    })
 }
 
 module.exports = {

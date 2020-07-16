@@ -6,13 +6,12 @@ const db = require('../db/plans')
 // root URL 'api/v1/plans'
 
 router.get("/:id", (req, res) => {
-  console.log('plans route')
+  // console.log('plans route')
   const id = req.params.id
 
   db.joinPlanRecipes(id)
   .then(plan=>{
-      res.json({plan})
-      // console.log("route "+ plan)
+      res.json(plan)
   })
   .catch(err => {
       res.status(500).send( "it broke :/" )
