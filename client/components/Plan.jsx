@@ -1,7 +1,11 @@
 import React from 'react'
 
+import Nav from './Nav'
+
 const Plan = () => {
-    return <h1>Things...</h1>
+    return (
+        <Nav />
+    )
 }
 
 export default Plan

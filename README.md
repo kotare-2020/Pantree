@@ -154,6 +154,11 @@ As a user, I want:
 
 ![alt text](./project/images/register_component.jpg "Register component")
 
+
+### Nav
+
+![alt text](./project/images/nav.jpg "Register component")
+
 ### My plan page
 
 ![alt text](./project/images/plan.jpg "My plan page")
@@ -267,8 +272,7 @@ As a user, I want:
 
 Response Body:
 ```JSON
-{ 
-  "days": [
+ [
     { 
       "dayNumber": 1,
       "recipes": [
@@ -285,7 +289,7 @@ Response Body:
       "recipes": [{"..."}, {"..."}]
     }
   ]
-}
+
 ```
 
 ### GET recipes
