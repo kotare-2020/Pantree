@@ -12,13 +12,17 @@ class Recipes extends React.Component {
         return (
         <div>
             <h1>All the recipes</h1>
-            <ul>
-                {this.props.recipes.map(recipeName => {
+            
+                {this.props.recipes.map(recipe => {
                     return (
-                        <li>{recipeName.recipeName}</li>
+                        <div >
+                            {recipe.recipeName}
+                            <img style={{width:'200px'}} src={recipe.image} alt= {`image of ${recipe.recipeName}`}/>
+                            <button>Add</button>
+                            <button>View</button>
+                        </div>
                     )
                 })}
-            </ul>
         </div>
         )
     }
