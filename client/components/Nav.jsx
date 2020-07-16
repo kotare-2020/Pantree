@@ -1,13 +1,17 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
+import { logoutUser } from '../actions/auth'
 
-const Nav = () => {
+const Nav = props => {
+  const { logout } = props
   return (
     <nav>
-      <div class="nav-wrapper green darken-2">
-        <a href="/" class="brand-logo">
+      <div className="nav-wrapper green darken-2">
+        <a href="/" className="brand-logo left">
           Pantree
         </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <ul id="nav-mobile" className="right">
           <li>
             <a href="/plan">My plan</a>
           </li>
@@ -15,7 +19,14 @@ const Nav = () => {
             <a href="/shopping-list">Shopping list</a>
           </li>
           <li>
-            <a href="#">Log out</a>
+            <Link
+              to="/"
+              onClick={() => {
+                logout()
+              }}
+            >
+              Log out
+            </Link>
           </li>
         </ul>
       </div>
@@ -23,4 +34,14 @@ const Nav = () => {
   )
 }
 
-export default Nav
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(logoutUser()),
+  }
+}
+const mapStateToProps = ({ auth }) => {
+  return {
+    auth,
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Nav)
