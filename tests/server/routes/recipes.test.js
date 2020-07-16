@@ -32,24 +32,6 @@ jest.mock('../../../server/db/recipes', () => ({
 }))
 
 
-// jest.mock('../../../server/db/recipes', () => ({
-//     getRecipeAndIngredientsById: () => Promise.resolve({
-//         "recipeId": 1,
-//         "recipeName": "pancake",
-//         "image": "images/1.jpg",
-//         "method": [],
-//         "ingredients": [
-//         {
-//             "ingredientName": "carrot",
-//             "quantity": 5,
-//             "unit": "each"
-//         }
-//         ] 
-//     })
-// }))
-
-
-
 test('GET /api/v1/recipes returns an array of recipes', () => {
     // Arrange
     const expected = [
