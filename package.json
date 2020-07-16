@@ -10,7 +10,7 @@
     "client": "webpack-dev-server --hot --inline",
     "dev": "run-p dev:client dev:server",
     "dev:client": "webpack --watch",
-    "dev:server": "nodemon server",
+    "dev:server": "nodemon --watch server",
     "start": "run-s build server",
     "build": "webpack && knex migrate:latest",
     "server": "node server",
@@ -35,7 +35,9 @@
     "authenticare": "^0.4.7",
     "express": "^4.17.1",
     "knex": "^0.21.2",
-    "pg": "^8.3.0"
+    "npm-run-all": "^4.1.5",
+    "pg": "^8.3.0",
+    "webpack": "^4.43.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
@@ -50,7 +52,6 @@
     "enzyme-adapter-react-16": "^1.15.2",
     "jest": "^25.3.0",
     "nodemon": "^2.0.4",
-    "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -61,7 +62,6 @@
     "sqlite3": "^5.0.0",
     "superagent": "^5.2.2",
     "supertest": "^4.0.2",
-    "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   }
