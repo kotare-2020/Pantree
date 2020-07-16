@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const path = require('path')
 
 module.exports = {
@@ -7,24 +6,19 @@ module.exports = {
     path: path.join(__dirname, 'server/public'),
     filename: 'bundle.js'
   },
-  mode: "production",
-  plugins: [
-    new webpack.EnvironmentPlugin({
-      NODE_ENV: 'development',
-      DEBUG: false
-    }),
-  ],
+  mode: 'development',
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-      },
-    ],
+    rules: [{
+      test: /\.jsx?$/,
+      loader: 'babel-loader',
+      exclude: /node_modules/
+    }]
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx']
   },
-  devtool: "source-map",
+  devtool: 'source-map',
+  devServer: {
+    contentBase: './server/public'
+  }
 }
