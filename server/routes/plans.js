@@ -3,13 +3,11 @@ const router = express.Router()
 
 const db = require('../db/plans')
 
-// root URL 'api/v1/plans'
+// root URL '/api/v1/plans'
 
 router.get("/:id", (req, res) => {
-  // console.log('plans route')
   const id = req.params.id
-
-  db.joinPlanRecipes(id)
+  db.getPlanById(id)
   .then(plan=>{
       res.json(plan)
   })
@@ -18,12 +16,6 @@ router.get("/:id", (req, res) => {
       console.log(err)
   })
 })
-
-// router.post('/', (req, res)=>{
-
-
-// })
-
 
 
 module.exports = router
