@@ -454,8 +454,8 @@ Local Suppliers = '/supplier'
  ### recipe
  | type | data | purpose |
  | --- | --- | --- |
- | fetchRecipe| recipeId | retreive recipe from db and store  in redux - thunk action|
- | SET_RECIPE | recipeId | save recipe to store |
+ | fetchSelectedRecipe| recipeId | retreive recipe from db and store  in redux - thunk action|
+ | SET_SELECTED_RECIPE | recipeId | save recipe to store |
 
 ### shopping list
  | type | data | purpose |

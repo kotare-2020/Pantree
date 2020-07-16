@@ -1,19 +1,19 @@
-import { getRecipe } from '../apis/selectedRecipe'
+import { getSelectedRecipe } from '../apis/selectedRecipe'
 
-export const SET_RECIPE = 'SET_RECIPE'
+export const SET_SELECTED_RECIPE = 'SET_SELECTED_RECIPE'
 
-export function setRecipe (recipe) {
+export function setSelectedRecipe (selectedRecipe) {
     return {
-        type: SET_RECIPE,
-        recipe: recipe
+        type: SET_SELECTED_RECIPE,
+        selectedRecipe: selectedRecipe
     }
 }
 
-export function fetchRecipe (recipeId) {
+export function fetchSelectedRecipe (recipeId) {
     return dispatch => {
-        getRecipe(recipeId)
+        getSelectedRecipe(recipeId)
         .then(recipe => {
-            dispatch(setRecipe(recipe))
+            dispatch(setSelectedRecipe(recipe))
         })
     }
 }
