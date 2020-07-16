@@ -1,4 +1,4 @@
-import connection from './connection'
+const connection = require('./connection')
 
 function getPlan(id, db = connection){
   console.log("DB "+ id)
