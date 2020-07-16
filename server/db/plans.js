@@ -1,17 +1,36 @@
-// import connection from './connection'
+import connection from './connection'
 
-// function getPlanById(db = connection){
-//   return('plans')
-//   .join('users', 'plans.id', "plans.user_id")
-// }
+function getPlan(id, db = connection){
+  console.log("DB "+ id)
+  return db('plans')
+    .where('id', id)
+}
 
-// function getPeopleAndVehicles(db = connection) {
-//   return db('people')
-//         .join('vehicles', 'vehicles.person_id', 'people.id')
-//         .select('vehicles.name AS vehicle_name', 'make', 'model', 'people.name AS name')
+function addPlan(user_id,plan, db=connection){
+  console.log("DB "+ user_id + plan)
+  return db('plans')
+    .where("user_id", user_id)
+    .insert(plan)
+}
 
+function editPlan(id, plan, db=connection){
+  return db('plans')
+  .where("id", id)
+  .update(plan)
+}
 
-// module.exports = {
-//   getPlanById,
+function joinPlanRecipes(plan, db=connection){
+  console.log("DB " + plan)
+  return db('plans')
+  .join('recipes', 'plans.id', 'plans_recipes.plan_id')
+  .join('recipes', 'recipe.id', 'plans_recipes.recipe_id')
+  .where('plan_id', plan)
 
-// }
+}
+
+module.exports = {
+  getPlan,
+  addPlan,
+  joinPlanRecipes,
+  editPlan,
+}
