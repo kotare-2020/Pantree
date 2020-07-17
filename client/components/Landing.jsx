@@ -8,6 +8,16 @@ import SignIn from './SignIn'
 import Register from './Register'
 
 class Landing extends React.Component {
+    state = {
+        componentView: "signIn"
+    }
+
+    changeComponentView = (e) => {
+        this.setState({
+            componentView: e.target.value
+        })
+    }
+
     componentDidMount = () => {
         const confirmSuccess = () => { }
         this.props.dispatch(checkAuth(confirmSuccess))
@@ -19,8 +29,8 @@ class Landing extends React.Component {
             <>
             <div>
                 <LandingAbout/>
-                <SignIn history={this.props.history}/>
-                <Register history={this.props.history}/>
+                {this.state.componentView === "signIn" && <SignIn history={this.props.history} changeComponentView={this.changeComponentView} />}
+                {this.state.componentView === "register" && <Register history={this.props.history} changeComponentView={this.changeComponentView} />}
             </div>
             {auth.isAuthenticated && <Redirect to="/plan"/>}
             </>
