@@ -19,6 +19,14 @@ class Plan extends React.Component {
         })
     }
 
+    generateColumns(){
+        let columns = []
+        for(let i=1; i<8; i++){
+         columns.push(<PlanColumn key={i} dayNumber={i} days={this.props.plans}/>)
+        }
+        return columns
+    }
+
 
 render(){
   const auth  = this.props.auth
@@ -29,9 +37,9 @@ render(){
       {auth.isAuthenticated ? (
         <>
           <Nav />
-          {plans && <div className="plan">
-              <PlanColumn days={plans}/>
-          </div>}
+          <div className='plan'>
+          {this.generateColumns()}
+          </div>
         </>
       ) : (
         <Redirect to="/" />
