@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom'
 
 class Recipes extends React.Component {
 
-
     componentDidMount () {
         this.props.dispatch(fetchRecipes())
     }
-
 
     render() {
         return (
