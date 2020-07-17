@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions/recipes'
 import { Link } from 'react-router-dom'
+import { fetchSelectedRecipe } from '../actions/selectedRecipe'
 
 class Recipes extends React.Component {
 
