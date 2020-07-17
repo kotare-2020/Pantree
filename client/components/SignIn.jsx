@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { HashRouter as Redirect } from 'react-router-dom' 
-import { loginUser, loginError } from '../actions/auth'
+import { loginUser } from '../actions/auth'
 
 class SignIn extends React.Component {
   state = {
