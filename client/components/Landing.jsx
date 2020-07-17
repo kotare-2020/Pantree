@@ -14,20 +14,24 @@ class Landing extends React.Component {
     }
 
     render() {
+        const { auth } = this.props
         return (
+            <>
             <div>
                 <LandingAbout/>
                 <SignIn history={this.props.history}/>
                 <Register history={this.props.history}/>
             </div>
+            {auth.isAuthenticated && <Redirect to="/plan"/>}
+            </>
         )
     }
 }
 
-// const mapStateToProps = ({ auth }) => {
-//     return { 
-//         auth,
-//     }
-// }
+const mapStateToProps = ({ auth }) => {
+    return { 
+        auth,
+    }
+}
 
-export default connect()(Landing)
+export default connect(mapStateToProps)(Landing)

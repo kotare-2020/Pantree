@@ -22,7 +22,6 @@ function getRecipeAndIngredientsById(id, db = connection) {
                         image: recipeAndIngredients.image,
                         method: recipeAndIngredients.method,
                         ingredients: []
-
                     }
                 }
 
@@ -39,6 +38,7 @@ function getRecipeAndIngredientsById(id, db = connection) {
             return Object.values(reducedRecipes)
         })
         .then(recipes => {
+            console.log(recipes[0].ingredients)
             return recipes[0]
         })
 }

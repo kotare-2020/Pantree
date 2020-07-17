@@ -1,11 +1,26 @@
 import React from 'react'
+import { HashRouter as Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Nav from './Nav'
 
-const Plan = () => {
+const Plan = (props) => {
+    const { auth } = props
     return (
-        <Nav />
+        <>
+        {auth.isAuthenticated ?
+            <Nav />
+        :
+            <Redirect to='/'/>
+        }
+        </>       
     )
 }
 
-export default Plan
+const mapStateToProps = ({ auth }) => {
+    return { 
+        auth,
+    }
+  }
+
+export default connect(mapStateToProps)(Plan)
