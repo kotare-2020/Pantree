@@ -8,7 +8,6 @@ import { addDayRecipe } from '../actions/plan'
 
 class Recipes extends React.Component {
 
-
     componentDidMount () {
         this.props.dispatch(fetchRecipes())
     }
