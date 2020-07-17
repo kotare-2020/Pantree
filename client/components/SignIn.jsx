@@ -36,6 +36,9 @@ class SignIn extends React.Component {
         </label>
 
         <input value='Login' type="submit" />
+        <br />
+        <br />
+        <button value="register" onClick={this.props.changeComponentView}>Or, register</button>
       </form>
     )
   }
