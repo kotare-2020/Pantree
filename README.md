@@ -247,6 +247,7 @@ As a user, I want:
   loading: false,
   auth: 
   recipes: [...],
+  selectedRecipe: // id
   message: "...",
   shoppingList: [{...}]
 }
@@ -258,8 +259,6 @@ As a user, I want:
 
 ```js
 {
-  slectedRecipe: // id
-  recipes: // all
   shoppingList: // result
 }
 ```
@@ -396,11 +395,11 @@ Plan = '/plan'
 - redirects to recipe, view, shopping list and suppliers
 
 Recipes = '/recipes'    
-- redirects to view of item clicked
-- button to go back to plan
+- View button: Go to view of recipe clicked
+- Button to go back to plan
 
-View = 'recipe/:recipeId'     
-- if 'add' or 'back' is clicked then redirects back to recipes
+View = 'recipes/:recipeId'     
+- If 'add' or 'back' is clicked then link back to recipes
 
 Shopping List = '/shopping-list'    
 
@@ -448,15 +447,15 @@ Local Suppliers = '/supplier'
   ### recipes
  | type | data | purpose |
  | --- | --- | --- |
- | GET_RECIPES | recipe | retreive recipes from db and store in redux |
+ | fetchRecipes | recipes | retreive recipes from db and store in redux - thunk action |
  | SET_RECIPES | recipe | save recipes to store |
- | SAVE_RECIPES | recipe | save recipes to db |
+ | ~~SAVE_RECIPES~~ | ~~recipe~~ | ~~save recipes to db~~ - Stretch |
  
  ### recipe
  | type | data | purpose |
  | --- | --- | --- |
- | GET_RECIPE | recipeId | retreive recipe from db and store in redux |
- | SET_RECIPE | recipeId | save recipe to store |
+ | fetchSelectedRecipe| recipeId | retreive recipe from db and store  in redux - thunk action|
+ | SET_SELECTED_RECIPE | recipeId | save recipe to store |
 
 ### shopping list
  | type | data | purpose |
