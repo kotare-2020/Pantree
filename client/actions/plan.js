@@ -1,11 +1,10 @@
-import request from 'superagent'
 
 export const GET_PLAN = 'GET_PLAN'
 export const SET_PLAN = "SET_PLAN"
 export const UPDATE_DAY_RECIPE = "UPDATE_DAY_RECIPE"
 export const REMOVE_DAY_RECIPE = "REMOVE_DAY_RECIPE"
 
-import { updatePlanAPI } from '../apis/plans'
+import { updatePlanApi } from '../apis/plans'
 
 // Get plan for Global state
 export const getPlan = (plan) => {
@@ -48,7 +47,7 @@ export const removeDayReicpe = (recipeId, selectedDay) => {
 // Save the plan to the DB
 export const savePlan = (plan) => {
   return (dispatch) => {
-    updatePlanAPI(plan)
+    updatePlanApi(plan)
     .then(()=>{
       dispatch(getPlan(plan))
     })
