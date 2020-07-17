@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 
 class PlanRecipeCard extends React.Component {
   render(){
@@ -13,4 +15,4 @@ class PlanRecipeCard extends React.Component {
   }
 }
 
-export default PlanRecipeCard
+export default connect()(PlanRecipeCard)

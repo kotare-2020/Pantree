@@ -1,7 +1,7 @@
 
 export const SET_DAY = "SET_DAY"
 
-export const selectDay = (selectedDay) =>{
+export const selectedDay = (selectedDay) =>{
   return {
     type: SET_DAY,
     selectedDay,
