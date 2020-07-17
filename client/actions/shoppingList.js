@@ -1,17 +1,17 @@
 import { getShoppingList } from '../apis/shoppingList'
 
-export const SET_SHOPPINGLIST = 'SET_SHOPPINGLIST'
+export const SET_SHOPPING_LIST = 'SET_SHOPPING_LIST'
 
 export function setShoppingList(ingredients) {
     return {
-        type: SET_SHOPPINGLIST,
+        type: SET_SHOPPING_LIST,
         list: ingredients
     }
 }
 
-export function fetchShoppingList () {
+export function fetchShoppingList(planId) {
     return dispatch => {
-        getShoppingList()
+        getShoppingList(planId)
         .then(ingredients => {
             dispatch(setShoppingList(ingredients))
         })

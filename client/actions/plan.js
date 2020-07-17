@@ -34,7 +34,7 @@ export const addDayRecipe = (recipeId, selectedDay) => {
 }
 
 // Removes from the plan day recipes
-export const removeDayReicpe = (recipeId, selectedDay) => {
+export const removeDayRecipe = (recipeId, selectedDay) => {
   return {
     Type: REMOVE_DAY_RECIPE,
     day: {

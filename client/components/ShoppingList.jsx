@@ -3,14 +3,15 @@ import { connect } from 'react-redux'
 import { fetchShoppingList } from '../actions/shoppingList'
 import Nav from './Nav'
 
-class ShoppingList extends React.Compenent {
+class ShoppingList extends React.Component {
 
     componentDidMount() {
+        console.log(this.props)
         this.props.dispatch(fetchShoppingList())
     }
 
     render() {
-        console.log(this.props.data)
+        console.log(this.props)
         return (
             <>
                 <Nav/>
