@@ -2,9 +2,9 @@ import request from 'superagent'
 
 const plansUrl = "/api/v1/plans"
 
-export function getPlanApi() {
+export function getPlanApi(id) {
   return request
-  .get(plansUrl)
+  .get(`${plansUrl}/${id}`)
   .then(response => response.body)
 }
 
