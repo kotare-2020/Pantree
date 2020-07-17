@@ -431,9 +431,9 @@ Local Suppliers = '/supplier'
  | --- | --- | --- |
  | GET_PLAN | plan | retreive plan from the db and store in redux, set loading : true |
  | SET_PLAN | plan | save plan to store |
- | SAVE_PLAN | plan | save plan to db |
- | ADD_PLAN | recipe/day | add selected recipe/day from globalState |
- | REMOVE_PLAN | recipe/day | remove selected recipe/day from globalState |
+ | SAVE_PLAN | plan | save plan to db | 
+ | UPDATE_DAY_RECIPE | recipeId/SelectedDay | add selected recipeId/selectedDay from globalState | 
+ | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
 
  ### loading
  | type | data | purpose |
