@@ -340,9 +340,9 @@ Response Body:
 [
   {
     "ingredientId": 1,
-    "ingredientName": "carrot",
+    "ingredientName": "flour",
     "quantity": 5,
-    "unit": "each"
+    "unit": "kg"
   },
   {
     "ingredientId": 3,
