@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { HashRouter as Router, Route, Redirect } from 'react-router-dom'
 
+import Nav from './Nav'
 import Landing from './Landing'
 import Plan from './Plan'
 import ShoppingList from './ShoppingList'
