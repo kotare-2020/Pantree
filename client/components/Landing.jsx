@@ -27,12 +27,18 @@ class Landing extends React.Component {
         const { auth } = this.props
         return (
             <>
-            <div>
-                <LandingAbout/>
-                {this.state.componentView === "signIn" && <SignIn history={this.props.history} changeComponentView={this.changeComponentView} />}
-                {this.state.componentView === "register" && <Register history={this.props.history} changeComponentView={this.changeComponentView} />}
-            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col s6">
+                        <LandingAbout/>
+                    </div>
+                    <div className="col s6 offset-by-6">
+                        {this.state.componentView === "signIn" && <SignIn history={this.props.history} changeComponentView={this.changeComponentView} />}
+                        {this.state.componentView === "register" && <Register history={this.props.history} changeComponentView={this.changeComponentView} />}
+                    </div>
+                </div>
             {auth.isAuthenticated && <Redirect to="/plan"/>}
+            </div>
             </>
         )
     }

@@ -12,7 +12,13 @@ export const App = props => {
   const { auth } = props
   //this currently does not redurect to plan when on exact path '/' while token is still valid
   return (
+    <>
     <Router>
+      {auth.isAuthenticated &&     
+      <header>
+        <Nav/>
+      </header>
+    }
       {!auth.isAuthenticated ? <Redirect to="/" /> : <Redirect to="/plan" />}
 
       <Route path="/" exact component={Landing} />
@@ -21,6 +27,7 @@ export const App = props => {
       <Route exact path="/recipes" component={Recipes} />
       <Route path="/recipes/:id" component={RecipeView} />
     </Router>
+    </>
   )
 }
 
