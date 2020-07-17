@@ -45,8 +45,15 @@ function getPlanById(planId, db = connection) {
     })
 }
 
+function getPlanIdByUserId(userId, db = connection) {
+  return db("plans")
+    .where("user_id", userId)
+    .select("id as planId")
+}
+
 module.exports = {
   createPlan,
   getPlanById,
   editPlan,
+  getPlanIdByUserId,
 }

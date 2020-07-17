@@ -18,4 +18,5 @@ export function updatePlanApi(id, plan) {
 export function getPlanIdByUserId(userId) {
   return request
     .get(`${plansUrl}/plans/${userId}`)
+    .then(response => response.body)
 }

@@ -3,8 +3,8 @@ const router = express.Router()
 
 const db = require('../db/shopping-list')
 
-router.get("/:id", (req, res) => {
-    db.getShoppingList(req.params.id)
+router.get("/:planId", (req, res) => {
+    db.getShoppingList(req.params.planId)
     .then(list => {
         res.json(list)
     })
