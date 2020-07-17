@@ -1,14 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions/recipes'
+import { Link } from 'react-router-dom'
 
 class Recipes extends React.Component {
+
 
     componentDidMount () {
         this.props.dispatch(fetchRecipes())
     }
 
-    render()   {
+
+    render() {
         return (
         <div>
             <h1>All the recipes</h1>
@@ -18,8 +21,8 @@ class Recipes extends React.Component {
                         <div >
                             {recipe.recipeName}
                             <img style={{width:'200px'}} src={recipe.image} alt= {`image of ${recipe.recipeName}`}/>
-                            <button>Add</button>
-                            <button>View</button>
+                            <Link to={'/plan'}><button>Back to Plan</button></Link>
+                            <Link to={`/recipes/${recipe.recipeId}`}><button>View</button></Link>
                         </div>
                     )
                 })}

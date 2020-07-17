@@ -395,11 +395,11 @@ Plan = '/plan'
 - redirects to recipe, view, shopping list and suppliers
 
 Recipes = '/recipes'    
-- redirects to view of item clicked
-- button to go back to plan
+- View button: Go to view of recipe clicked
+- Button to go back to plan
 
-View = 'recipe/:recipeId'     
-- if 'add' or 'back' is clicked then redirects back to recipes
+View = 'recipes/:recipeId'     
+- If 'add' or 'back' is clicked then link back to recipes
 
 Shopping List = '/shopping-list'    
 
