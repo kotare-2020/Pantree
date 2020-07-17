@@ -4,7 +4,7 @@ export const SET_PLAN = "SET_PLAN"
 export const UPDATE_DAY_RECIPE = "UPDATE_DAY_RECIPE"
 export const REMOVE_DAY_RECIPE = "REMOVE_DAY_RECIPE"
 
-import { updatePlanApi } from '../apis/plans'
+import { updatePlanApi, getPlanApi } from '../apis/plans'
 
 // Get plan for Global state
 export const getPlan = (id, plan) => {
@@ -45,11 +45,28 @@ export const removeDayRecipe = (recipeId, selectedDay) => {
 export const savePlan = (plan) => {
   return (dispatch) => {
     updatePlanApi(plan)
-    .then(()=>{
-      dispatch(getPlan(plan))
-    })
-    .catch(err => {
-      console.log("API has Broken")
-    })
+      .then(() => {
+        dispatch(getPlan(plan))
+      })
+      .catch(err => {
+        console.log("API has Broken")
+      })
+  }
+}
+
+
+export const fetchPlan = (id) => {
+  console.log('fetchj');
+  
+  return (dispatch) => {
+    getPlanApi(id)
+      .then((plan) => {
+        // console.log(plan);
+        
+        dispatch(getPlan(id, plan))
+      })
+      .catch(err => {
+        console.log("API has Broken", err)
+      })
   }
 }

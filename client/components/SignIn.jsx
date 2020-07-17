@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { HashRouter as Redirect } from 'react-router-dom' 
 import { loginUser, loginError } from '../actions/auth'
+import { fetchPlan} from '../actions/plan'
 
 class SignIn extends React.Component {
   state = {
@@ -15,11 +16,15 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    let { username, password } = this.state
     const confirmSuccess = () => this.props.history.push('/plan')
+      
+    let { username, password } = this.state
     this.props.dispatch(loginUser({username, password}, confirmSuccess))
   }
-  render() {
+
+
+  
+ render() {
     const {auth} = this.props
     return (
       <form onSubmit={this.handleSubmit}>
