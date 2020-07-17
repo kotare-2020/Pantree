@@ -14,3 +14,8 @@ export function updatePlanApi(id, plan) {
   .send(plan)
   .then(response => response.body)
 }
+
+export function getPlanIdByUserId(userId) {
+  return request
+    .get(`${plansUrl}/plans/${userId}`)
+}

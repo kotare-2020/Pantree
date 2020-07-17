@@ -1,4 +1,5 @@
 import { getShoppingList } from '../apis/shoppingList'
+import { getPlanId } from '../apis/plans'
 
 export const SET_SHOPPING_LIST = 'SET_SHOPPING_LIST'
 
@@ -9,11 +10,14 @@ export function setShoppingList(ingredients) {
     }
 }
 
-export function fetchShoppingList(planId) {
+export function fetchShoppingList(userId) {
     return dispatch => {
-        getShoppingList(planId)
-        .then(ingredients => {
-            dispatch(setShoppingList(ingredients))
+        getPlanIdByUserId(userId)
+        .then(planId => {
+            getShoppingList(planId)
+            .then(ingredients => {
+                dispatch(setShoppingList(ingredients))
+            })
         })
     }
 }
