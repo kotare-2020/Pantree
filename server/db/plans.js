@@ -1,19 +1,15 @@
 const connection = require("./connection")
 
-// function getPlan(id, db = connection){
-//   console.log("DB "+ id)
-//   return db('plans')
-//     .where('id', id)
-//     .select()
-// }
-
-function addPlan(user_id, plan, db = connection) {
-  console.log("DB " + user_id + plan)
-  return db("plans").where("user_id", user_id).insert(plan)
+function createPlan(user_id, plan, db = connection) {
+  return db("plans")
+  .where("user_id", user_id)
+  .insert(plan)
 }
 
 function editPlan(id, plan, db = connection) {
-  return db("plans").where("id", id).update(plan)
+  return db("plans")
+  .where("id", id)
+  .update(plan)
 }
 
 function getPlanById(planId, db = connection) {
@@ -50,8 +46,7 @@ function getPlanById(planId, db = connection) {
 }
 
 module.exports = {
-  // getPlan,
-  addPlan,
+  createPlan,
   getPlanById,
   editPlan,
 }

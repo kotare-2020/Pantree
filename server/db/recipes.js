@@ -8,7 +8,8 @@ function getRecipes(db = connection) {
 function getRecipeAndIngredientsById(id, db = connection) {
     return db('recipes')
         .join('recipes_ingredients', 'recipes.id', 'recipes_ingredients.recipe_id')
-        .join('ingredients', 'ingredients.id', 'recipes_ingredients.ingredient_id').where('recipes.id', id)
+        .join('ingredients', 'ingredients.id', 'recipes_ingredients.ingredient_id')
+        .where('recipes.id', id)
         .select('*', 'recipes.id AS recipeId', 'recipes.name AS recipeName', 'ingredients.name AS ingredientName')
         .then(recipes => {
             return recipes.reduce((reducedRecipes, recipeAndIngredients) => {
