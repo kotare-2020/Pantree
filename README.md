@@ -154,10 +154,9 @@ As a user, I want:
 
 ![alt text](./project/images/register_component.jpg "Register component")
 
-
 ### Nav
 
-![alt text](./project/images/nav.jpg "Register component")
+![alt text](./project/images/navbar.jpg "Nav component")
 
 ### My plan page
 
@@ -340,14 +339,16 @@ Response Body:
 ```JSON
 [
   {
+    "ingredientId": 1,
     "ingredientName": "carrot",
     "quantity": 5,
     "unit": "each"
   },
   {
-    "ingredientName": "flour",
-    "quantity": 2.5,
-    "unit": "kg"
+    "ingredientId": 3,
+    "ingredientName": "onion",
+    "quantity": 2,
+    "unit": "each"
   }
 ]
 ```
