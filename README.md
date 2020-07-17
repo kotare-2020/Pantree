@@ -272,8 +272,7 @@ As a user, I want:
 
 Response Body:
 ```JSON
-{ 
-  "days": [
+ [
     { 
       "dayNumber": 1,
       "recipes": [
@@ -290,7 +289,7 @@ Response Body:
       "recipes": [{"..."}, {"..."}]
     }
   ]
-}
+
 ```
 
 ### GET recipes
@@ -299,16 +298,18 @@ Response Body:
 
 Response Body:
 ```JSON
-{
-  "recipes": [
-    {
-      "recipeId": 1,
-      "recipeName": "pancake",
-      "image": "images/1.jpg"
-    },
-    {"...."}
-  ]
-}
+[
+  {
+    "recipeId": 1,
+    "recipeName": "pancake",
+    "image": "images/1.jpg"
+  },
+  {
+    "recipeId": 2,
+    "recipeName": "stew",
+    "image": "images/2.jpg"
+  },
+]
 ```
 
 ### GET recipe by recipe id
@@ -430,9 +431,9 @@ Local Suppliers = '/supplier'
  | --- | --- | --- |
  | GET_PLAN | plan | retreive plan from the db and store in redux, set loading : true |
  | SET_PLAN | plan | save plan to store |
- | SAVE_PLAN | plan | save plan to db |
- | ADD_PLAN | recipe/day | add selected recipe/day from globalState |
- | REMOVE_PLAN | recipe/day | remove selected recipe/day from globalState |
+ | SAVE_PLAN | plan | save plan to db | 
+ | UPDATE_DAY_RECIPE | recipeId/SelectedDay | add selected recipeId/selectedDay from globalState | 
+ | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
 
  ### loading
  | type | data | purpose |

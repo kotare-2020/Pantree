@@ -1,16 +1,13 @@
 const express = require('express')
-const db = require('../db/plans')
-
 const router = express.Router()
 
-// root URL 'api/v1/plans'
+const db = require('../db/plans')
 
 router.get("/:id", (req, res) => {
   const id = req.params.id
-  db.getPlan(id)
+  db.getPlanById(id)
   .then(plan=>{
-      res.json( plan)
-      console.log("route "+ plan)
+      res.json(plan)
   })
   .catch(err => {
       res.status(500).send( "it broke :/" )
@@ -18,7 +15,31 @@ router.get("/:id", (req, res) => {
   })
 })
 
+router.post("/", (req, res)=>{
+  const plan = req.body
+  const userId = req.body.id
+  db.createPlan(userId, plan)
+  .then(plan=>{
+      res.json(plan[0]) 
+  })
+  .catch(err => {
+    res.status(500).send( "it broke :/" )
+    console.log(err)
+})
+})
 
+router.patch("/:id", (req, res)=>{
+  const id= req.params.id
+  const plan = req.body
+  db.editPlan(id, plan)
+  .then( 
+      res.sendStatus(200)
+)
+  .catch(err => {
+    res.status(500).send( "it broke :/" )
+    console.log(err)
+})
+})
 
 
 module.exports = router

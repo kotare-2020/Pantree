@@ -1,36 +1,52 @@
-const connection = require('./connection')
+const connection = require("./connection")
 
-function getPlan(id, db = connection){
-  console.log("DB "+ id)
-  return db('plans')
-    .where('id', id)
+function createPlan(user_id, plan, db = connection) {
+  return db("plans")
+  .where("user_id", user_id)
+  .insert(plan)
 }
 
-function addPlan(user_id,plan, db=connection){
-  console.log("DB "+ user_id + plan)
-  return db('plans')
-    .where("user_id", user_id)
-    .insert(plan)
-}
-
-function editPlan(id, plan, db=connection){
-  return db('plans')
+function editPlan(id, plan, db = connection) {
+  return db("plans")
   .where("id", id)
   .update(plan)
 }
 
-function joinPlanRecipes(plan, db=connection){
-  console.log("DB " + plan)
-  return db('plans')
-  .join('recipes', 'plans.id', 'plans_recipes.plan_id')
-  .join('recipes', 'recipe.id', 'plans_recipes.recipe_id')
-  .where('plan_id', plan)
+function getPlanById(planId, db = connection) {
+  return db("plans")
+    .join("plans_recipes", "plans.id", "plans_recipes.plan_id")
+    .join("recipes", "plans_recipes.recipe_id", "recipes.id")
+    .where("plans.id", planId)
+    .select(
+      "recipes.id as recipeId",
+      "plans.id as planId",
+      "plans_recipes.day_number as dayNumber",
+      " recipes.name as recipeName"
+    )
+    .then((days) => {
+      return days.reduce((reducedPlan, planAndRecipes) => {
+        const day = planAndRecipes.dayNumber
+        if (!reducedPlan[day]) {
+          reducedPlan[day] = {
+            dayNumber: planAndRecipes.dayNumber,
+            recipes: [],
+          }
+        }
+        reducedPlan[day].recipes.push({
+          recipeId: planAndRecipes.recipeId,
+          recipeName: planAndRecipes.recipeName,
+        })
 
+        return reducedPlan
+      }, {})
+    })
+    .then((reducedPlan) => {
+      return Object.values(reducedPlan)
+    })
 }
 
 module.exports = {
-  getPlan,
-  addPlan,
-  joinPlanRecipes,
+  createPlan,
+  getPlanById,
   editPlan,
 }
