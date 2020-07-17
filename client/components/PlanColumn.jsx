@@ -1,18 +1,32 @@
 import React from 'react'
+
+import { connect } from 'react-redux'
+
 import PlanRecipeCard from './PlanRecipeCard'
 
 class PlanColumn extends React.Component {
+  componentDidMount(){
+    console.log('plancolumn', this.props)
+  }
+
   render(){
     return (
       <>
       <div className="plan-column">
-        <div className="day-number">Day Number</div>
-        <PlanRecipeCard/>
-        <button>Add</button>
+        {/* {this.props.days.map(day => {
+          return (
+            <>
+          <div className="day-number">{day.dayNumber}</div>
+          <PlanRecipeCard/>
+          <button>Add</button>
+          </>
+          )
+            
+        })} */}
       </div>
       </>
     )
   }
 }
 
-export default PlanColumn
+export default connect()(PlanColumn)
