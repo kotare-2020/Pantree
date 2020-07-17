@@ -1,6 +1,6 @@
 import { SET_SELECTED_RECIPE } from '../actions/selectedRecipe'
 
-const initialState = []
+const initialState = null
 
 const reducer = (state = initialState, action ) => {
     switch(action.type) {
