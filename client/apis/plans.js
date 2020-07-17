@@ -1,10 +1,10 @@
 import request from 'superagent'
 
-const rootUrl = "http://localhost:3000/api/v1/plans"
+const rootUrl = "/api/v1/plans"
 
-export function getPlanApi() {
+export function getPlanApi(id) {
   return request
-  .get(rootUrl)
+  .get(`${rootUrl}/${id}`)
   .then(response => response.body)
 }
 

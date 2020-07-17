@@ -6,25 +6,12 @@ import {
 } from "../actions/plan"
 
 const initialState = []
-  // { 
-  //   "dayNumber": 2,
-  //   "recipes": [
-  //     { 
-  //       "recipeId": 1,
-  //       "recipeName": "pancake"
-  //     },
-  //     {
-  //       "recipeId": 2,
-  //       "recipeName": "stew",
-  //     }
-  //   ]
-
-  // }
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
     case GET_PLAN:
-      return action.plan
+       if(action.id == state.id)
+       return action.plan
 
     case SET_PLAN:
       return action.plan
