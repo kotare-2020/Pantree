@@ -22,8 +22,11 @@ class RecipeView extends React.Component {
 
     handleAdd = () => {
         console.log('clicked add')
-
-        this.props.dispatch(addDayRecipe(this.props.selectedRecipe.recipeId, this.props.selectedDay))
+        const recipeDetails = {
+            recipeId: this.props.selectedRecipe.recipeId,
+            recipeName: this.props.selectedRecipe.recipeName
+        }
+        this.props.dispatch(addDayRecipe(recipeDetails, 1))
     }
 
     render() {
@@ -47,7 +50,7 @@ class RecipeView extends React.Component {
                 })}
                 </ol>
                 <Link to={`/recipes`}><button>Back</button></Link>
-                <Link to={`/plan`}><button onClick={this.handleAdd}>Add</button></Link>
+                <Link to={`/recipes`}><button onClick={this.handleAdd}>Add</button></Link>
 
        
             </div>}
