@@ -5,7 +5,7 @@ const initialState = null
 const reducer = (state = initialState, action) => {
   switch(action.type){
     case SET_DAY:
-      return action.state
+      return action.selectedDay
 
     default:
       return state

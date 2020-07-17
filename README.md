@@ -154,10 +154,9 @@ As a user, I want:
 
 ![alt text](./project/images/register_component.jpg "Register component")
 
-
 ### Nav
 
-![alt text](./project/images/nav.jpg "Register component")
+![alt text](./project/images/navbar.jpg "Nav component")
 
 ### My plan page
 
@@ -194,9 +193,9 @@ As a user, I want:
   | Column Name | Data Type |
   | --- | --- |
   | id | Integer |
-  | quantity | Interger |
-  | recipe_id | Interger |
-  | ingredient_id | Interger |
+  | quantity | Integer |
+  | recipe_id | Integer |
+  | ingredient_id | Integer |
 
 ### ingredients
 
@@ -221,7 +220,7 @@ As a user, I want:
  | Column Name | Data Type |
  | --- | --- |
  | id | Integer |
- | user_id | Interger |
+ | user_id | Integer |
  | name | String |
 
 ### plans_recipes (M2M)
@@ -229,8 +228,8 @@ As a user, I want:
  | Column Name | Data Type |
  | --- | --- |
  | plan_id | Integer |
- | day_number | Interger |
- | recipe_id | Interger |
+ | day_number | Integer |
+ | recipe_id | Integer |
  
 --------
 
@@ -247,6 +246,7 @@ As a user, I want:
   loading: false,
   auth: 
   recipes: [...],
+  selectedRecipe: // id
   message: "...",
   shoppingList: [{...}]
 }
@@ -258,8 +258,6 @@ As a user, I want:
 
 ```js
 {
-  slectedRecipe: // id
-  recipes: // all
   shoppingList: // result
 }
 ```
@@ -341,14 +339,16 @@ Response Body:
 ```JSON
 [
   {
-    "ingredientName": "carrot",
+    "ingredientId": 1,
+    "ingredientName": "flour",
     "quantity": 5,
-    "unit": "each"
+    "unit": "kg"
   },
   {
-    "ingredientName": "flour",
-    "quantity": 2.5,
-    "unit": "kg"
+    "ingredientId": 3,
+    "ingredientName": "onion",
+    "quantity": 2,
+    "unit": "each"
   }
 ]
 ```
@@ -396,11 +396,12 @@ Plan = '/plan'
 - redirects to recipe, view, shopping list and suppliers
 
 Recipes = '/recipes'    
-- redirects to view of item clicked
-- button to go back to plan
+- View button: Go to view of recipe clicked
+- Button to go back to plan
 
-View = 'recipe/:recipeId'     
-- if 'add' or 'back' is clicked then redirects back to recipes
+View = 'recipes/:recipeId'     
+- If 'add' then add recipe to selectedDay in plan and redirect to ?
+- If 'back' is clicked then link back to recipes
 
 Shopping List = '/shopping-list'    
 
@@ -448,15 +449,15 @@ Local Suppliers = '/supplier'
   ### recipes
  | type | data | purpose |
  | --- | --- | --- |
- | GET_RECIPES | recipe | retreive recipes from db and store in redux |
+ | fetchRecipes | recipes | retreive recipes from db and store in redux - thunk action |
  | SET_RECIPES | recipe | save recipes to store |
- | SAVE_RECIPES | recipe | save recipes to db |
+ | ~~SAVE_RECIPES~~ | ~~recipe~~ | ~~save recipes to db~~ - Stretch |
  
  ### recipe
  | type | data | purpose |
  | --- | --- | --- |
- | GET_RECIPE | recipeId | retreive recipe from db and store in redux |
- | SET_RECIPE | recipeId | save recipe to store |
+ | fetchSelectedRecipe| recipeId | retreive recipe from db and store  in redux - thunk action|
+ | SET_SELECTED_RECIPE | recipeId | save recipe to store |
 
 ### shopping list
  | type | data | purpose |

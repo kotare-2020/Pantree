@@ -48,6 +48,9 @@ class Register extends React.Component {
           </label>
         </div>
         <input value="Register" type="submit" />
+        <br />
+        <br />
+        <button value="signIn" onClick={this.props.changeComponentView}>Or, sign in</button>
       </form>
     )
   }

@@ -7,9 +7,10 @@ export const REMOVE_DAY_RECIPE = "REMOVE_DAY_RECIPE"
 import { updatePlanApi } from '../apis/plans'
 
 // Get plan for Global state
-export const getPlan = (plan) => {
+export const getPlan = (id, plan) => {
   return {
-    Type: GET_PLAN,
+    type: GET_PLAN,
+    id,
     plan,
   }
 }
@@ -17,30 +18,26 @@ export const getPlan = (plan) => {
 // Set the plan in Global state
 export const setPlan = (plan) => {
   return {
-    Type: SET_PLAN,
+    type: SET_PLAN,
     plan,
   }
 }
 
 // Adds to the plan day recipes
-export const addDayRecipe = (recipeId, selectedDay) => {
+export const addDayRecipe = (recipeDetails, selectedDay) => {
   return {
-    Type: UPDATE_DAY_RECIPE,
-    day: {
-      selectedDay,
-      recipeId
-    }
+    type: UPDATE_DAY_RECIPE,
+    recipeDetails: recipeDetails,
+    selectedDay: selectedDay
   }
 }
 
 // Removes from the plan day recipes
-export const removeDayReicpe = (recipeId, selectedDay) => {
+export const removeDayRecipe = (recipeId, selectedDay) => {
   return {
-    Type: REMOVE_DAY_RECIPE,
-    day: {
-      selectedDay,
-      recipeId
-    }
+    type: REMOVE_DAY_RECIPE,
+    selectedDay: selectedDay,
+    recipeId: recipeId
   }
 }
 

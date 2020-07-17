@@ -1,16 +1,22 @@
 import request from 'superagent'
 
-const rootUrl = "http://localhost:3000/api/v1/plans"
+const plansUrl = "/api/v1/plans"
 
-export function getPlanApi() {
+export function getPlanApi(id) {
   return request
-  .get(rootUrl)
+  .get(`${plansUrl}/${id}`)
   .then(response => response.body)
 }
 
 export function updatePlanApi(id, plan) {
   return request
-  .patch(`${rootUrl}/${id}`)
+  .patch(`${plansUrl}/${id}`)
   .send(plan)
   .then(response => response.body)
+}
+
+export function getPlanIdByUserId(userId) {
+  return request
+    .get(`${plansUrl}/plans/${userId}`)
+    .then(response => response.body)
 }
