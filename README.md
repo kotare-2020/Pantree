@@ -193,9 +193,9 @@ As a user, I want:
   | Column Name | Data Type |
   | --- | --- |
   | id | Integer |
-  | quantity | Interger |
-  | recipe_id | Interger |
-  | ingredient_id | Interger |
+  | quantity | Integer |
+  | recipe_id | Integer |
+  | ingredient_id | Integer |
 
 ### ingredients
 
@@ -220,7 +220,7 @@ As a user, I want:
  | Column Name | Data Type |
  | --- | --- |
  | id | Integer |
- | user_id | Interger |
+ | user_id | Integer |
  | name | String |
 
 ### plans_recipes (M2M)
@@ -228,8 +228,8 @@ As a user, I want:
  | Column Name | Data Type |
  | --- | --- |
  | plan_id | Integer |
- | day_number | Interger |
- | recipe_id | Interger |
+ | day_number | Integer |
+ | recipe_id | Integer |
  
 --------
 
