@@ -14,7 +14,7 @@ server.use(express.static(path.join(__dirname, './public')))
 
 server.use('/api/v1', authRoutes)
 server.use('/api/v1/users', userRoutes)
-server.use('api/v1/plans', plansRoutes)
+server.use('/api/v1/plans', plansRoutes)
 server.use('/api/v1/recipes', recipesRoutes)
 server.use('/api/v1/shopping-list', shoppingListRoutes)
 
