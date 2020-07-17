@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import { logoutUser } from '../actions/auth'
 
 const Nav = props => {
@@ -13,10 +13,13 @@ const Nav = props => {
         </a>
         <ul id="nav-mobile" className="right">
           <li>
-            <a href="/plan">My plan</a>
+            <NavLink to="/plan">My plan</NavLink>
           </li>
           <li>
-            <a href="/shopping-list">Shopping list</a>
+            <NavLink to="/shopping-list">Shopping list</NavLink>
+          </li>
+          <li>
+            <NavLink to="/suppliers">Local suppliers</NavLink>
           </li>
           <li>
             <Link to="/" onClick={() => {logout()}}>
