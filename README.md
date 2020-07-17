@@ -154,10 +154,9 @@ As a user, I want:
 
 ![alt text](./project/images/register_component.jpg "Register component")
 
-
 ### Nav
 
-![alt text](./project/images/nav.jpg "Register component")
+![alt text](./project/images/navbar.jpg "Nav component")
 
 ### My plan page
 
@@ -194,9 +193,9 @@ As a user, I want:
   | Column Name | Data Type |
   | --- | --- |
   | id | Integer |
-  | quantity | Interger |
-  | recipe_id | Interger |
-  | ingredient_id | Interger |
+  | quantity | Integer |
+  | recipe_id | Integer |
+  | ingredient_id | Integer |
 
 ### ingredients
 
@@ -221,7 +220,7 @@ As a user, I want:
  | Column Name | Data Type |
  | --- | --- |
  | id | Integer |
- | user_id | Interger |
+ | user_id | Integer |
  | name | String |
 
 ### plans_recipes (M2M)
@@ -229,8 +228,8 @@ As a user, I want:
  | Column Name | Data Type |
  | --- | --- |
  | plan_id | Integer |
- | day_number | Interger |
- | recipe_id | Interger |
+ | day_number | Integer |
+ | recipe_id | Integer |
  
 --------
 
@@ -340,14 +339,16 @@ Response Body:
 ```JSON
 [
   {
-    "ingredientName": "carrot",
+    "ingredientId": 1,
+    "ingredientName": "flour",
     "quantity": 5,
-    "unit": "each"
+    "unit": "kg"
   },
   {
-    "ingredientName": "flour",
-    "quantity": 2.5,
-    "unit": "kg"
+    "ingredientId": 3,
+    "ingredientName": "onion",
+    "quantity": 2,
+    "unit": "each"
   }
 ]
 ```
@@ -399,7 +400,8 @@ Recipes = '/recipes'
 - Button to go back to plan
 
 View = 'recipes/:recipeId'     
-- If 'add' or 'back' is clicked then link back to recipes
+- If 'add' then add recipe to selectedDay in plan and redirect to ?
+- If 'back' is clicked then link back to recipes
 
 Shopping List = '/shopping-list'    
 

@@ -38,8 +38,9 @@ function getRecipeAndIngredientsById(id, db = connection) {
             return Object.values(reducedRecipes)
         })
         .then(recipes => {
-            console.log(recipes[0].ingredients)
-            return recipes[0]
+            const recipe = recipes[0]
+            recipe.method = JSON.parse(recipe.method)
+            return recipe
         })
 }
 
