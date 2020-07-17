@@ -400,7 +400,8 @@ Recipes = '/recipes'
 - Button to go back to plan
 
 View = 'recipes/:recipeId'     
-- If 'add' or 'back' is clicked then link back to recipes
+- If 'add' then add recipe to selectedDay in plan and redirect to ?
+- If 'back' is clicked then link back to recipes
 
 Shopping List = '/shopping-list'    
 

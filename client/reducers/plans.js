@@ -17,13 +17,29 @@ const reducer = (state = initialState, action) => {
       return action.plan
 
     case UPDATE_DAY_RECIPE:
-      if(action.day.selectedDay == selectedDay){
-        return action.day
-      }
+      return state.map(days => {
+        if(days.dayNumber == action.selectedDay) {
+          days.recipes.push(action.recipeDetails)
+          return days
+        }
+        else return days
+
+      })
+     
 
     case REMOVE_DAY_RECIPE:
-        return state.filter(day => day.recipeId !== action.day.recipeId)
-
+ 
+        return state.map(days => {
+          if(days.dayNumber == action.selectedDay) {
+            days.recipes = days.recipes.filter(recipe => {
+              console.log('recipeId', action.recipeId)
+              console.log('recipe.recipeId', recipe.recipeId)
+              return recipe.recipeId != action.recipeId
+            })
+            return days
+          }
+          else return days
+        })
     default:
       return state
   }

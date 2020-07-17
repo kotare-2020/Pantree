@@ -24,13 +24,11 @@ export const setPlan = (plan) => {
 }
 
 // Adds to the plan day recipes
-export const addDayRecipe = (recipeId, selectedDay) => {
+export const addDayRecipe = (recipeDetails, selectedDay) => {
   return {
     type: UPDATE_DAY_RECIPE,
-    day: {
-      selectedDay,
-      recipeId
-    }
+    recipeDetails: recipeDetails,
+    selectedDay: selectedDay
   }
 }
 
@@ -38,10 +36,8 @@ export const addDayRecipe = (recipeId, selectedDay) => {
 export const removeDayRecipe = (recipeId, selectedDay) => {
   return {
     type: REMOVE_DAY_RECIPE,
-    day: {
-      selectedDay,
-      recipeId
-    }
+    selectedDay: selectedDay,
+    recipeId: recipeId
   }
 }
 
