@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchSelectedRecipe } from '../actions/selectedRecipe'
+import { addDayRecipe } from '../actions/plan'
+import { Link } from 'react-router-dom'
+
 
 
 class RecipeView extends React.Component {
@@ -15,6 +18,12 @@ class RecipeView extends React.Component {
         if (prevProps.match.params.id != id) {
             this.props.dispatch(fetchSelectedRecipe(id))
         }
+    }
+
+    handleAdd = () => {
+        console.log('clicked add')
+
+        this.props.dispatch(addDayRecipe(this.props.selectedRecipe.recipeId, this.props.selectedDay))
     }
 
     render() {
@@ -37,6 +46,10 @@ class RecipeView extends React.Component {
                     return <li>{step}</li>
                 })}
                 </ol>
+                <Link to={`/recipes`}><button>Back</button></Link>
+                <Link to={`/plan`}><button onClick={this.handleAdd}>Add</button></Link>
+
+       
             </div>}
             </>
         )
@@ -45,7 +58,8 @@ class RecipeView extends React.Component {
 
 function mapStateToProps(globalState) {
     return {
-        selectedRecipe: globalState.selectedRecipe
+        selectedRecipe: globalState.selectedRecipe,
+        selectedDay: globalState.selectedDay
     }
 }
 

@@ -5,7 +5,21 @@ import {
   REMOVE_DAY_RECIPE,
 } from "../actions/plan"
 
-const initialState = {}
+const initialState = []
+  // { 
+  //   "dayNumber": 2,
+  //   "recipes": [
+  //     { 
+  //       "recipeId": 1,
+  //       "recipeName": "pancake"
+  //     },
+  //     {
+  //       "recipeId": 2,
+  //       "recipeName": "stew",
+  //     }
+  //   ]
+
+  // }
 
 const reducer = (state = initialState, action) => {
   switch(action.type){
@@ -16,8 +30,9 @@ const reducer = (state = initialState, action) => {
       return action.plan
 
     case UPDATE_DAY_RECIPE:
-      if(action.day.selectedDay == selectedDay){
-        return action.day
+      if(action.selectedDay == state.dayNumber){
+        state.recipes = state.recipes.push(action.recipeId)
+        return state
       }
 
     case REMOVE_DAY_RECIPE:

@@ -25,11 +25,9 @@ export const setPlan = (plan) => {
 // Adds to the plan day recipes
 export const addDayRecipe = (recipeId, selectedDay) => {
   return {
-    Type: UPDATE_DAY_RECIPE,
-    day: {
-      selectedDay,
-      recipeId
-    }
+    type: UPDATE_DAY_RECIPE,
+    selectedDay: selectedDay,
+    recipeId: recipeId
   }
 }
 
