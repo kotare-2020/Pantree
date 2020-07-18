@@ -3,9 +3,13 @@ import { connect } from 'react-redux'
 import { removeDayRecipe } from '../actions/plan'
 
 class PlanRecipeCard extends React.Component {
+  componentDidMount() {
+    console.log(this.props.uniqueRecipeId)
+  }
+
   handleClick = e => {
     this.props.dispatch(
-      removeDayRecipe(this.props.recipe.recipeId, this.props.dayNumber)
+      removeDayRecipe(this.props.uniqueRecipeId, this.props.dayNumber)
     )
   }
 
