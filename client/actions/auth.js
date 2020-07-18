@@ -1,5 +1,7 @@
 import { getUserTokenInfo, isAuthenticated, removeUser } from '../utils/auth'
 import { login, register } from '../apis/auth'
+import { fetchPlan} from '../actions/plan'
+
 
 export function requestLogin () {
   return {
@@ -32,8 +34,13 @@ export function loginUser (creds, confirmSuccess) {
     dispatch(requestLogin(creds))
     return login(creds)
       .then(userInfo => {
-        dispatch(receiveLogin(userInfo))
-        confirmSuccess()
+        return dispatch(receiveLogin(userInfo))
+      })
+      .then(userInfo=> {
+        return dispatch(fetchPlan(userInfo.user.id))
+      })
+      .then(() => {
+        return confirmSuccess()
       })
       .catch(err => {
         dispatch(loginError(err))

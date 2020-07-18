@@ -18,7 +18,7 @@ class Recipes extends React.Component {
             recipeId: recipeId,
             recipeName: recipeName
         }
-        this.props.dispatch(addDayRecipe(recipeDetails, 1))
+        this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
         // this.props.dispatch(removeDayRecipe(recipeId, 1))
     }
 
@@ -34,7 +34,7 @@ class Recipes extends React.Component {
                             <img style={{width:'200px'}} src={recipe.image} alt= {`image of ${recipe.recipeName}`}/>
                             <Link to={'/plan'}><button>Back to Plan</button></Link>
                             <Link to={`/recipes/${recipe.recipeId}`}><button>View</button></Link>
-                            <Link to={`/recipes`}><button onClick={() => this.handleAdd(recipe.recipeId, recipe.recipeName)}>Add to Plan</button></Link>
+                            <Link to={`/plan`}><button onClick={() => this.handleAdd(recipe.recipeId, recipe.recipeName)}>Add to Plan</button></Link>
                         </div>
                     )
                 })}
