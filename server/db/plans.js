@@ -20,10 +20,9 @@ function editPlan(id, plan, db = connection) {
       }))
     }))
   })
-  // .update(plan)
 }
 
-function getPlanById(planId, db = connection) {
+function getPlanByPlanId(planId, db = connection) {
   return db("plans")
     .join("plans_recipes", "plans.id", "plans_recipes.plan_id")
     .join("recipes", "plans_recipes.recipe_id", "recipes.id")
@@ -64,7 +63,7 @@ function getPlanIdByUserId(userId, db = connection) {
 
 module.exports = {
   createPlan,
-  getPlanById,
+  getPlanByPlanId,
   editPlan,
   getPlanIdByUserId,
 }

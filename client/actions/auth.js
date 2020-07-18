@@ -79,38 +79,11 @@ export function registerUserRequest(creds, confirmSuccess) {
         return dispatch(receiveLogin(userInfo))
       })
       .then(userInfo => {
-        return dispatch(createPlan(userInfo.user.id))
-      })
-      .then(userInfo => {
-        console.log('about to fetch plan')
-        console.log(userInfo)
-        return dispatch(fetchPlan(userInfo.user.id))
-      })
-      .then(() => {
-        return confirmSuccess()
+        confirmSuccess(userInfo)
       })
       .catch(err => dispatch(loginError(err)))
   }
 }
-
-// export function loginUser(creds, confirmSuccess) {
-//   return dispatch => {
-//     dispatch(requestLogin(creds))
-//     return login(creds)
-//       .then(userInfo => {
-//         return dispatch(receiveLogin(userInfo))
-//       })
-//       .then(userInfo => {
-//         return dispatch(fetchPlan(userInfo.user.id))
-//       })
-//       .then(() => {
-//         return confirmSuccess()
-//       })
-//       .catch(err => {
-//         dispatch(loginError(err))
-//       })
-//   }
-// }
 
 export function checkAuth(confirmSuccess) {
   return dispatch => {
