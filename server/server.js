@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const cors = require('cors')
 
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/users')
@@ -17,5 +18,7 @@ server.use('/api/v1/users', userRoutes)
 server.use('/api/v1/plans', plansRoutes)
 server.use('/api/v1/recipes', recipesRoutes)
 server.use('/api/v1/shopping-list', shoppingListRoutes)
+
+server.use(cors())
 
 module.exports = server
