@@ -19,6 +19,9 @@ class Landing extends React.Component {
     }
 
     componentDidMount = () => {
+        document.body.style.backgroundImage = 'linear-gradient(120deg, #b9f6caa1 50%, white 50%)';
+        document.body.style.height = '100vh';
+
         const confirmSuccess = () => { }
         this.props.dispatch(checkAuth(confirmSuccess))
     }
@@ -26,20 +29,24 @@ class Landing extends React.Component {
     render() {
         const { auth } = this.props
         return (
-            <>
             <div className="container">
-                <div className="row">
-                    <div className="col s6">
+                <div className="float-middle">
+                    <div className="row">
+                    <div className="col s5">
                         <LandingAbout/>
                     </div>
-                    <div className="col s6 offset-by-6">
+                    <div className="col s1">
+                    </div>
+                    <div className="col s2">
+                    </div>
+                    <div className="col s4">
                         {this.state.componentView === "signIn" && <SignIn history={this.props.history} changeComponentView={this.changeComponentView} />}
                         {this.state.componentView === "register" && <Register history={this.props.history} changeComponentView={this.changeComponentView} />}
                     </div>
+                    </div>
                 </div>
-            {auth.isAuthenticated && <Redirect to="/plan"/>}
+                {auth.isAuthenticated && <Redirect to="/plan"/>}
             </div>
-            </>
         )
     }
 }

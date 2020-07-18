@@ -34,11 +34,6 @@ class ShoppingList extends React.Component {
                     })}
                     </tbody>
                 </table> 
-                {/* <ul className="collection">
-                    {this.props.shoppingList.map(ingredient => {
-                        return <li className="collection-item"><div>{ingredient.ingredientName}<span className="secondary-content">{`${ingredient.quantity} ${ingredient.ingredientUnit}`}</span></div></li>
-                    })}
-                </ul> */}
                 </div>
             </div>
         )

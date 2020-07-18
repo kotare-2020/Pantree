@@ -1,33 +1,31 @@
 .recipe-card{
-
-border:solid 1px red;
-margin: 10px 5px;
-width:200px;
-height:20vh;
-background-color: whitesmoke;
+  border:solid 1px red;
+  margin: 10px 5px;
+  width:200px;
+  height:20vh;
+  background-color: whitesmoke;
 }
 
 .recipe-card h3{
-font-size:12px;
+  font-size:12px;
 }
 
+.float-middle {
+  padding-top: 25vh;
+}
 
 .plan-column{
-
   width:auto;
   height: auto;
   display: flex;
   border: solid 1px black;
   flex-direction: column;
-
 }
 
 
 .plan{
-
   display: flex;
-  flex-direction:  row;
-
+  flex-direction: row;
 }
 
 @media only screen and (min-width: 1050px) {
