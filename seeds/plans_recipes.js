@@ -12,6 +12,9 @@ exports.seed = function(knex) {
         {plan_id: 4, day_number: 5, recipe_id:2},
         {plan_id: 4, day_number: 6, recipe_id:3},
         {plan_id: 1, day_number: 7, recipe_id:1},
+        {plan_id: 1, day_number: 7, recipe_id:1},
+        {plan_id: 1, day_number: 7, recipe_id:1},
+        {plan_id: 1, day_number: 7, recipe_id:1},
       ]);
     });
 };

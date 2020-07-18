@@ -19,7 +19,7 @@ function getShoppingList(planId, db = connection) {
                     }
                 }
 
-                reducedIngredients[id].quantity += recipeAndIngredients.quantity
+                reducedIngredients[id].quantity += Number(recipeAndIngredients.quantity)
                 return reducedIngredients
             }, {})
         })
