@@ -3,7 +3,6 @@ import React from "react"
 import { HashRouter as Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 
-import Nav from "./Nav"
 import PlanColumn from "./PlanColumn"
 
 class Plan extends React.Component {
@@ -26,7 +25,6 @@ render(){
     <>
       {auth.isAuthenticated ? (
         <>
-          <Nav />
           <div className='plan'>
           {this.generateColumns()}
           </div>
