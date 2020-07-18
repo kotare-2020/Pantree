@@ -3,7 +3,7 @@ export const SET_PLAN = 'SET_PLAN'
 export const UPDATE_DAY_RECIPE = 'UPDATE_DAY_RECIPE'
 export const REMOVE_DAY_RECIPE = 'REMOVE_DAY_RECIPE'
 
-import { updatePlanApi, getPlanApi, createPlanApi } from '../apis/plans'
+import { updatePlanApi, getPlanApi, getPlanIdByUserId } from '../apis/plans'
 
 export const getPlan = (id, plan) => {
   return {
@@ -36,17 +36,19 @@ export const removeDayRecipe = (recipeId, selectedDay) => {
   }
 }
 
-export const savePlan = plan => {
+// Save the plan to the DB
+export const savePlan = (userId, plan) => {
   return dispatch => {
-    updatePlanApi(plan)
-      .then(() => {
-        dispatch(getPlan(plan))
+    getPlanIdByUserId(userId)
+    .then(result => {
+        updatePlanApi(result.planId, plan)
       })
       .catch(err => {
         console.log('savePlan has Broken')
       })
   }
 }
+
 
 export const fetchPlan = id => {
   return dispatch => {

@@ -6,9 +6,21 @@ function createPlan(newPlan, db = connection) {
 }
 
 function editPlan(id, plan, db = connection) {
-  return db("plans")
-  .where("id", id)
-  .update(plan)
+  return db("plans_recipes")
+  .where("plan_id", id).delete()
+  .then(() => {
+    return Promise.all(plan.map(day => {
+      return Promise.all(day.recipes.map(recipe => {
+        const updatedPlansRecipe = {
+          plan_id: id,
+          day_number: day.dayNumber,
+          recipe_id: recipe.recipeId
+        }
+        return db("plans_recipes").insert(updatedPlansRecipe)
+      }))
+    }))
+  })
+  // .update(plan)
 }
 
 function getPlanById(planId, db = connection) {

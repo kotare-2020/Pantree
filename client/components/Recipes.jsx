@@ -1,9 +1,8 @@
 import React from 'react'
+import RecipeThumbnail from './RecipeThumbnail'
 import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions/recipes'
-import { Link } from 'react-router-dom'
-import { fetchSelectedRecipe } from '../actions/selectedRecipe'
-import { addDayRecipe } from '../actions/plan'
+// import { removeDayRecipe } from '../actions/plan'
 
 class Recipes extends React.Component {
   componentDidMount() {
@@ -18,41 +17,18 @@ class Recipes extends React.Component {
     this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
   }
 
-  render() {
-    return (
-      <div>
-        <h1>All the recipes</h1>
-
-        {this.props.recipes.map(recipe => {
-          return (
-            <div>
-              {recipe.recipeName}
-              <img
-                style={{ width: '200px' }}
-                src={recipe.image}
-                alt={`image of ${recipe.recipeName}`}
-              />
-              <Link to={'/plan'}>
-                <button>Back to Plan</button>
-              </Link>
-              <Link to={`/recipes/${recipe.recipeId}`}>
-                <button>View</button>
-              </Link>
-              <Link to={`/plan`}>
-                <button
-                  onClick={() =>
-                    this.handleAdd(recipe.recipeId, recipe.recipeName)
-                  }
-                >
-                  Add to Plan
-                </button>
-              </Link>
-            </div>
-          )
-        })}
-      </div>
-    )
-  }
+    render() {
+        return (
+        <main className="container">
+            <h1>Recipes</h1>           
+                {this.props.recipes.map(recipe => {
+                    return (
+                        <RecipeThumbnail key={recipe.recipeId} name={recipe.recipeName} image={recipe.image} id={recipe.recipeId} selectedDay={this.props.selectedDay}/>
+                    )
+                })}
+        </main>
+        )
+    }
 }
 
 function mapStateToProps(globalState) {
