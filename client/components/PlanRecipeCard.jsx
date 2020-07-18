@@ -1,25 +1,21 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {removeDayRecipe} from '../actions/plan'
-
+import { removeDayRecipe } from '../actions/plan'
 
 class PlanRecipeCard extends React.Component {
-
-  handleClick=(e)=>{
- 
-  this.props.dispatch(removeDayRecipe(this.props.recipe.recipeId, this.props.dayNumber))
-
+  handleClick = e => {
+    this.props.dispatch(
+      removeDayRecipe(this.props.recipe.recipeId, this.props.dayNumber)
+    )
   }
 
-  render(){
-    console.log(this.props.days);
-    
+  render() {
     return (
       <>
-      <div className="recipe-card">
-        <h3 >{this.props.recipe.recipeName}</h3>
-        <button onClick={this.handleClick} >Remove</button>
-      </div>
+        <div className="recipe-card">
+          <h3>{this.props.recipe.recipeName}</h3>
+          <button onClick={this.handleClick}>Remove</button>
+        </div>
       </>
     )
   }
