@@ -2,7 +2,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable('recipes_ingredients', (table) => {
         table.increments('id').primary()
-        table.integer('quantity')
+        table.decimal('quantity')
         table.integer('recipe_id')
         table.integer('ingredient_id')
     })

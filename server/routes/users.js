@@ -7,7 +7,6 @@ router.get("/", (req, res) => {
     db.getUsers()
     .then(users=>{
         res.json( {users})
-        console.log(users)
     })
     .catch(err => {
         res.status(500).send( "failed to get /users" )

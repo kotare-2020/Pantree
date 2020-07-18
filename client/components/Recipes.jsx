@@ -5,10 +5,17 @@ import { fetchRecipes } from '../actions/recipes'
 // import { removeDayRecipe } from '../actions/plan'
 
 class Recipes extends React.Component {
+  componentDidMount() {
+    this.props.dispatch(fetchRecipes())
+  }
 
-    componentDidMount () {
-        this.props.dispatch(fetchRecipes())
+  handleAdd = (recipeId, recipeName) => {
+    const recipeDetails = {
+      recipeId: recipeId,
+      recipeName: recipeName,
     }
+    this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
+  }
 
     render() {
         return (
@@ -23,11 +30,11 @@ class Recipes extends React.Component {
     }
 }
 
-function mapStateToProps (globalState) {
-    return {
-        recipes: globalState.recipes,
-        selectedDay: globalState.selectedDay
-    }
+function mapStateToProps(globalState) {
+  return {
+    recipes: globalState.recipes,
+    selectedDay: globalState.selectedDay,
+  }
 }
 
 export default connect(mapStateToProps)(Recipes)

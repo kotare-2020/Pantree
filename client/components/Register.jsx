@@ -25,6 +25,7 @@ class Register extends React.Component {
     if (confirm_password != password) return this.props.dispatch(loginError("Passwords don't match"))
     const confirmSuccess = () => { this.props.history.push('/plan') }
     this.props.dispatch(registerUserRequest({ username, password }, confirmSuccess))
+ 
   }
 
   render() {
@@ -43,7 +44,7 @@ class Register extends React.Component {
             <input required placeholder="Password" type="password" name="password"  autoComplete="new-password" onChange={this.handleChange} value={this.state.password}/>
           </label>
           
-          <label>Confirm password
+          <label>Confirm passworreturn login(creds)d
             <input required placeholder="Confirm password" type="password" name="confirm_password" autoComplete="new-password" onChange={this.handleChange} value={this.state.confirm_password}/>
           </label>
         </div>

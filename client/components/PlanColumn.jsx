@@ -17,7 +17,10 @@ class PlanColumn extends React.Component {
     const days = this.props.days
     return days.map((day,i) => {
       if(day.dayNumber == this.props.dayNumber){
-        return <PlanRecipeCard key={i} days={this.props.days}/>
+        return day.recipes.map((recipe, i) => {
+          return <PlanRecipeCard key={i} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe}/>
+        })
+        // return <PlanRecipeCard key={i} days={this.props.days}/>
       }
     })
   }
