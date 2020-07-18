@@ -45,6 +45,18 @@ function getPlanById(planId, db = connection) {
     })
 }
 
+// [
+//   { dayNumber: 1, recipes:[recipeId:2, recipes: []]},
+//   { dayNumber: 7, recipes:[recipeId:4, recipes: []]},
+// ]
+
+//   { dayNumber: 1, recipes:[recipeId:2, recipes: []]},
+//   { dayNumber: 2, recipes:[]},
+//   { dayNumber: 3, recipes:[]},
+//   { dayNumber: 4, recipes:[]},
+//   { dayNumber: 5, recipes:[]},
+//   { dayNumber: 6, recipes:[]},
+//   { dayNumber: 7, recipes:[recipeId:4, recipes: []]},
 function getPlanIdByUserId(userId, db = connection) {
   return db("plans")
     .where("user_id", userId)
