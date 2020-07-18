@@ -5,7 +5,6 @@ import { addDayRecipe } from '../actions/plan'
 import { Link } from 'react-router-dom'
 
 
-
 class RecipeView extends React.Component {
 
     componentDidMount() {
@@ -29,28 +28,49 @@ class RecipeView extends React.Component {
     }
 
     render() {
+
+        const selectedRecipe = this.props.selectedRecipe
+
         return (
             <>
-            {this.props.selectedRecipe &&
-            <div className="container">
-                <h1>{this.props.selectedRecipe.recipeName}</h1>
-                <img src={this.props.selectedRecipe.image} alt={`image of ${this.props.selectedRecipe.recipeName}`} />
-                <h3>Ingredients:</h3>
-                <ul>
-                    {this.props.selectedRecipe.ingredients.map(ingredient => {
-                        return (<li>{ingredient.ingredientName} {ingredient.quantity} {ingredient.unit}</li>)
-                    })
-                    }
-                </ul>
-                <h5>Method:</h5>
-                <ol>
-                {this.props.selectedRecipe.method.map(step => {
-                    return <li>{step}</li>
-                })}
-                </ol>
-                <Link to={`/recipes`}><button className="waves-effect waves-light btn">Back to Recipes</button></Link>
-                <Link to="/plan"><button className="waves-effect waves-light btn" onClick={this.handleAdd}>Add to Plan</button></Link>       
-            </div>}
+                {selectedRecipe &&
+
+                    <main className="container">
+                        <div className="row">
+                            <div className="col s6 push-s3">
+                                <h1 className="center-align">{selectedRecipe.recipeName}</h1>
+                                <img className="center-align" src={selectedRecipe.image} alt={`image of ${selectedRecipe.recipeName}`} width="435px" height="550px" />
+
+                                <h5>Ingredients:</h5>
+                                <ul>
+                                    {selectedRecipe.ingredients.map((ingredient, i) => {
+                                        return (
+                                            <li key={i}>{ingredient.ingredientName}  <em>{ingredient.quantity} {ingredient.unit}</em></li>
+                                        )
+                                    })
+                                    }
+                                </ul>
+
+                                <h5>Method:</h5>
+                                <ol>
+                                    {selectedRecipe.method.map((step, i) => {
+                                        return <li key={i}>{step}</li>
+                                    })}
+                                </ol>
+
+                                <div className="card-action center-align">
+                                    <Link to="/plan">
+                                        <button className="waves-effect waves-light btn space-around" onClick={this.handleAdd}>Add to Plan</button>
+                                    </Link>
+                                    <Link to="/recipes">
+                                        <button className="waves-effect waves-light btn space-around">Back to Recipes</button>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+
+                }
             </>
         )
     }

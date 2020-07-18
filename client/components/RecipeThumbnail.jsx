@@ -1,23 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { addDayRecipe } from '../actions/plan'
 
 
 class RecipeThumbnail extends React.Component {
 
-    handleAdd = (recipeId, recipeName, selectedDay) => {
+    handleAdd = () => {
 
         const recipeDetails = {
-            recipeId: recipeId,
-            recipeName: recipeName
+            recipeId: recipe.id,
+            recipeName: recipe.name
         }
 
-        this.props.dispatch(addDayRecipe(recipeDetails, selectedDay))
+        this.props.dispatch(addDayRecipe(recipeDetails, recipe.selectedDay))
     }
+
     render() {
 
-        console.log(this.props)
         const recipe = this.props
 
         return (
@@ -25,7 +25,7 @@ class RecipeThumbnail extends React.Component {
                 <div className="col s8 m8">
                     <div className="card medium hoverable">
                         <div className="card-image">
-                            <img src={recipe.image} alt={`Photo of ${recipe.name}`} width="50px" height="400px" />
+                            <img src={recipe.image} alt={`Photo of ${recipe.name}`} width="120px" height="300px" />
                         </div>
                         <div className="card-content">
                             <h5>{recipe.name}</h5>
@@ -35,10 +35,10 @@ class RecipeThumbnail extends React.Component {
                                 <button className="waves-effect waves-light btn">Back to Plan</button>
                             </Link>
                             <Link to={`/recipes/${recipe.id}`}>
-                                <button className="waves-effect waves-light btn">View</button>
+                                <button className="waves-effect waves-light btn">View Recipe</button>
                             </Link>
                             <Link to="/plan">
-                                <button className="waves-effect waves-light btn" onClick={() => this.handleAdd(recipe.id, recipe.name, recipe.selectedDay)}>Add to Plan</button>
+                                <button className="waves-effect waves-light btn" onClick={this.handleAdd}>Add to Plan</button>
                             </Link>
                         </div>
                     </div>
