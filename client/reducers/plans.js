@@ -12,8 +12,7 @@ const initialState = []
 const reducer = (state = initialState, action) => {
   switch(action.type){
     case GET_PLAN:
-      console.log(state)
-      console.log(action)
+   
       if(action.id == state.id){
      
       return action.plan
@@ -50,8 +49,7 @@ const reducer = (state = initialState, action) => {
         return state.map(days => {
           if(days.dayNumber == action.selectedDay) {
             days.recipes = days.recipes.filter(recipe => {
-              console.log('recipeId', action.recipeId)
-              console.log('recipe.recipeId', recipe.recipeId)
+
               return recipe.recipeId != action.recipeId
             })
             return days

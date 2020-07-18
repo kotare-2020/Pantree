@@ -12,7 +12,6 @@ class PlanRecipeCard extends React.Component {
   }
 
   render(){
-    console.log(this.props.days);
     
     return (
       <>

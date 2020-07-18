@@ -20,3 +20,4 @@ export function getPlanIdByUserId(userId) {
     .get(`${plansUrl}/plans/${userId}`)
     .then(response => response.body)
 }
+

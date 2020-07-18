@@ -371,11 +371,25 @@ Response Body:
 
 ***PATCH*** /plans/:planId
 
-Request Body:
-```js
-{
-  // same content as GET /plans/:planId
-}
+```JSON
+ [
+    { 
+      "dayNumber": 1,
+      "recipes": [
+        { 
+          "recipeId": 1,
+          "recipeName": "pancake"
+        },
+        {
+          "recipeId": 2,
+          "recipeName": "stew",
+        }
+      ],
+      "dayNumber": 2,
+      "recipes": [{"..."}, {"..."}]
+    }
+  ]
+
 ```
 
 Response Body:
