@@ -17,7 +17,6 @@ export function register(creds) {
 
 export function login(creds) {
   console.log('using url', baseUrl)
-  console.log("HELO", creds)
   return authLogin(creds, { baseUrl }).catch(err => {
     throw errorMessages[err.response.body.errorType]
   })
