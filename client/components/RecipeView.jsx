@@ -32,7 +32,7 @@ class RecipeView extends React.Component {
         return (
             <>
             {this.props.selectedRecipe &&
-            <div>
+            <div className="container">
                 <h1>{this.props.selectedRecipe.recipeName}</h1>
                 <img src={this.props.selectedRecipe.image} alt={`image of ${this.props.selectedRecipe.recipeName}`} />
                 <h3>Ingredients:</h3>
@@ -48,10 +48,8 @@ class RecipeView extends React.Component {
                     return <li>{step}</li>
                 })}
                 </ol>
-                <Link to={`/recipes`}><button>Back</button></Link>
-                <Link to={`/plan`}><button onClick={this.handleAdd}>Add</button></Link>
-
-       
+                <Link to={`/recipes`}><button className="waves-effect waves-light btn">Back to Recipes</button></Link>
+                <Link to="/plan"><button className="waves-effect waves-light btn" onClick={this.handleAdd}>Add to Plan</button></Link>       
             </div>}
             </>
         )

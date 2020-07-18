@@ -28,15 +28,9 @@
   flex-direction: row;
 }
 
-<<<<<<< HEAD
-
-.inline-cards {
-  display: flex;
-=======
 @media only screen and (min-width: 1050px) {
   .container .shoppinglist{
       width: 50%;
       margin: 0 auto;
   }
->>>>>>> 2998b702231529cf3632d79161c3d91ba6852680
 }

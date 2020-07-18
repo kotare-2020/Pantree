@@ -31,13 +31,13 @@ class RecipeThumbnail extends React.Component {
                             <h5>{recipe.name}</h5>
                         </div>
                         <div className="card-action">
-                            <Link to={"/plan"}>
+                            <Link to="/plan">
                                 <button className="waves-effect waves-light btn">Back to Plan</button>
                             </Link>
                             <Link to={`/recipes/${recipe.id}`}>
                                 <button className="waves-effect waves-light btn">View</button>
                             </Link>
-                            <Link to={"/recipes"}>
+                            <Link to="/plan">
                                 <button className="waves-effect waves-light btn" onClick={() => this.handleAdd(recipe.id, recipe.name, recipe.selectedDay)}>Add to Plan</button>
                             </Link>
                         </div>
