@@ -405,7 +405,7 @@ View = 'recipes/:recipeId'
 
 Shopping List = '/shopping-list'    
 
-Local Suppliers = '/supplier'      
+Local Suppliers = '/suppliers'      
 
 ### Views (Client Side)
   | name | purpose |
