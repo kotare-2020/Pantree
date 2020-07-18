@@ -57,9 +57,15 @@ function getPlanById(planId, db = connection) {
 //   { dayNumber: 5, recipes:[]},
 //   { dayNumber: 6, recipes:[]},
 //   { dayNumber: 7, recipes:[recipeId:4, recipes: []]},
+function getPlanIdByUserId(userId, db = connection) {
+  return db("plans")
+    .where("user_id", userId)
+    .select("id as planId")
+}
 
 module.exports = {
   createPlan,
   getPlanById,
   editPlan,
+  getPlanIdByUserId,
 }

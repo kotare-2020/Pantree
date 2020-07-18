@@ -42,5 +42,12 @@ router.patch("/:id", (req, res)=>{
 })
 })
 
+router.get("/plans/:userId", (req, res) => {
+  const userId = req.params.userId
+  db.getPlanIdByUserId(userId)
+    .then(planId => {
+      res.json(planId[0])
+    })
+})
 
 module.exports = router
