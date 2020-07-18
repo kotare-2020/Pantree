@@ -26,6 +26,11 @@ class Landing extends React.Component {
         this.props.dispatch(checkAuth(confirmSuccess))
     }
 
+    componentWillUnmount() {
+        document.body.style.backgroundImage = null;
+        document.body.style.hight = null
+    }
+
     render() {
         const { auth } = this.props
         return (
