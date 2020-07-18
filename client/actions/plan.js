@@ -36,7 +36,6 @@ export const removeDayRecipe = (recipeId, selectedDay) => {
   }
 }
 
-<<<<<<< HEAD
 // Save the plan to the DB
 export const savePlan = (id,plan) => {
   return (dispatch) => {
@@ -47,17 +46,7 @@ export const savePlan = (id,plan) => {
       .catch(err => {
         console.log('action',err);
         
-        console.log("API has Broken")
-=======
-export const savePlan = plan => {
-  return dispatch => {
-    updatePlanApi(plan)
-      .then(() => {
-        dispatch(getPlan(plan))
-      })
-      .catch(err => {
         console.log('savePlan has Broken')
->>>>>>> 5b8f65612b5c718a36fcb876bdd1198127ac3652
       })
   }
 }

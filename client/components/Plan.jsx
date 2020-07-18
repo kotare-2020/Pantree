@@ -3,6 +3,7 @@ import { HashRouter as Redirect } from "react-router-dom"
 import { connect } from "react-redux"
 import {savePlan} from "../actions/plan"
 
+
 import PlanColumn from './PlanColumn'
 
 class Plan extends React.Component {
