@@ -26,7 +26,7 @@ class RecipeView extends React.Component {
             recipeId: this.props.selectedRecipe.recipeId,
             recipeName: this.props.selectedRecipe.recipeName
         }
-        this.props.dispatch(addDayRecipe(recipeDetails, 1))
+        this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
     }
 
     render() {
@@ -50,7 +50,7 @@ class RecipeView extends React.Component {
                 })}
                 </ol>
                 <Link to={`/recipes`}><button>Back</button></Link>
-                <Link to={`/recipes`}><button onClick={this.handleAdd}>Add</button></Link>
+                <Link to={`/plan`}><button onClick={this.handleAdd}>Add</button></Link>
 
        
             </div>}
