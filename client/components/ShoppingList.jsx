@@ -14,12 +14,32 @@ class ShoppingList extends React.Component {
     render() {
         return (
             <div className="container">
+                <div className="shoppinglist">
                 <h3>Shopping list</h3>
-                <ul className="collection">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th className="right-align">Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {this.props.shoppingList.map(ingredient => {
+                        return (
+                        <tr>
+                            <td>{ingredient.ingredientName}</td>
+                            <td className="right-align">{ingredient.quantity} {ingredient.ingredientUnit}</td>
+                        </tr>
+                        )
+                    })}
+                    </tbody>
+                </table> 
+                {/* <ul className="collection">
                     {this.props.shoppingList.map(ingredient => {
                         return <li className="collection-item"><div>{ingredient.ingredientName}<span className="secondary-content">{`${ingredient.quantity} ${ingredient.ingredientUnit}`}</span></div></li>
                     })}
-                </ul>
+                </ul> */}
+                </div>
             </div>
         )
     }

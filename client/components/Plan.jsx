@@ -36,7 +36,6 @@ render(){
     <>
       {auth.isAuthenticated ? (
         <>
-          <Nav />
           <div className='plan'>
           {this.generateColumns()}
           </div>

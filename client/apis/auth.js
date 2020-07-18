@@ -1,4 +1,3 @@
-
 import {
     register as authRegister,
     signIn as authLogin,
