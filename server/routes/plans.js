@@ -32,7 +32,6 @@ router.post("/", (req, res)=>{
 router.patch("/:id", (req, res)=>{
   const id= req.params.id
   const plan = req.body
-  console.log('plan', plan)
   db.editPlan(id, plan)
   .then( 
       res.sendStatus(200)
