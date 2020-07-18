@@ -29,3 +29,8 @@ font-size:12px;
   flex-direction:  row;
 
 }
+
+
+.inline-cards {
+  display: flex;
+}
