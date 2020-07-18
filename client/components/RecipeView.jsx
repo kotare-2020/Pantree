@@ -21,7 +21,6 @@ class RecipeView extends React.Component {
     }
 
     handleAdd = () => {
-        console.log('clicked add')
         const recipeDetails = {
             recipeId: this.props.selectedRecipe.recipeId,
             recipeName: this.props.selectedRecipe.recipeName
