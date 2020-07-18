@@ -18,8 +18,8 @@ class Plan extends React.Component {
   
 handleClick=()=>{
  
-  //  const id = this.props.auth.user.id
-   this.props.dispatch(savePlan(1,this.props.plans))
+   const userId = this.props.auth.user.id
+   this.props.dispatch(savePlan(userId, this.props.plans))
   }
 
   render() {

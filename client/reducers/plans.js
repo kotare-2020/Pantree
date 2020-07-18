@@ -10,18 +10,9 @@ const initialState = []
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_PLAN:
-<<<<<<< HEAD
-   
-      if(action.id == state.id){
-     
-      return action.plan
-    }
-
-=======
       if (action.id == state.id) {
         return action.plan
       }
->>>>>>> 5b8f65612b5c718a36fcb876bdd1198127ac3652
 
     case SET_PLAN:
       return action.plan
@@ -46,19 +37,6 @@ const reducer = (state = initialState, action) => {
       })
 
     case REMOVE_DAY_RECIPE:
-<<<<<<< HEAD
- 
-        return state.map(days => {
-          if(days.dayNumber == action.selectedDay) {
-            days.recipes = days.recipes.filter(recipe => {
-
-              return recipe.recipeId != action.recipeId
-            })
-            return days
-          }
-          else return days
-        })
-=======
       return state.map(days => {
         if (days.dayNumber == action.selectedDay) {
           days.recipes = days.recipes.filter(recipe => {
@@ -67,7 +45,6 @@ const reducer = (state = initialState, action) => {
           return days
         } else return days
       })
->>>>>>> 5b8f65612b5c718a36fcb876bdd1198127ac3652
     default:
       return state
   }
