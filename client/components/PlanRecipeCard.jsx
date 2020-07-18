@@ -7,7 +7,7 @@ class PlanRecipeCard extends React.Component {
     return (
       <>
       <div className="recipe-card">
-        <h3 >Recipe Name</h3>
+        <h3 >{this.props.recipe.recipeName}</h3>
         <button>Remove</button>
       </div>
       </>
