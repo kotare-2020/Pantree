@@ -22,7 +22,7 @@ class Recipes extends React.Component {
         <main className="container">           
                 {this.props.recipes.map(recipe => {
                     return (
-                        <RecipeThumbnail key={recipe.recipeId} name={recipe.recipeName} image={recipe.image} id={recipe.recipeId} />
+                        <RecipeThumbnail key={recipe.recipeId} name={recipe.recipeName} image={recipe.image} id={recipe.recipeId} selectedDay={this.props.selectedDay}/>
                     )
                 })}
         </main>
