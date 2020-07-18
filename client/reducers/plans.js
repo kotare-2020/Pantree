@@ -6,13 +6,13 @@ import {
 } from "../actions/plan"
 
 const initialState = [
-  { dayNumber: 1, recipes: []},
-  { dayNumber: 2, recipes: []},
-  { dayNumber: 3, recipes: []},
-  { dayNumber: 4, recipes: []},
-  { dayNumber: 5, recipes: []},
-  { dayNumber: 6, recipes: []},
-  { dayNumber: 7, recipes: []},
+  // { dayNumber: 1, recipes: []},
+  // { dayNumber: 2, recipes: []},
+  // { dayNumber: 3, recipes: []},
+  // { dayNumber: 4, recipes: []},
+  // { dayNumber: 5, recipes: []},
+  // { dayNumber: 6, recipes: []},
+  // { dayNumber: 7, recipes: []},
 ]
 
 // action.plan
@@ -35,13 +35,15 @@ const initialState = [
 const reducer = (state = initialState, action) => {
   switch(action.type){
     case GET_PLAN:
-
+      console.log(state)
+      console.log(action)
+      if(action.id == state.id){
       //   { dayNumber: 4, recipes:[]},
       // action.plan.map(day => {
 
       // })
       return action.plan
-
+    }
 
       // return state.map((day,i) => {
       //   let exists = Object.values(action.plan[i]).includes(day.dayNumber)
@@ -60,6 +62,15 @@ const reducer = (state = initialState, action) => {
       return action.plan
 
     case UPDATE_DAY_RECIPE:
+      let daySelected = state.find(element => element.dayNumber == action.selectedDay)
+
+      if (daySelected == undefined) {
+        state.push({
+          dayNumber: action.selectedDay,
+          recipes: []
+        })
+      }
+
       return state.map(day => {
         if(day.dayNumber == action.selectedDay) {
           console.log('state day' , day.dayNumber)
