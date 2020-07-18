@@ -20,3 +20,9 @@ export function getPlanIdByUserId(userId) {
     .get(`${plansUrl}/plans/${userId}`)
     .then(response => response.body)
 }
+
+export function createPlanApi(userId) {
+  return request
+    .post(`${plansUrl}/${userId}`)
+    .then(response => response.body)
+}

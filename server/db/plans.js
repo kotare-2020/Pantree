@@ -1,9 +1,8 @@
 const connection = require("./connection")
 
-function createPlan(user_id, plan, db = connection) {
+function createPlan(newPlan, db = connection) {
   return db("plans")
-  .where("user_id", user_id)
-  .insert(plan)
+  .insert(newPlan)
 }
 
 function editPlan(id, plan, db = connection) {
