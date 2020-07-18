@@ -44,7 +44,7 @@ class Register extends React.Component {
             <input required placeholder="Password" type="password" name="password"  autoComplete="new-password" onChange={this.handleChange} value={this.state.password}/>
           </label>
           
-          <label>Confirm passworreturn login(creds)d
+          <label>Confirm password
             <input required placeholder="Confirm password" type="password" name="confirm_password" autoComplete="new-password" onChange={this.handleChange} value={this.state.confirm_password}/>
           </label>
         </div>
