@@ -15,7 +15,6 @@ module.exports = {
       DEBUG: false
     }),
   ],
-  // mode: 'development',
   module: {
     rules: [{
       test: /\.jsx?$/,
