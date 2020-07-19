@@ -6,7 +6,7 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('recipes').insert([
         {
-          id: 1, name: 'Beef stew', image: 'https://s23209.pcdn.co/wp-content/uploads/2020/03/Best-Ever-Beef-StewIMG_1367.jpg', method: JSON.stringify([
+          id: 1, name: 'Beef stew', image: 'https://www.eatwell101.com/wp-content/uploads/2017/10/crock-pot-beef-stew-recipe.jpg', method: JSON.stringify([
             'Heat olive oil in a large stockpot or Dutch oven over medium heat. Season steak with 1 teaspoon salt and 1/2 teaspoon pepper. Working in batches, add steak to the stockpot and cook, stirring occasionally, until evenly browned, about 6-8 minutes; set aside.',
             'Add onion, carrots and celery. Cook, stirring occasionally, until tender, about 3-4 minutes.',
             'Add garlic and mushrooms, and cook, stirring occasionally, until tender and browned, about 3-4 minutes.',

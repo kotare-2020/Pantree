@@ -38,9 +38,10 @@ class RecipeView extends React.Component {
                     <main className="container">
                         <div className="row">
                             <div className="col s8 push-s2">
-                                <h1 className="center-align">{selectedRecipe.recipeName}</h1>
-                                <img className="center-align" src={selectedRecipe.image} alt={`image of ${selectedRecipe.recipeName}`} width="600px" height="500px" />
-
+                                <div className="center-align">
+                                    <h1>{selectedRecipe.recipeName}</h1>
+                                    <img src={selectedRecipe.image} alt={`image of ${selectedRecipe.recipeName}`} width="600px" height="450px" />
+                                </div>
                                 <h5>Ingredients:</h5>
                                 <ul>
                                     {selectedRecipe.ingredients.map((ingredient, i) => {

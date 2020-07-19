@@ -21,21 +21,20 @@ class RecipeThumbnail extends React.Component {
         const recipe = this.props
 
         return (
-            <div className="row">
-                <div className="col s12 m12">
+                <div className="col s4 m4">
                     <div className="card large hoverable">
                         <div className="card-image">
-                            <img src={recipe.image} alt={`Photo of ${recipe.name}`} width="150px" height="600px" />
+                            <img src={recipe.image} alt={`Photo of ${recipe.name}`} height="230px" />
                         </div>
-                        <div className="card-content center-align">
-                            <h3>{recipe.name}</h3>
+                        <div className="card-title center-align">
+                            <h4>{recipe.name}</h4>
                         </div>
                         <div className="card-action center-align">
                             <Link to="/plan">
                                 <button className="waves-effect waves-light btn" onClick={this.handleAdd}>Add to Day {recipe.selectedDay}</button>
                             </Link>
                             <Link to={`/recipes/${recipe.id}`}>
-                                <button className="waves-effect waves-light btn">View Recipe</button>
+                                <button className="waves-effect waves-light btn space-around">View Recipe</button>
                             </Link>
                             <Link to="/plan">
                                 <button className="waves-effect waves-light btn">Back to Plan</button>
@@ -43,7 +42,6 @@ class RecipeThumbnail extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
         )
     }
 }
