@@ -14,12 +14,16 @@
   padding-top: 25vh;
 }
 
+.plan-container {
+  margin: 5% 5%;
+}
+
 .plan {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1;
   justify-items: stretch;
-  min-height: calc(100vh - 64px - 22px)
+  min-height: calc(80vh - 64px - 22px)
 }
 
 .plan-column {

@@ -27,7 +27,7 @@ handleClick=()=>{
     const plans = this.props.plans
 
     return (
-      <>
+      <div className="plan-container">
         {auth.isAuthenticated ? (
           <>
             <div className="plan">{this.generateColumns()}</div>
@@ -36,7 +36,7 @@ handleClick=()=>{
         ) : (
           <Redirect to="/" />
         )}
-      </>
+      </div>
     )
   }
 }
