@@ -6,27 +6,32 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: path.join(__dirname, 'server/public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
-  mode: "production",
+  mode: 'production',
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
-      DEBUG: false
+      DEBUG: false,
     }),
   ],
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      loader: 'babel-loader',
-      exclude: /node_modules/
-    }]
+    rules: [
+      {
+        test: /\.jsx?$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/,
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
   devtool: 'source-map',
+  performance: {
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false, // hide warnings about excessive bundle size unless the env is prod. It doesn't matter so much for dev
+  },
   devServer: {
-    contentBase: './server/public'
-  }
+    contentBase: './server/public',
+  },
 }
