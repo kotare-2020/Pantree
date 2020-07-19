@@ -31,6 +31,10 @@
   padding: 5px
 }
 
+.space-around {
+  margin: 1.5rem;
+}
+
 @media only screen and (min-width: 1050px) {
   .container .shoppinglist{
       width: 50%;
