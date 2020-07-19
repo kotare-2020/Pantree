@@ -10,12 +10,34 @@ router.get('/', (req, res) => {
         .then(recipes => {
             res.json(recipes)
         })
+        .catch(err => {
+            res.status(500).send('cannot get recipes')
+            console.log(err)
+        })
 })
 
 router.get('/:recipeId', (req, res) => {
     db.getRecipeAndIngredientsById(req.params.recipeId)
         .then(recipe => {
             res.json(recipe)
+        })
+        .catch(err => {
+            res.status(500).send('cannot get this recipe by id')
+            console.log(err)
+        })
+})
+
+router.post('/', (req, res) => {
+    db.addRecipe(req.body)
+        .then(() => {
+            return db.getRecipes()
+        })
+        .then(recipe => {
+            res.json(recipe)
+        })
+        .catch(err => {
+            res.status(500).send('cannot add recipe')
+            console.log(err)
         })
 })
 

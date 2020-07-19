@@ -1,9 +1,9 @@
 const connection = require('./connection')
 
+
 function getRecipes(db = connection) {
     return db('recipes').select('id as recipeId', 'name as recipeName', 'image')
 }
-
 
 function getRecipeAndIngredientsById(id, db = connection) {
     return db('recipes')
@@ -44,7 +44,12 @@ function getRecipeAndIngredientsById(id, db = connection) {
         })
 }
 
+function addRecipe(recipe, db = connection) {
+    return db('recipes').insert(recipe)
+}
+
 module.exports = {
     getRecipes,
     getRecipeAndIngredientsById,
+    addRecipe,
 }
