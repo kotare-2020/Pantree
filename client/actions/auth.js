@@ -88,7 +88,9 @@ export function registerUserRequest(creds, confirmSuccess) {
 export function checkAuth(confirmSuccess) {
   return dispatch => {
     if (isAuthenticated()) {
-      dispatch(receiveLogin(getUserTokenInfo()))
+      const userInfo = getUserTokenInfo()
+      dispatch(receiveLogin(userInfo))
+      dispatch(fetchPlan(userInfo.id))
       confirmSuccess()
     }
   }
