@@ -26,8 +26,8 @@ class RecipeThumbnail extends React.Component {
                     <div className="card-image">
                         <img src={recipe.image} alt={`Photo of ${recipe.name}`} height="240px" />
                     </div>
-                    <div className="card-content center-align">
-                        <h4>{recipe.name}</h4>
+                    <div className="card-title center-align">
+                        <h5>{recipe.name}</h5>
                     </div>
                     <div className="card-action center-align">
                         <Link to="/plan">
