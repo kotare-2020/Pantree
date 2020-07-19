@@ -54,14 +54,14 @@ const LocalSuppliers = props => {
             fruit, vegetables, milk, eggs and delicious catering to keep you
             healthy, productive and happy.
           </p>
-          <h5>Website:</h5>
-          <a href="https://urbanharvest.co.nz/">
-            <p>urbanharvest.co.nz</p>
-          </a>
           <h5>Email:</h5>
           <p>info@urbanharvest.co.nz</p>
           <h5>Phone:</h5>
           <p>021 440 487</p>
+          <h5>Website:</h5>
+          <a href="https://urbanharvest.co.nz/">
+            <p>urbanharvest.co.nz</p>
+          </a>
         </div>
 
         <div className="col s5">

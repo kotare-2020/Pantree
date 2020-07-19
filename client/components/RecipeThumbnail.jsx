@@ -9,11 +9,11 @@ class RecipeThumbnail extends React.Component {
     handleAdd = () => {
 
         const recipeDetails = {
-            recipeId: recipe.id,
-            recipeName: recipe.name
+            recipeId: this.props.id,
+            recipeName: this.props.name
         }
 
-        this.props.dispatch(addDayRecipe(recipeDetails, recipe.selectedDay))
+        this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
     }
 
     render() {
