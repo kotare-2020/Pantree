@@ -331,6 +331,17 @@ Response Body:
 }
 ```
 
+### POST recipe
+
+***POST*** /recipes
+
+Response Body:
+```js
+{
+// recipeId
+}
+```
+
 ### Get shopping list
 
 ***Get*** /shopping-list/:planId
