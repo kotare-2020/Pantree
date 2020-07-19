@@ -66,7 +66,7 @@ const reducer = (state = initialState, action) => {
             recipeUuid: uuidv4()
           }
 
-          // Update the array for the day's recipes and return it
+          // Insert the new recipe just after the original recipe
           day.recipes.splice(clonedRecipeIndex, 0, recipeBeingAdded)
           return day
         } else {
