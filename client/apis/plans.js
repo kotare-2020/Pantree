@@ -2,15 +2,15 @@ import request from 'superagent'
 
 const plansUrl = "/api/v1/plans"
 
-export function getPlanApi(id) {
+export function getPlanApi(planId) {
   return request
-  .get(`${plansUrl}/${id}`)
+  .get(`${plansUrl}/${planId}`)
   .then(response => response.body)
 }
 
-export function updatePlanApi(id, plan) {
+export function updatePlanApi(planId, plan) {
   return request
-  .patch(`${plansUrl}/${id}`)
+  .patch(`${plansUrl}/${planId}`)
   .send(plan)
   .then(response => response.body)
 }
@@ -21,3 +21,8 @@ export function getPlanIdByUserId(userId) {
     .then(response => response.body)
 }
 
+export function createPlanApi(userId) {
+  return request
+    .post(`${plansUrl}/${userId}`)
+    .then(response => response.body)
+}
