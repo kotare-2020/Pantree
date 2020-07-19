@@ -1,5 +1,4 @@
 import React from 'react'
-import { v4 as uuidv4 } from 'uuid'
 
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -15,15 +14,14 @@ class PlanColumn extends React.Component {
 
   setDayRecipes = () =>{
     const days = this.props.days
-    return days.map((day,i) => {
+    return days.map((day, i) => {
       if(day.dayNumber == this.props.dayNumber){
         return day.recipes.map((recipe, i) => {
-          return <PlanRecipeCard key={i} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe} uniqueRecipeId={uuidv4()}/>
+          return <PlanRecipeCard key={recipe.recipeUuid} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe}/>
         })
       }
     })
   }
-
 
   render(){
     return (
