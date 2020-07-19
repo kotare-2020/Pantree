@@ -20,12 +20,14 @@ class Recipes extends React.Component {
     render() {
         return (
         <main className="container">
-            <h1>Recipes</h1>           
+            <h1>Recipes</h1>
+            <div className="row">          
                 {this.props.recipes.map(recipe => {
                     return (
                         <RecipeThumbnail key={recipe.recipeId} name={recipe.recipeName} image={recipe.image} id={recipe.recipeId} selectedDay={this.props.selectedDay}/>
                     )
                 })}
+              </div>
         </main>
         )
     }
