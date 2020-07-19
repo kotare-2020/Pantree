@@ -12,8 +12,8 @@ class PlanRecipeCard extends React.Component {
   handleClone = e => {
     const selectedDayNumber = this.props.dayNumber
     const currentDayColumn = this.props.days.find(day => day.dayNumber === selectedDayNumber)
-    const recipeBeingCloned = this.props.recipe.recipeUuid
-    this.props.dispatch(cloneDayRecipe(currentDayColumn, recipeBeingCloned))
+    const recipeBeingClonedUuid = this.props.recipe.recipeUuid
+    this.props.dispatch(cloneDayRecipe(currentDayColumn, recipeBeingClonedUuid))
   }
 
   render() {

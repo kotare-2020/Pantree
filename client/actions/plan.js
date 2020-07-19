@@ -29,11 +29,11 @@ export const addDayRecipe = (recipeDetails, selectedDay) => {
   }
 }
 
-export const cloneDayRecipe = (currentDayColumn, recipeBeingCloned) => {
+export const cloneDayRecipe = (currentDayColumn, recipeBeingClonedUuid) => {
   return {
     type: CLONE_DAY_RECIPE,
     currentDayColumn: currentDayColumn,
-    recipeBeingCloned: recipeBeingCloned
+    recipeBeingClonedUuid: recipeBeingClonedUuid
   }
 }
 

@@ -56,7 +56,7 @@ const reducer = (state = initialState, action) => {
         // Select the right day
         if (day.dayNumber === action.currentDayColumn.dayNumber) {
           // Find the index and details of the recipe being cloned
-          const clonedRecipeIndex = day.recipes.findIndex(element => element.recipeUuid === action.recipeBeingCloned)
+          const clonedRecipeIndex = day.recipes.findIndex(element => element.recipeUuid === action.recipeBeingClonedUuid)
           const clonedRecipeDetails = day.recipes[clonedRecipeIndex]
 
           // Create a new object representing the recipe now being added, and give it a unique id
