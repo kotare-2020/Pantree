@@ -28,11 +28,11 @@ export const addDayRecipe = (recipeDetails, selectedDay) => {
   }
 }
 
-export const removeDayRecipe = (recipeId, selectedDay) => {
+export const removeDayRecipe = (recipeUuid, selectedDay) => {
   return {
     type: REMOVE_DAY_RECIPE,
     selectedDay: selectedDay,
-    recipeId: recipeId,
+    recipeUuid: recipeUuid,
   }
 }
 

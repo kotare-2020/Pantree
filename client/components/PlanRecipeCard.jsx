@@ -5,7 +5,7 @@ import { removeDayRecipe } from '../actions/plan'
 class PlanRecipeCard extends React.Component {
   handleClick = e => {
     this.props.dispatch(
-      removeDayRecipe(this.props.uniqueRecipeId, this.props.dayNumber)
+      removeDayRecipe(this.props.recipe.recipeUuid, this.props.dayNumber)
     )
   }
 
