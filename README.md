@@ -331,6 +331,17 @@ Response Body:
 }
 ```
 
+### POST recipe
+
+***POST*** /recipes
+
+Response Body:
+```js
+{
+// recipeId
+}
+```
+
 ### Get shopping list
 
 ***Get*** /shopping-list/:planId
@@ -435,6 +446,7 @@ Local Suppliers = '/suppliers'
   | Recipes | Recipes page |
   | RecipeThumbnail | Child of Recipes, a card showing basic details about a recipe stored in the Pantree recipe book |
   | RecipeView | A page showing a detailed view of a recipe |
+  | AddRecipe | A form for adding new recipes to recipes  |
   | ShoppingList | A page showing a users shopping list, based on their meal plan |
   | Suppliers | A page showing a list of local suppliers with sustainably sourced produce |
 
@@ -463,9 +475,10 @@ Local Suppliers = '/suppliers'
   ### recipes
  | type | data | purpose |
  | --- | --- | --- |
+ | saveRecipe | recipe |save the recipe to DB and then return all recipes and store in redux - thunk action |
  | fetchRecipes | recipes | retreive recipes from db and store in redux - thunk action |
  | SET_RECIPES | recipe | save recipes to store |
- | ~~SAVE_RECIPES~~ | ~~recipe~~ | ~~save recipes to db~~ - Stretch |
+ | ADD_RECIPE | recipe | save recipe to store |
  
  ### recipe
  | type | data | purpose |
