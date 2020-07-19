@@ -39,7 +39,7 @@ class RecipeView extends React.Component {
                         <div className="row">
                             <div className="col s8 push-s2">
                                 <div className="center-align">
-                                    <h1>{selectedRecipe.recipeName}</h1>
+                                    <h3>{selectedRecipe.recipeName}</h3>
                                     <img src={selectedRecipe.image} alt={`image of ${selectedRecipe.recipeName}`} width="600px" height="450px" />
                                 </div>
                                 <h5>Ingredients:</h5>
