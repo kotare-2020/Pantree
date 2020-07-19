@@ -17,18 +17,20 @@ class Recipes extends React.Component {
     this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
   }
 
-    render() {
-        return (
-        <main className="container">
-            <h1>Recipes</h1>           
-                {this.props.recipes.map(recipe => {
-                    return (
-                        <RecipeThumbnail key={recipe.recipeId} name={recipe.recipeName} image={recipe.image} id={recipe.recipeId} selectedDay={this.props.selectedDay}/>
-                    )
-                })}
-        </main>
-        )
-    }
+  render() {
+    return (
+      <main className="container center-align">
+        <h1>Recipes</h1>
+        <div className="row">
+          {this.props.recipes.map(recipe => {
+            return (
+              <RecipeThumbnail key={recipe.recipeId} name={recipe.recipeName} image={recipe.image} id={recipe.recipeId} selectedDay={this.props.selectedDay} />
+            )
+          })}
+        </div>
+      </main>
+    )
+  }
 }
 
 function mapStateToProps(globalState) {
