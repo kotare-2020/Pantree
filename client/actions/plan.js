@@ -2,6 +2,7 @@ export const GET_PLAN = 'GET_PLAN'
 export const SET_PLAN = 'SET_PLAN'
 export const UPDATE_DAY_RECIPE = 'UPDATE_DAY_RECIPE'
 export const REMOVE_DAY_RECIPE = 'REMOVE_DAY_RECIPE'
+export const CLONE_DAY_RECIPE = 'CLONE_DAY_RECIPE'
 
 import { updatePlanApi, getPlanApi, getPlanIdByUserId, createPlanApi } from '../apis/plans'
 
@@ -25,6 +26,14 @@ export const addDayRecipe = (recipeDetails, selectedDay) => {
     type: UPDATE_DAY_RECIPE,
     recipeDetails: recipeDetails,
     selectedDay: selectedDay,
+  }
+}
+
+export const cloneDayRecipe = (currentDayColumn, recipeBeingCloned) => {
+  return {
+    type: CLONE_DAY_RECIPE,
+    currentDayColumn: currentDayColumn,
+    recipeBeingCloned: recipeBeingCloned
   }
 }
 
