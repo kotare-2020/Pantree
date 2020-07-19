@@ -446,7 +446,7 @@ Local Suppliers = '/suppliers'
   | Recipes | Recipes page |
   | RecipeThumbnail | Child of Recipes, a card showing basic details about a recipe stored in the Pantree recipe book |
   | RecipeView | A page showing a detailed view of a recipe |
-  | AddRecipe | A form for adding new recipes to catalogue  |
+  | AddRecipe | A form for adding new recipes to recipes  |
   | ShoppingList | A page showing a users shopping list, based on their meal plan |
   | Suppliers | A page showing a list of local suppliers with sustainably sourced produce |
 
