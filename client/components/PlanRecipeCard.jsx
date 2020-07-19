@@ -15,6 +15,7 @@ class PlanRecipeCard extends React.Component {
         <div className="recipe-card">
           <h3>{this.props.recipe.recipeName}</h3>
           <button onClick={this.handleClick}>Remove</button>
+      
         </div>
       </>
     )

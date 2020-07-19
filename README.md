@@ -460,6 +460,7 @@ Local Suppliers = '/suppliers'
  | SAVE_PLAN | plan | save plan to db | 
  | UPDATE_DAY_RECIPE | recipeId/SelectedDay | add selected recipeId/selectedDay from globalState | 
  | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
+ | MOVE_RECIPE_CARD_DOWN | clickedRecipeId & selectedDay? | increase index of recipe in plans array by one |
 
  ### loading
  | type | data | purpose |
