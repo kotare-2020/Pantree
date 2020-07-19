@@ -37,9 +37,9 @@ class RecipeView extends React.Component {
 
                     <main className="container">
                         <div className="row">
-                            <div className="col s6 push-s3">
+                            <div className="col s8 push-s2">
                                 <h1 className="center-align">{selectedRecipe.recipeName}</h1>
-                                <img className="center-align" src={selectedRecipe.image} alt={`image of ${selectedRecipe.recipeName}`} width="435px" height="550px" />
+                                <img className="center-align" src={selectedRecipe.image} alt={`image of ${selectedRecipe.recipeName}`} width="600px" height="500px" />
 
                                 <h5>Ingredients:</h5>
                                 <ul>
@@ -60,7 +60,7 @@ class RecipeView extends React.Component {
 
                                 <div className="card-action center-align">
                                     <Link to="/plan">
-                                        <button className="waves-effect waves-light btn space-around" onClick={this.handleAdd}>Add to Plan</button>
+                                        <button className="waves-effect waves-light btn space-around" onClick={this.handleAdd}>Add to Day {this.props.selectedDay}</button>
                                     </Link>
                                     <Link to="/recipes">
                                         <button className="waves-effect waves-light btn space-around">Back to Recipes</button>

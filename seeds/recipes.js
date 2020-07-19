@@ -17,7 +17,7 @@ exports.seed = function(knex) {
           ])
         },
         {
-          id: 2, name: 'Pancakes', image: 'https://www.chelsea.co.nz/files/cache/f991429e1ed98f61866577881872e20a_f2123.jpg', method: JSON.stringify([
+          id: 2, name: 'Pancakes', image: 'https://media.eggs.ca/assets/RecipePhotos/_resampled/FillWyIxMjgwIiwiNzIwIl0/Fluffy-Pancakes-New-CMS.jpg', method: JSON.stringify([
             'Sift the Edmonds Self Raising Flour and Chelsea White Sugar into a bowl. Make a well in the centre of the dry ingredients.', 'Add the lemon zest, Meadow Fresh Milk, egg and melted Tararua Butter/margarine and whisk to combine. Heat a large non stick frying pan over medium low heat and grease lightly with Tararua Butter or oil.',
             'For each pancake, place 2 tablespoons of batter into the pan. Cook for 2 minutes or until bubbles form on the surface. Turn and cook for a further 1 to 2 minutes or until the pancakes are cooked through.',
             
@@ -25,7 +25,7 @@ exports.seed = function(knex) {
           ])
         },
         {
-          id: 3, name: 'Pumpkin Soup', image: 'https://www.recipetineats.com/wp-content/uploads/2017/10/Pumpkin-Soup-2.jpg?resize=650,910', method: JSON.stringify([
+          id: 3, name: 'Pumpkin Soup', image: 'http://media.cookingandbeer.com/pumpkincurrysoup5.jpg', method: JSON.stringify([
             `Cut the pumpkin into 3cm / 2.25" slices. Cut the skin off and scrape seeds out (video is helpful). Cut into 4cm / 1.5" chunks.`,
             "Place the pumpkin, onion, garlic, broth and water in a pot - liquid won't quite cover all the pumpkin. Bring to a boil, uncovered, then reduce heat and let simmer rapidly until pumpkin is tender (check with butter knife) - about 10 minutes.",
             "Remove from heat and use a stick blender to blend until smooth (Note 3 for blender).",

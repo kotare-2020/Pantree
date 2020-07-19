@@ -19,7 +19,7 @@ class Recipes extends React.Component {
 
     render() {
         return (
-        <main className="container">
+        <main className="container center-align">
             <h1>Recipes</h1>           
                 {this.props.recipes.map(recipe => {
                     return (
