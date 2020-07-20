@@ -48,9 +48,13 @@ body {
   width:auto;
   height: auto;
   display: flex;
-  border: solid 1px black;
+  border-left: solid 1px lightgrey;
   flex-direction: column;
-  padding: 5px
+  padding: 10px
+}
+
+.plan-column-right-border {
+  border-right: solid 1px lightgrey;
 }
 
 .space-around {

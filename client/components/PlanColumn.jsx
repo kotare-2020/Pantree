@@ -32,7 +32,6 @@ class PlanColumn extends React.Component {
         <h3>{this.dayOfWeek[this.props.dayNumber-1]}</h3>
         {this.setDayRecipes()}
         <Link to='/recipes'><button className="waves-effect add-btn waves-light btn" onClick={this.handleClick}>Add</button></Link>
-
       </div>
       </>
     )
