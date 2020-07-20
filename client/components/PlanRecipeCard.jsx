@@ -35,20 +35,22 @@ class PlanRecipeCard extends React.Component {
     return (
       <>
         <div className="card card-container">
+ 
+          
           <div className="delete-container">
-            <i className=" delete material-icons clickable-icon" onClick={this.handleClick}>delete</i>
+          <i onClick={this.handleClone} className="xs-icon material-icons clickable-icon teal-text">content_copy</i>
+            <i className="xs-icon material-icons clickable-icon teal-text" onClick={this.handleClick}>delete</i>
+            {/* <a class="btn-floating btn-small waves-effect waves-light teal-text"><i class="material-icons">delete</i></a> */}
+
           </div>
-          <i onClick={this.handleClone} className="tiny material-icons clickable-icon">content_copy</i>
+         
           <span className="card-title">{this.props.recipe.recipeName}</span>
 
           <div className="arrow-container ">
 
-
             <div className="container-arrow-left-right">
               <i onClick={this.handleClickUp} className="tiny material-icons clickable-icon">keyboard_arrow_left</i>
-
               <i className="tiny material-icons clickable-icon" onClick={this.handleClickDown}>keyboard_arrow_right</i>
-              
             </div>
 
             <div className="container-arrow-up-down">

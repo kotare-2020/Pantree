@@ -48,26 +48,27 @@
 .delete-container{
   display: inline-block;
   position: absolute;
-  right: 0;
+  right: 5px;
 }
 
-.delete {
+.xs-icon {
   font-size:20px;
-  border: none;
+  padding: 2px;
 }
 
 .card-container {
-  height: 7rem;
   position: relative;
+  padding: 5px;
 }
 
 .arrow-container{
   display: flex;
   justify-content: space-between;
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   left: 0;
   right: 0;
+  height: 5rem;
 }
 
 .container-arrow-left-right{
@@ -80,12 +81,14 @@
 .container-arrow-up-down{
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content:flex-end;
   align-items: center;
   width: fit-content;
- 
 }
 
+.add-btn {
+  width: 100%;
+}
 
 
 
