@@ -45,31 +45,33 @@ class PlanRecipeCard extends React.Component {
   render() {
     return (
       <>
-        <div className="card">
+        <div className="card card-container">
           <div className="delete-container">
-            <i className=" delete material-icons clickable-icon" onClick={this.handleClick}>delete</i>
+            <i className="xs-icon material-icons clickable-icon" onClick={this.handleClone}>content_copy</i>
+            <i className="xs-icon material-icons clickable-icon delete" onClick={this.handleClick}>delete</i>
           </div>
-          <i onClick={this.handleClone} className="tiny material-icons clickable-icon">content_copy</i>
           <span className="card-title">{this.props.recipe.recipeName}</span>
-          <div className="container-arrow-up-down">
-            <div className=""><i className="tiny material-icons clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
+
+          <div className="arrow-container">
+            <div className="container-arrow-left-right">
+              {this.props.dayNumber != 1
+                ?
+                <i className="tiny material-icons clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
+                :
+                <i className="tiny material-icons hidden-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
+              }
+              {this.props.dayNumber != 7
+                ?
+                <i className="tiny material-icons clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i>
+                :
+                <i className="tiny material-icons hidden-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
+              }
             </div>
-            <div className=""><i className="tiny material-icons clickable-icon " onClick={this.handleClickDown}>keyboard_arrow_down</i></div>
-          </div>
-          <div className="container-arrow-left-right">
 
-            {this.props.dayNumber != 1 
-            ?
-              <div><i className="tiny material-icons clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i></div>
-            : 
-              <div></div>}
-
-            {this.props.dayNumber != 7
-            ?
-              <div><i className="tiny material-icons clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i></div>
-            :
-              <div></div>
-            }
+            <div className="container-arrow-up-down">
+              <i className="tiny material-icons clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
+              <i className="tiny material-icons clickable-icon " onClick={this.handleClickDown}>keyboard_arrow_down</i>
+            </div>
 
           </div>
         </div>
