@@ -19,7 +19,7 @@ class Landing extends React.Component {
     }
 
     componentDidMount = () => {
-        document.body.style.backgroundImage = 'linear-gradient(120deg, #b9f6caa1 50%, white 50%)';
+        document.body.style.backgroundImage = 'linear-gradient(120deg, rgba(2,101,139,1) 0%, rgba(90,206,163,1) 50%, rgba(255,255,255,1) 50.1%, rgba(255,255,255,1) 100%)'
         document.body.style.height = '100vh';
 
         const confirmSuccess = () => { }

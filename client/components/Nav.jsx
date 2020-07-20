@@ -8,7 +8,7 @@ const Nav = props => {
   return (
     <div className="navbar-fixed">
       <nav>
-        <div className="nav-wrapper green darken-2">
+        <div className="nav-wrapper teal darken-1">
           <a href="/" className="brand-logo left">
             <img className="brand-logo left brand-navbar"src="/images/brand/pantree-logo.svg" />
           </a>
