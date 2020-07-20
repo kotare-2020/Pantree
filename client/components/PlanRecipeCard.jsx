@@ -10,6 +10,7 @@ class PlanRecipeCard extends React.Component {
 
   componentDidMount() {
     this.determineIfLastColumnRecipe()
+    console.log(this.props.recipe)
   }
 
   determineIfLastColumnRecipe = () => {
