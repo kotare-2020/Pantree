@@ -3,6 +3,8 @@ import RecipeThumbnail from './RecipeThumbnail'
 import { connect } from 'react-redux'
 import { fetchRecipes } from '../actions/recipes'
 import AddRecipe from './AddRecipe'
+import AddIngredients from './AddIngredients'
+import AddRecipeIngredient from './AddRecipeIngredient'
 // import { removeDayRecipe } from '../actions/plan'
 
 class Recipes extends React.Component {
@@ -22,7 +24,11 @@ class Recipes extends React.Component {
     return (
       <main className="container center-align">
         <h1>Recipes</h1>
-        <AddRecipe/>
+        <div className="new-recipe">
+          <AddIngredients/>
+          <AddRecipe/>
+          <AddRecipeIngredient/>
+        </div>
         <div className="row">
           {this.props.recipes.map(recipe => {
             return (

@@ -29,7 +29,7 @@ class AddRecipe extends React.Component {
                     
                     <label>Image URL : </label>
                     <input type="text" name="image" onChange={this.handleChange}/>
-                    
+
                     <label>Method : </label>
                     <input type="text" name="method" onChange={this.handleChange}/>
 
