@@ -1,7 +1,7 @@
 import { getRecipes, addRecipe } from '../apis/recipes'
 
 export const SET_RECIPES = 'SET_RECIPES'
-export const ADD_RECIPE = 'ADD_RECIPE'
+// export const ADD_RECIPE = 'ADD_RECIPE'
 
 // export function addRecipe (recipe) {
 //     return {
