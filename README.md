@@ -486,7 +486,8 @@ Local Suppliers = '/suppliers'
  | type | data | purpose |
  | --- | --- | --- |
  | SET_DAY | selected_day | set specific day to add recipe to |
- 
+ | CLEAR_DAY |  | set selected day to NUll (initialSate) |
+
   ### recipes
  | type | data | purpose |
  | --- | --- | --- |

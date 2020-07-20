@@ -1,7 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import { removeDayRecipe, moveRecipeCardDown, moveRecipeCardUp, moveRecipeCardLeft, moveRecipeCardRight, cloneDayRecipe } from '../actions/plan'
+
+import { clearSelectedDay } from '../actions/selectedDay'
+import { Link } from 'react-router-dom'
+
+
+
 
 class PlanRecipeCard extends React.Component {
   handleClick = e => {
@@ -42,7 +47,17 @@ class PlanRecipeCard extends React.Component {
     this.props.dispatch(cloneDayRecipe(currentDayColumn, recipeBeingClonedUuid))
   }
 
+  handleClickTitle = () => {
+    this.props.dispatch(clearSelectedDay())
+      // .then(() => {
+    // return   this.props.history.push(`/recipes/${this.props.recipe.recipeId}`)
+      // })
+
+  }
+
   render() {
+
+
     return (
       <>
         <div className="card card-container">
@@ -50,7 +65,8 @@ class PlanRecipeCard extends React.Component {
             <i className="xs-icon material-icons clickable-icon" onClick={this.handleClone}>content_copy</i>
             <i className="xs-icon material-icons clickable-icon delete" onClick={this.handleClick}>delete</i>
           </div>
-          <span className="card-title">{this.props.recipe.recipeName}</span>
+
+          <Link  to={`/recipes/${this.props.recipe.recipeId}`} onClick={this.handleClickTitle} ><span className="card-title">{this.props.recipe.recipeName}</span></Link>
 
           <div className="arrow-container">
             <div className="container-arrow-left-right">
