@@ -475,6 +475,7 @@ Local Suppliers = '/suppliers'
  | SAVE_PLAN | plan | save plan to db | 
  | UPDATE_DAY_RECIPE | recipeId/SelectedDay | add selected recipeId/selectedDay from globalState | 
  | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
+ | CLONE_DAY_RECIPE | column of day, uuid of recipe being cloned | clone a recipe in globalState |
 
  ### loading
  | type | data | purpose |

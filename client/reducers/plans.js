@@ -3,6 +3,7 @@ import {
   SET_PLAN,
   UPDATE_DAY_RECIPE,
   REMOVE_DAY_RECIPE,
+  CLONE_DAY_RECIPE
 } from '../actions/plan'
 
 import { v4 as uuidv4 } from 'uuid'
@@ -48,6 +49,29 @@ const reducer = (state = initialState, action) => {
           day.recipes.push(action.recipeDetails)
           return day
         } else return day
+      })
+
+    case CLONE_DAY_RECIPE:
+      return state.map(day => {
+        // Select the right day
+        if (day.dayNumber === action.currentDayColumn.dayNumber) {
+          // Find the index and details of the recipe being cloned
+          const clonedRecipeIndex = day.recipes.findIndex(element => element.recipeUuid === action.recipeBeingClonedUuid)
+          const clonedRecipeDetails = day.recipes[clonedRecipeIndex]
+
+          // Create a new object representing the recipe now being added, and give it a unique id
+          let recipeBeingAdded = {
+            recipeId: clonedRecipeDetails.recipeId,
+            recipeName: clonedRecipeDetails.recipeName,
+            recipeUuid: uuidv4()
+          }
+
+          // Insert the new recipe just after the original recipe
+          day.recipes.splice(clonedRecipeIndex, 0, recipeBeingAdded)
+          return day
+        } else {
+          return day
+        }
       })
 
     case REMOVE_DAY_RECIPE:
