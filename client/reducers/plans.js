@@ -3,6 +3,10 @@ import {
   SET_PLAN,
   UPDATE_DAY_RECIPE,
   REMOVE_DAY_RECIPE,
+  MOVE_RECIPE_CARD_DOWN,
+  MOVE_RECIPE_CARD_UP,
+
+  CLONE_DAY_RECIPE
 } from '../actions/plan'
 
 import { v4 as uuidv4 } from 'uuid'
@@ -50,6 +54,29 @@ const reducer = (state = initialState, action) => {
         } else return day
       })
 
+    case CLONE_DAY_RECIPE:
+      return state.map(day => {
+        // Select the right day
+        if (day.dayNumber === action.currentDayColumn.dayNumber) {
+          // Find the index and details of the recipe being cloned
+          const clonedRecipeIndex = day.recipes.findIndex(element => element.recipeUuid === action.recipeBeingClonedUuid)
+          const clonedRecipeDetails = day.recipes[clonedRecipeIndex]
+
+          // Create a new object representing the recipe now being added, and give it a unique id
+          let recipeBeingAdded = {
+            recipeId: clonedRecipeDetails.recipeId,
+            recipeName: clonedRecipeDetails.recipeName,
+            recipeUuid: uuidv4()
+          }
+
+          // Insert the new recipe just after the original recipe
+          day.recipes.splice(clonedRecipeIndex, 0, recipeBeingAdded)
+          return day
+        } else {
+          return day
+        }
+      })
+
     case REMOVE_DAY_RECIPE:
       return state.map(days => {
         if (days.dayNumber == action.selectedDay) {
@@ -59,9 +86,47 @@ const reducer = (state = initialState, action) => {
           return days
         } else return days
       })
+
+      case MOVE_RECIPE_CARD_DOWN:
+        return state.map(day => {
+          if (day.dayNumber == action.selectedDay) {
+            let index = 0
+            for(let i=0; i < day.recipes.length; i++) {
+              if(day.recipes[i].recipeUuid == action.recipeUuid){
+                index = i
+              }
+            }
+            const newIndex = index + 1
+            if (newIndex < 0 || newIndex == day.recipes.length) return day; //Already at the top or bottom.
+            let indexes = [index, newIndex].sort((a, b) => a - b)
+            day.recipes.splice(indexes[0], 2, day.recipes[indexes[1]], day.recipes[indexes[0]])
+            return day
+          } else return day
+        })
+       
+        case MOVE_RECIPE_CARD_UP:
+          return state.map(day => {
+            if (day.dayNumber == action.selectedDay) {  
+              let index = 0
+              for(let i=0; i < day.recipes.length; i++) {
+                
+                if(day.recipes[i].recipeUuid == action.recipeUuid){
+                  index = i
+                }
+              }
+              const newIndex = index -1
+              if (newIndex < 0 || newIndex == day.recipes.length) return day; //Already at the top or bottom.
+              let indexes = [index, newIndex].sort((a, b) => a - b)
+              day.recipes.splice(indexes[0], 2, day.recipes[indexes[1]], day.recipes[indexes[0]])
+              return day
+            } else return day
+          })
+
     default:
       return state
   }
 }
 
 export default reducer
+
+

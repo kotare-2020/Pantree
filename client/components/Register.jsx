@@ -21,7 +21,6 @@ class Register extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    e.target.reset()
     let { username, password, confirm_password } = this.state
     if (confirm_password != password)
       return this.props.dispatch(loginError("Passwords don't match"))
@@ -40,57 +39,59 @@ class Register extends React.Component {
   render() {
     const { auth } = this.props
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h1>Register</h1>
-        <hr />
+      <>
+        <h4>Create a new account</h4>
         {auth.errorMessage && <span>{auth.errorMessage}</span>}
         <label>
           Username
           <input
             required
-            placeholder='Email'
-            type='text'
-            name='username'
-            autoComplete='username'
+            placeholder="Email"
+            type="text"
+            name="username"
+            autoComplete="username"
             onChange={this.handleChange}
             value={this.state.username}
           />
         </label>
-        <br />
-        <div>
-          <label>
-            Password
-            <input
-              required
-              placeholder='Password'
-              type='password'
-              name='password'
-              autoComplete='new-password'
-              onChange={this.handleChange}
-              value={this.state.password}
-            />
-          </label>
+        <label>
+          Password
+          <input
+            required
+            placeholder="Password"
+            type="password"
+            name="password"
+            autoComplete="new-password"
+            onChange={this.handleChange}
+            value={this.state.password}
+          />
+        </label>
 
-          <label>
-            Confirm password
-            <input
-              required
-              placeholder='Confirm password'
-              type='password'
-              name='confirm_password'
-              autoComplete='new-password'
-              onChange={this.handleChange}
-              value={this.state.confirm_password}
-            />
-          </label>
-        </div>
-        <input value='Register' type='submit' />
-        <br />
-        <br />
-        <button value='signIn' onClick={this.props.changeComponentView}>
-          Or, sign in
+        <label>
+          Confirm password
+          <input
+            required
+            placeholder="Confirm password"
+            type="password"
+            name="confirm_password"
+            autoComplete="new-password"
+            onChange={this.handleChange}
+            value={this.state.confirm_password}
+          />
+        </label>
+        <button
+          className="landing-button waves-effect waves-light btn"
+          onClick={this.handleSubmit}
+        >
+          Sign up
         </button>
-      </form>
+        <button
+          className="landing-button waves-effect waves-light btn"
+          onClick={this.props.changeComponentView}
+        >
+          Back to sign in
+        </button>
+      </>
     )
   }
 }

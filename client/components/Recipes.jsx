@@ -23,7 +23,7 @@ class Recipes extends React.Component {
   render() {
     return (
       <main className="container center-align">
-        <h1>Recipes</h1>
+        <h3>Recipes</h3>
         <div className="new-recipe">
           <AddRecipe/>
           <AddIngredients/>
