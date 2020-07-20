@@ -1,8 +1,7 @@
-import React from "react"
-import { HashRouter as Redirect } from "react-router-dom"
-import { connect } from "react-redux"
-import {savePlan} from "../actions/plan"
-
+import React from 'react'
+import { HashRouter as Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { savePlan } from '../actions/plan'
 
 import PlanColumn from './PlanColumn'
 
@@ -15,11 +14,10 @@ class Plan extends React.Component {
     return columns
   }
 
-  
-handleClick=()=>{
- 
-   const userId = this.props.auth.user.id
-   this.props.dispatch(savePlan(userId, this.props.plans))
+  handleClick = () => {
+    const userId = this.props.auth.user.id
+    this.props.dispatch(savePlan(userId, this.props.plans))
+    M.toast({html: '<span><i class="tiny material-icons">thumb_up</i> Done!</span>'})
   }
 
   render() {
@@ -27,14 +25,23 @@ handleClick=()=>{
     const plans = this.props.plans
 
     return (
-      <div className="plan-container">
+      <div className='plan-container'>
         {auth.isAuthenticated ? (
           <>
-            <div className="plan">{this.generateColumns()}</div>
-            <button onClick={this.handleClick}>Save Plan</button>
+            <div className='plan-header'>
+              <span className='left'>My plan</span>
+              <button
+                onClick={this.handleClick}
+                className='btn waves-effect waves-light btn-large right'>
+                Save plan
+                <i className='material-icons left'>save</i>
+              </button>
+            </div>
+            <div id="clear-float"></div>
+            <div className='plan'>{this.generateColumns()}</div>
           </>
         ) : (
-          <Redirect to="/" />
+          <Redirect to='/' />
         )}
       </div>
     )

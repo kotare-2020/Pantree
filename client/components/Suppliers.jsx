@@ -3,7 +3,7 @@ import React from 'react'
 const LocalSuppliers = props => {
   return (
     <section className="container">
-      <h1>Local Suppliers</h1>
+      <h3>Local suppliers</h3>
       <div className="row">
         <div className="col s5">
           <h4>
