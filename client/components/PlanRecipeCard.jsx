@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 
 import { removeDayRecipe, moveRecipeCardDown, moveRecipeCardUp, moveRecipeCardLeft, moveRecipeCardRight, cloneDayRecipe } from '../actions/plan'
 
-
-
 class PlanRecipeCard extends React.Component {
   handleClick = e => {
     this.props.dispatch(
@@ -12,23 +10,16 @@ class PlanRecipeCard extends React.Component {
     )
   }
 
-  handleLeftOrRight = e => {
-    switch (e.target.innerHTML) {
-      case "keyboard_arrow_left":
-        this.props.dispatch(
-          moveRecipeCardLeft(this.props.dayNumber, this.props.recipe)
-        )
-        break
+  handleClickLeft = () => {
+    this.props.dispatch(
+      moveRecipeCardLeft(this.props.dayNumber, this.props.recipe)
+    )
+  }
 
-      // case "keyboard_arrow_right":
-      //   this.props.dispatch(
-      //     moveRecipeCardRight(this.props.plans, this.props.dayNumber, this.props.recipe.recipeUuid)
-      //   )
-      //   break
-
-      default:
-        break
-    }
+  handleClickRight = () => {
+    this.props.dispatch(
+      moveRecipeCardRight(this.props.dayNumber, this.props.recipe)
+    )
   }
 
   handleClickDown = () => {
@@ -69,17 +60,17 @@ class PlanRecipeCard extends React.Component {
 
             {this.props.dayNumber != 1 
             ?
-              <div><i className="tiny material-icons clickable-icon" onClick={this.handleLeftOrRight} >keyboard_arrow_left</i></div>
+              <div><i className="tiny material-icons clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i></div>
             : 
               <div></div>}
 
             {this.props.dayNumber != 7
             ?
-              <div><i className="tiny material-icons clickable-icon" onClick={this.handleLeftOrRight}>keyboard_arrow_right</i></div>
+              <div><i className="tiny material-icons clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i></div>
             :
               <div></div>
             }
-            
+
           </div>
         </div>
       </>

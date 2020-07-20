@@ -49,14 +49,13 @@ export const moveRecipeCardLeft = (currentDayNumber, recipeBeingMoved) => {
   }
 }
 
-// export const moveRecipeCardRight = (currentDayNumber, recipeBeingMovedUuid) => {
-//   return {
-//     type: MOVE_DAY_RECIPE_RIGHT,
-//     plans: plans,
-//     currentDayNumber: currentDayNumber,
-//     recipeBeingMovedUuid: recipeBeingMovedUuid
-//   }
-// }
+export const moveRecipeCardRight = (currentDayNumber, recipeBeingMoved) => {
+  return {
+    type: MOVE_DAY_RECIPE_RIGHT,
+    currentDayNumber: currentDayNumber,
+    recipeBeingMoved: recipeBeingMoved
+  }
+}
 
 export const removeDayRecipe = (recipeUuid, selectedDay) => {
   return {
