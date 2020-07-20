@@ -52,23 +52,28 @@
 }
 
 .delete {
- font-size:20px;
- border: none;
-        }
+  font-size:20px;
+  border: none;
+}
 
+.card-container {
+  height: 7rem;
+  position: relative;
+}
 
 .arrow-container{
   display: flex;
   justify-content: space-between;
-  position: relative;
-  bottom: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .container-arrow-left-right{
  display:flex;
  align-items: flex-end;
  width: fit-content;
- background-color: teal;
 
 }
 
@@ -78,15 +83,7 @@
   justify-content:space-around;
   align-items: center;
   width: fit-content;
-
-
-  background-color: teal;
  
-}
-
-.card-container {
-  di
-  height: 20vh;
 }
 
 

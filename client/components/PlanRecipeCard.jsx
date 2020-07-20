@@ -34,14 +34,14 @@ class PlanRecipeCard extends React.Component {
   render() {
     return (
       <>
-        <div className="card small sticky-action card-container">
+        <div className="card card-container">
           <div className="delete-container">
             <i className=" delete material-icons clickable-icon" onClick={this.handleClick}>delete</i>
           </div>
           <i onClick={this.handleClone} className="tiny material-icons clickable-icon">content_copy</i>
           <span className="card-title">{this.props.recipe.recipeName}</span>
 
-          <div className="arrow-container card-action">
+          <div className="arrow-container ">
 
 
             <div className="container-arrow-left-right">
