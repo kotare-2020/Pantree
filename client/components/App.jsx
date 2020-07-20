@@ -13,8 +13,6 @@ import LocalSuppliers from './Suppliers'
 export const App = props => {
   const { auth } = props
  
- 
- 
   //this currently does not redurect to plan when on exact path '/' while token is still valid
   return (
     <>

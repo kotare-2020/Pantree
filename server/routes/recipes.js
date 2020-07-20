@@ -42,7 +42,6 @@ router.post('/', (req, res) => {
 
 router.post('/:recipeId/ingredients', (req, res) => {
     const id = req.params.recipeId
-    console.log(req.body)
     db.addRecipeIngredients(req.body, id)
         .then(ingredients => {
             res.json(ingredients)

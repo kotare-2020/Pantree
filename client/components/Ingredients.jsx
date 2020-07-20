@@ -6,6 +6,7 @@ const Ingredients = (props) => {
     props.ingredients.map((val, idx)=> {
       let nameId = `name-${idx}`
       let unitId = `unit-${idx}`
+      let quanId = `quantity-${idx}`
       return (
         <div key={idx}>
           <label>{`Ingredient #${idx + 1}`}</label>
@@ -25,6 +26,15 @@ const Ingredients = (props) => {
             id={unitId}
             value={props.ingredients[idx].unit} 
             className="unit"
+          />
+          <label>Quantity</label>
+          <input
+            type="text"
+            name={quanId}
+            data-id={idx}
+            id={quanId}
+            value={props.ingredients[idx].quantity} 
+            className="quantity"
           />
         </div>
       )

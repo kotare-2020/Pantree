@@ -12,3 +12,9 @@ export function addRecipe(recipe) {
         .send(recipe)
         .then(response => response.body)
 }
+
+export function addRecipeIngredients(recipeIngredients, recipeId) {
+    return request.post(recipeURL + ':recipeId/ingredients')
+        .send(recipeIngredients, recipeId)
+        .then(response => response.body)
+}
