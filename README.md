@@ -460,7 +460,6 @@ Local Suppliers = '/suppliers'
   | AddRecipe | A form for adding new recipes to recipes  |
   | Ingredients  | Populates data for individual ingredients to be added via AddIngredients  |
   | AddIngredients | A form for adding new ingredients when adding a new recipe  |
-  | AddRecipeIngredients | Adds to the join between recipes and ingredients when submitting a new recipe  |
   | ShoppingList | A page showing a users shopping list, based on their meal plan |
   | Suppliers | A page showing a list of local suppliers with sustainably sourced produce |
 
