@@ -74,9 +74,8 @@ const reducer = (state = initialState, action) => {
             }
             const newIndex = index + 1
             if (newIndex < 0 || newIndex == day.recipes.length) return day; //Already at the top or bottom.
-            var indexes = [index, newIndex].sort((a, b) => a - b)
+            let indexes = [index, newIndex].sort((a, b) => a - b)
             day.recipes.splice(indexes[0], 2, day.recipes[indexes[1]], day.recipes[indexes[0]])
-            console.log(day)
             return day
           } else return day
         })
@@ -84,7 +83,7 @@ const reducer = (state = initialState, action) => {
         case MOVE_RECIPE_CARD_UP:
           return state.map(day => {
             if (day.dayNumber == action.selectedDay) {  
-              var index = 0
+              let index = 0
               for(let i=0; i < day.recipes.length; i++) {
                 
                 if(day.recipes[i].recipeUuid == action.recipeUuid){
@@ -93,9 +92,8 @@ const reducer = (state = initialState, action) => {
               }
               const newIndex = index -1
               if (newIndex < 0 || newIndex == day.recipes.length) return day; //Already at the top or bottom.
-              var indexes = [index, newIndex].sort((a, b) => a - b)
+              let indexes = [index, newIndex].sort((a, b) => a - b)
               day.recipes.splice(indexes[0], 2, day.recipes[indexes[1]], day.recipes[indexes[0]])
-              console.log(day)
               return day
             } else return day
           })
