@@ -17,6 +17,7 @@ class Plan extends React.Component {
   handleClick = () => {
     const userId = this.props.auth.user.id
     this.props.dispatch(savePlan(userId, this.props.plans))
+    M.toast({html: '<span><i class="tiny material-icons">thumb_up</i> Done!</span>'})
   }
 
   render() {
