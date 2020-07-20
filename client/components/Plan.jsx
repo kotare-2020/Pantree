@@ -38,7 +38,6 @@ class Plan extends React.Component {
             </div>
             <div id="clear-float"></div>
             <div className='plan'>{this.generateColumns()}</div>
-            {/* <button onClick={this.handleClick}>Save Plan</button> */}
           </>
         ) : (
           <Redirect to='/' />

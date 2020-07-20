@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeDayRecipe } from '../actions/plan'
+import { removeDayRecipe, cloneDayRecipe } from '../actions/plan'
 
 class PlanRecipeCard extends React.Component {
   handleClick = e => {
@@ -9,12 +9,20 @@ class PlanRecipeCard extends React.Component {
     )
   }
 
+  handleClone = e => {
+    const selectedDayNumber = this.props.dayNumber
+    const currentDayColumn = this.props.days.find(day => day.dayNumber === selectedDayNumber)
+    const recipeBeingClonedUuid = this.props.recipe.recipeUuid
+    this.props.dispatch(cloneDayRecipe(currentDayColumn, recipeBeingClonedUuid))
+  }
+
   render() {
     return (
       <>
         <div className="recipe-card">
           <h3>{this.props.recipe.recipeName}</h3>
           <button onClick={this.handleClick}>Remove</button>
+          <i onClick={this.handleClone} className="tiny material-icons clickable-icon">content_copy</i>
         </div>
       </>
     )

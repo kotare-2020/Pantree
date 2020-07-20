@@ -458,6 +458,7 @@ Local Suppliers = '/suppliers'
   | RecipeThumbnail | Child of Recipes, a card showing basic details about a recipe stored in the Pantree recipe book |
   | RecipeView | A page showing a detailed view of a recipe |
   | AddRecipe | A form for adding new recipes to recipes  |
+  | Ingredients  | Populates data for individual ingredients to be added via AddIngredients  |
   | AddIngredients | A form for adding new ingredients when adding a new recipe  |
   | ShoppingList | A page showing a users shopping list, based on their meal plan |
   | Suppliers | A page showing a list of local suppliers with sustainably sourced produce |
@@ -473,6 +474,7 @@ Local Suppliers = '/suppliers'
  | SAVE_PLAN | plan | save plan to db | 
  | UPDATE_DAY_RECIPE | recipeId/SelectedDay | add selected recipeId/selectedDay from globalState | 
  | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
+ | CLONE_DAY_RECIPE | column of day, uuid of recipe being cloned | clone a recipe in globalState |
 
  ### loading
  | type | data | purpose |
