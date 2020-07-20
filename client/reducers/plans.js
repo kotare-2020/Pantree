@@ -5,7 +5,7 @@ import {
   REMOVE_DAY_RECIPE,
   CLONE_DAY_RECIPE,
   MOVE_DAY_RECIPE_LEFT,
-  // MOVE_DAY_RECIPE_RIGHT
+  MOVE_DAY_RECIPE_RIGHT,
   MOVE_RECIPE_CARD_DOWN,
   MOVE_RECIPE_CARD_UP,
 
@@ -101,7 +101,7 @@ const reducer = (state = initialState, action) => {
 
       if (leftDayIndex === -1) {
         newState.push({
-          dayNumber: action.currentDayNumber -1,
+          dayNumber: leftDayNumber,
           recipes: []
         })
         leftDayIndex = newState.length - 1
@@ -112,9 +112,38 @@ const reducer = (state = initialState, action) => {
       return newState
     }
 
-    // case MOVE_DAY_RECIPE_RIGHT: {
+    case MOVE_DAY_RECIPE_RIGHT: {
+      const newState = state.map(day => {
+        return {
+          dayNumber: day.dayNumber,
+          recipes: [...day.recipes]
+        }
+      })
 
-    // }
+      const originalDayIndex = newState.findIndex(day => day.dayNumber == action.currentDayNumber)
+      const originalRecipeIndex = newState[originalDayIndex].recipes.findIndex(recipe => recipe.recipeUuid === action.recipeBeingMoved.recipeUuid)
+     
+      const copiedRecipe = {
+        recipeId: action.recipeBeingMoved.recipeId,
+        recipeName: action.recipeBeingMoved.recipeName,
+        recipeUuid: uuidv4()
+      }
+      
+      const rightDayNumber = action.currentDayNumber + 1
+      let rightDayIndex = newState.findIndex(day => day.dayNumber === rightDayNumber)
+
+      if (rightDayIndex === -1) {
+        newState.push({
+          dayNumber: rightDayNumber,
+          recipes: []
+        })
+        rightDayIndex = newState.length - 1
+      }
+
+      newState[rightDayIndex].recipes.push(copiedRecipe)
+      newState[originalDayIndex].recipes.splice(originalRecipeIndex, 1)
+      return newState
+    }
 
     case REMOVE_DAY_RECIPE:
       return state.map(days => {
