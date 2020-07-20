@@ -49,12 +49,9 @@ body {
   height: auto;
   display: flex;
   border-left: solid 1px lightgrey;
+  border-right: solid 1px lightgrey;
   flex-direction: column;
   padding: 10px
-}
-
-.plan-column-right-border {
-  border-right: solid 1px lightgrey;
 }
 
 .plan-col-header {
