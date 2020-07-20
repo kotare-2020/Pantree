@@ -13,13 +13,8 @@ class PlanColumn extends React.Component {
   }
 
   setDayRecipes = () =>{
-    const days = this.props.days
-    return days.map((day, i) => {
-      if(day.dayNumber == this.props.dayNumber){
-        return day.recipes.map((recipe, i) => {
-          return <PlanRecipeCard key={recipe.recipeUuid} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe}/>
-        })
-      }
+    return this.props.day.recipes.map((recipe, i) => {
+      return <PlanRecipeCard key={`${recipe.recipeUuid}-${this.props.dayNumber}`} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe}/>
     })
   }
 
@@ -38,6 +33,11 @@ class PlanColumn extends React.Component {
   }
 }
 
+function mapStateToProps(globalState) {
+  return {
+    days: globalState.plans
+  }
+}
 
 
-export default connect()(PlanColumn)
+export default connect(mapStateToProps)(PlanColumn)
