@@ -1,30 +1,34 @@
 import React from 'react'
 import Ingredients from './Ingredients'
 import { connect } from 'react-redux'
-import { saveRecipe } from '../actions/recipes' //change thunk action
-import { addRecipeIngredients } from '../apis/recipes'
+import { saveRecipe } from '../actions/recipes' 
 
 class AddIngredients extends React.Component {
 
     state = {
         recipe: {
             name: "",
-            image: "",
+            image: "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg",
             method: "",
         },
         ingredients: [
-            {name:"", unit:"", quantity: null}
+            {name:"", unit:"kg", quantity: null}
         ],
     }
     
     handleChange = (e) => {
-        if (["name", "unit", "quantity"].includes(e.target.className) ) {
+        const fieldName = e.target.className.split(' ')[0]
+        console.log(fieldName, e.target.name)
+        if (["name", "unit", "quantity"].includes(fieldName) ) {
           let ingredients = [...this.state.ingredients]
-          ingredients[e.target.dataset.id][e.target.className] = e.target.value
+          ingredients[e.target.dataset.id][fieldName] = e.target.value
           this.setState({ ingredients }, () => console.log(this.state.ingredients))
         } else {
             this.setState ({
-                [e.target.name]: e.target.value,
+                recipe: {
+                    ...this.state.recipe,
+                    [e.target.name]: e.target.value,
+                },
             })
         }
       }
@@ -37,12 +41,18 @@ class AddIngredients extends React.Component {
     }
 
     handleSubmit = (e) => { 
-        const recipeId = this.props.match.params
-        console.log(receipeId)
-        console.log(this.props.match)
         e.preventDefault()
-        this.props.dispatch(saveRecipe(this.state.recipe))
-        this.props.dispatch(addRecipeIngredients(this.state.ingredients, recipeId))
+        this.props.dispatch(saveRecipe(this.state.recipe, this.state.ingredients))
+        this.setState(({
+            recipe: {
+                name: "",
+                image: "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg",
+                method: "",
+            },
+            ingredients: [
+                {name:"", unit:"kg", quantity: null}
+            ],
+        }))
     }
 
     render() {
@@ -50,16 +60,16 @@ class AddIngredients extends React.Component {
         return (
             <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
                 <label>Name : </label>
-                <input type="text" name="name" value={recipe.name}/>
+                <input type="text" name="name" defaultValue={recipe.name}/>
                 
                 <label>Image URL : </label>
-                <input type="text" name="image" value={recipe.image}/>
+                <input type="url" name="image" defaultValue={recipe.image}/>
 
                 <Ingredients ingredients={ingredients} />
                 <button onClick={this.addIngredient}>Add more ingredients</button>
 
                 <label>Method : </label>
-                <input type="text" name="method" value={recipe.method}/>
+                <input type="text" name="method" defaultValue={recipe.method}/>
 
                 <input type="submit" value="Submit" /> 
             </form>

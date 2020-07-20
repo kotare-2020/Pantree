@@ -28,11 +28,11 @@ router.get('/:recipeId', (req, res) => {
 
 router.post('/', (req, res) => {
     db.addRecipe(req.body)
-        .then(() => {
+        .then((ids) => {
             return db.getRecipes()
-        })
-        .then(recipe => {
-            res.json(recipe)
+            .then(recipe => {
+                res.json({ id: ids[0], allRecipes: recipe })
+            })
         })
         .catch(err => {
             res.status(500).send('cannot add recipe')

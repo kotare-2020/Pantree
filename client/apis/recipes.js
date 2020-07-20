@@ -14,7 +14,7 @@ export function addRecipe(recipe) {
 }
 
 export function addRecipeIngredients(recipeIngredients, recipeId) {
-    return request.post(recipeURL + ':recipeId/ingredients')
+    return request.post(`${recipeURL}${recipeId}/ingredients`)
         .send(recipeIngredients, recipeId)
         .then(response => response.body)
 }
