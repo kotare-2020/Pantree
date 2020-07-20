@@ -57,19 +57,37 @@
         }
 
 
+.arrow-container{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  bottom: 1px;
+}
 
 .container-arrow-left-right{
-display:flex;
-justify-content:space-between;
+ display:flex;
+ align-items: flex-end;
+ width: fit-content;
+ background-color: teal;
+
 }
 
 .container-arrow-up-down{
   display: flex;
   flex-direction: column;
- align-items: flex-end;
+  justify-content:space-around;
+  align-items: center;
+  width: fit-content;
+
+
+  background-color: teal;
+ 
 }
 
-
+.card-container {
+  di
+  height: 20vh;
+}
 
 
 
