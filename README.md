@@ -342,6 +342,17 @@ Response Body:
 }
 ```
 
+### POST ingredients 
+
+***POST*** /ingredients 
+
+Response Body:
+```js
+[
+// ingredientIds
+]
+```
+
 ### Get shopping list
 
 ***Get*** /shopping-list/:planId
@@ -447,6 +458,7 @@ Local Suppliers = '/suppliers'
   | RecipeThumbnail | Child of Recipes, a card showing basic details about a recipe stored in the Pantree recipe book |
   | RecipeView | A page showing a detailed view of a recipe |
   | AddRecipe | A form for adding new recipes to recipes  |
+  | AddIngredients | A form for adding new ingredients when adding a new recipe  |
   | ShoppingList | A page showing a users shopping list, based on their meal plan |
   | Suppliers | A page showing a list of local suppliers with sustainably sourced produce |
 
