@@ -5,6 +5,8 @@ export const REMOVE_DAY_RECIPE = 'REMOVE_DAY_RECIPE'
 export const MOVE_RECIPE_CARD_DOWN = 'MOVE_RECIPE_CARD_DOWN'
 export const MOVE_RECIPE_CARD_UP = 'MOVE_RECIPE_CARD_UP'
 export const CLONE_DAY_RECIPE = 'CLONE_DAY_RECIPE'
+export const MOVE_DAY_RECIPE_LEFT = 'MOVE_DAY_RECIPE_LEFT'
+export const MOVE_DAY_RECIPE_RIGHT = 'MOVE_DAY_RECIPE_RIGHT'
 
 import { updatePlanApi, getPlanApi, getPlanIdByUserId, createPlanApi } from '../apis/plans'
 
@@ -36,6 +38,22 @@ export const cloneDayRecipe = (currentDayColumn, recipeBeingClonedUuid) => {
     type: CLONE_DAY_RECIPE,
     currentDayColumn: currentDayColumn,
     recipeBeingClonedUuid: recipeBeingClonedUuid
+  }
+}
+
+export const moveRecipeCardLeft = (currentDayNumber, recipeBeingMoved) => {
+  return {
+    type: MOVE_DAY_RECIPE_LEFT,
+    currentDayNumber: currentDayNumber,
+    recipeBeingMoved: recipeBeingMoved
+  }
+}
+
+export const moveRecipeCardRight = (currentDayNumber, recipeBeingMoved) => {
+  return {
+    type: MOVE_DAY_RECIPE_RIGHT,
+    currentDayNumber: currentDayNumber,
+    recipeBeingMoved: recipeBeingMoved
   }
 }
 
