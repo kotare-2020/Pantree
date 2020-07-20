@@ -40,4 +40,18 @@ router.post('/', (req, res) => {
         })
 })
 
+router.post('/:recipeId/ingredients', (req, res) => {
+    const id = req.params.recipeId
+    console.log(req.body)
+    db.addRecipeIngredients(req.body, id)
+        .then(ingredients => {
+            console.log(ingredients)
+            res.json(ingredients)
+        })
+        .catch(err => {
+            res.status(500).send('cannot add ingredients')
+            console.log(err)
+        })
+})
+
 module.exports = router

@@ -7,7 +7,6 @@ const plansRoutes = require('./routes/plans')
 const recipesRoutes = require('./routes/recipes')
 const ingredientsRoutes = require('./routes/ingredients')
 const shoppingListRoutes = require('./routes/shopping-list')
-const recipesIngredientsRoutes = require('./routes/recipes-ingredients')
 
 // const blah = require('./db/ingredients')
 
@@ -22,6 +21,5 @@ server.use('/api/v1/plans', plansRoutes)
 server.use('/api/v1/recipes', recipesRoutes)
 server.use('/api/v1/ingredients', ingredientsRoutes)
 server.use('/api/v1/shopping-list', shoppingListRoutes)
-server.use('/api/v1/recipes-ingredients', recipesIngredientsRoutes)
 
 module.exports = server

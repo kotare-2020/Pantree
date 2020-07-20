@@ -1,4 +1,5 @@
 const connection = require('./connection')
+const { addIngredients } = require('./ingredients')
 
 function getRecipes(db = connection) {
     return db('recipes').select('id as recipeId', 'name as recipeName', 'image')
@@ -47,8 +48,23 @@ function addRecipe(recipe, db = connection) {
     return db('recipes').insert(recipe)
 }
 
+function addRecipeIngredients(recipeIngredients, recipeId, db = connection) {
+    return addIngredients(recipeIngredients.map(ingredient => ingredient.name))
+    .then(ingredients => {
+        return db('recipes_ingredients')
+            .insert(recipeIngredients.map(ingredient => {
+                return {
+                    quantity: ingredient.quantity, 
+                    recipe_id: recipeId,
+                    ingredient_id: ingredients.find(existingIngredient => existingIngredient.name == ingredient.name), 
+                }
+            }))
+    })
+}
+
 module.exports = {
     getRecipes,
     getRecipeAndIngredientsById,
     addRecipe,
+    addRecipeIngredients,
 }

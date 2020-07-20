@@ -6,7 +6,6 @@ import { fetchRecipes } from '../actions/recipes'
 
 import AddRecipe from './AddRecipe'
 import AddIngredients from './AddIngredients'
-import AddRecipeIngredient from './AddRecipeIngredient'
 
 class Recipes extends React.Component {
   componentDidMount() {
@@ -28,7 +27,6 @@ class Recipes extends React.Component {
         <div className="new-recipe">
           <AddRecipe/>
           <AddIngredients/>
-          <AddRecipeIngredient/>
         </div>
         <div className="row">
           {this.props.recipes.map(recipe => {
