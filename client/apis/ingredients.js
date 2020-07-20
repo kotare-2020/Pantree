@@ -6,4 +6,5 @@ export function addIngredients(ingredients) {
     return request.post(ingredientUrl)
         .send(ingredients)
         .then(response => response.body)
+        .catch(err => console.log(err))
 }
