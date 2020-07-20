@@ -60,12 +60,24 @@ class RecipeView extends React.Component {
                                 </ol>
 
                                 <div className="card-action center-align">
-                                    <Link to="/plan">
+                                    
+                                   {this.props.selectedDay ?
+                                    <>
+                                   <Link to="/plan">
                                         <button className="waves-effect waves-light btn space-around" onClick={this.handleAdd}>Add to Day {this.props.selectedDay}</button>
                                     </Link>
                                     <Link to="/recipes">
                                         <button className="waves-effect waves-light btn space-around">Back to Recipes</button>
                                     </Link>
+                                      </>
+                                       :
+                                       <>
+                                    <Link to="/plan">
+                                        <button className="waves-effect waves-light btn space-around">Back to Plan</button>
+                                    </Link>
+                                    </>
+                                       }
+
                                 </div>
                             </div>
                         </div>
