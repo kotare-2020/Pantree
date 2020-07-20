@@ -79,7 +79,27 @@ body {
 .delete-container{
   display: inline-block;
   position: absolute;
+  right: 5px;
+}
+
+.xs-icon {
+  font-size:20px;
+  padding: 2px;
+}
+
+.card-container {
+  position: relative;
+  padding: 5px;
+}
+
+.arrow-container{
+  display: flex;
+  justify-content: space-between;
+  /* position: absolute; */
+  bottom: 0;
+  left: 0;
   right: 0;
+  height: 5rem;
 }
 
 .delete {
@@ -88,15 +108,25 @@ body {
 }
 
 .container-arrow-left-right{
-display:flex;
-justify-content:space-between;
+ display:flex;
+ align-items: flex-end;
+ width: fit-content;
+
 }
 
 .container-arrow-up-down{
   display: flex;
   flex-direction: column;
- align-items: flex-end;
+  justify-content:flex-end;
+  align-items: center;
+  width: fit-content;
 }
+
+.add-btn {
+  width: 100%;
+}
+
+
 
 
 @media only screen and (min-width: 1050px) {

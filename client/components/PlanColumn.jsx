@@ -23,13 +23,16 @@ class PlanColumn extends React.Component {
     })
   }
 
+  dayOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+
   render(){
     return (
       <>
       <div className="plan-column">
-        <h3>{this.props.dayNumber}</h3>
+        <h3>{this.dayOfWeek[this.props.dayNumber-1]}</h3>
         {this.setDayRecipes()}
-        <Link to='/recipes'><button onClick={this.handleClick}>Add</button></Link>
+        <Link to='/recipes'><button className="waves-effect add-btn waves-light btn" onClick={this.handleClick}>Add</button></Link>
+
       </div>
       </>
     )
