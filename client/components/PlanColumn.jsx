@@ -14,7 +14,7 @@ class PlanColumn extends React.Component {
 
   setDayRecipes = () =>{
     return this.props.day.recipes.map((recipe, i) => {
-      return <PlanRecipeCard key={`${recipe.recipeUuid}-${this.props.dayNumber}`} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe}/>
+      return <PlanRecipeCard key={`${recipe.recipeUuid}-${this.props.dayNumber}`} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe} itemIndex={i}/>
     })
   }
 
@@ -24,9 +24,9 @@ class PlanColumn extends React.Component {
     return (
       <>
       <div className="plan-column">
-        <h3>{this.dayOfWeek[this.props.dayNumber-1]}</h3>
+        <h4 className="plan-col-header">{this.dayOfWeek[this.props.dayNumber-1]}</h4>
         {this.setDayRecipes()}
-        <Link to='/recipes'><button className="waves-effect add-btn waves-light btn" onClick={this.handleClick}>Add</button></Link>
+        <Link to='/recipes'><button className="waves-effect add-btn waves-light btn teal lighten-2" onClick={this.handleClick}>Add</button></Link>
       </div>
       </>
     )

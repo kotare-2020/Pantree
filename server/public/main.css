@@ -32,7 +32,7 @@ body {
 }
 
 #clear-float {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   clear: both;
 }
 
@@ -55,6 +55,11 @@ body {
 
 .plan-column-right-border {
   border-right: solid 1px lightgrey;
+}
+
+.plan-col-header {
+  margin-top: 0;
+  padding-bottom: 0.2em;
 }
 
 .space-around {
