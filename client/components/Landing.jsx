@@ -9,13 +9,19 @@ import Register from './Register'
 
 class Landing extends React.Component {
     state = {
-        componentView: "signIn"
+        componentView: "Log in"
     }
 
     changeComponentView = (e) => {
-        this.setState({
-            componentView: e.target.value
-        })
+        if (this.state.componentView === "Log in") {
+            this.setState({
+                componentView: "Register"
+            })
+        } else {
+            this.setState({
+                componentView: "Log in"
+            })
+        }
     }
 
     componentDidMount = () => {
@@ -45,8 +51,8 @@ class Landing extends React.Component {
                     <div className="col s2">
                     </div>
                     <div className="col s4">
-                        {this.state.componentView === "signIn" && <SignIn history={this.props.history} changeComponentView={this.changeComponentView} />}
-                        {this.state.componentView === "register" && <Register history={this.props.history} changeComponentView={this.changeComponentView} />}
+                        {this.state.componentView === "Log in" && <SignIn history={this.props.history} changeComponentView={this.changeComponentView} />}
+                        {this.state.componentView === "Register" && <Register history={this.props.history} changeComponentView={this.changeComponentView} />}
                     </div>
                     </div>
                 </div>

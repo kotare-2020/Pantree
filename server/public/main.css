@@ -52,6 +52,15 @@ body {
   color: white;
 }
 
+#landing-component {
+  
+}
+
+.landing-button {
+  margin-top: 2em;
+  margin-right: 0.5em;
+}
+
 @media only screen and (min-width: 1050px) {
   .container .shoppinglist{
       width: 50%;
