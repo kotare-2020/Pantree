@@ -45,7 +45,6 @@ router.post('/:recipeId/ingredients', (req, res) => {
     console.log(req.body)
     db.addRecipeIngredients(req.body, id)
         .then(ingredients => {
-            console.log(ingredients)
             res.json(ingredients)
         })
         .catch(err => {

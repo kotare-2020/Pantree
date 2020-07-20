@@ -49,14 +49,17 @@ function addRecipe(recipe, db = connection) {
 }
 
 function addRecipeIngredients(recipeIngredients, recipeId, db = connection) {
-    return addIngredients(recipeIngredients.map(ingredient => ingredient.name))
+    return addIngredients(recipeIngredients.map(ingredient => {
+        return {name:ingredient.name, unit:ingredient.unit}
+    }))
+    // return addIngredients(recipeIngredients.map(ingredient => ingredient.name))
     .then(ingredients => {
         return db('recipes_ingredients')
             .insert(recipeIngredients.map(ingredient => {
                 return {
                     quantity: ingredient.quantity, 
                     recipe_id: recipeId,
-                    ingredient_id: ingredients.find(existingIngredient => existingIngredient.name == ingredient.name), 
+                    ingredient_id: ingredients.find(existingIngredient => existingIngredient.name == ingredient.name).id, 
                 }
             }))
     })
