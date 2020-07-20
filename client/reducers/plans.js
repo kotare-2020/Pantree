@@ -3,7 +3,9 @@ import {
   SET_PLAN,
   UPDATE_DAY_RECIPE,
   REMOVE_DAY_RECIPE,
-  CLONE_DAY_RECIPE
+  CLONE_DAY_RECIPE,
+  MOVE_DAY_RECIPE_LEFT,
+  MOVE_DAY_RECIPE_RIGHT
 } from '../actions/plan'
 
 import { v4 as uuidv4 } from 'uuid'
@@ -73,6 +75,38 @@ const reducer = (state = initialState, action) => {
           return day
         }
       })
+
+    case MOVE_DAY_RECIPE_LEFT: { 
+      const originalDayIndex = state.findIndex(day => day.dayNumber == action.currentDayNumber)
+      const originalRecipeIndex = state[originalDayIndex].recipes.findIndex(recipe => recipe.recipeUuid === action.recipeBeingMoved.recipeUuid)
+     
+      const copiedRecipe = {
+        recipeId: action.recipeBeingMoved.recipeId,
+        recipeName: action.recipeBeingMoved.recipeName,
+        recipeUuid: uuidv4()
+      }
+      
+      const leftDayNumber = action.currentDayNumber - 1
+      let leftDayIndex = state.findIndex(day => day.dayNumber === leftDayNumber)
+
+      if (leftDayIndex === -1) {
+        state.push({
+          dayNumber: action.currentDayNumber -1,
+          recipes: []
+        })
+        leftDayIndex = state.length - 1
+      }
+
+      state[leftDayIndex].recipes.push(copiedRecipe)
+      state[originalDayIndex].recipes.splice(originalRecipeIndex, 1)
+      return state
+    }
+
+    // case MOVE_DAY_RECIPE_RIGHT: {
+    //   console.log(action.plans)
+    //   console.log(action.currentDayNumber)
+    //   console.log(action.recipeBeingMovedUuid)
+    // }
 
     case REMOVE_DAY_RECIPE:
       return state.map(days => {

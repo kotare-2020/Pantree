@@ -1,12 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeDayRecipe, cloneDayRecipe } from '../actions/plan'
+import { removeDayRecipe, cloneDayRecipe, moveRecipeLeft, moveRecipeRight } from '../actions/plan'
 
 class PlanRecipeCard extends React.Component {
   handleClick = e => {
     this.props.dispatch(
       removeDayRecipe(this.props.recipe.recipeUuid, this.props.dayNumber)
     )
+  }
+
+  handleLeftOrRight = e => {
+    switch (e.target.innerHTML) {
+      case "arrow_back":
+        this.props.dispatch(
+          moveRecipeLeft(this.props.dayNumber, this.props.recipe)
+        )
+        break
+
+      // case "arrow_forward":
+      //   this.props.dispatch(
+      //     moveRecipeRight(this.props.plans, this.props.dayNumber, this.props.recipe.recipeUuid)
+      //   )
+      //   break
+
+      default:
+        break
+    }
   }
 
   handleClone = e => {
@@ -23,10 +42,18 @@ class PlanRecipeCard extends React.Component {
           <h3>{this.props.recipe.recipeName}</h3>
           <button onClick={this.handleClick}>Remove</button>
           <i onClick={this.handleClone} className="tiny material-icons clickable-icon">content_copy</i>
+          {this.props.dayNumber != 1 && <i onClick={this.handleLeftOrRight} className="tiny material-icons clickable-icon">arrow_back</i>}
+          {this.props.dayNumber != 7 && <i onClick={this.handleLeftOrRight} className="tiny material-icons clickable-icon">arrow_forward</i>}
         </div>
       </>
     )
   }
 }
 
-export default connect()(PlanRecipeCard)
+function mapStateToProps(globalState) {
+  return {
+    plans: globalState.plans
+  }
+}
+
+export default connect(mapStateToProps)(PlanRecipeCard)

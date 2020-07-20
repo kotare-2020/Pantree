@@ -8,9 +8,10 @@ import PlanColumn from './PlanColumn'
 
 class Plan extends React.Component {
   generateColumns() {
+    console.log(this.props.plans)
     let columns = []
     for (let i = 1; i <= 7; i++) {
-      columns.push(<PlanColumn key={i} dayNumber={i} days={this.props.plans} />)
+      columns.push(<PlanColumn key={i} dayNumber={i} />)
     }
     return columns
   }
