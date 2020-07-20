@@ -30,6 +30,7 @@ class AddIngredients extends React.Component {
       }
 
     addIngredient = (e) => {
+        e.preventDefault()
         this.setState((prevState) => ({
             ingredients: [...prevState.ingredients, {name:"", unit:"", quantity: null}],
         }))
