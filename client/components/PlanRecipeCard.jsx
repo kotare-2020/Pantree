@@ -10,7 +10,6 @@ class PlanRecipeCard extends React.Component {
 
   componentDidMount() {
     this.determineIfLastColumnRecipe()
-    console.log(this.props.recipe)
   }
 
   determineIfLastColumnRecipe = () => {
@@ -68,12 +67,21 @@ class PlanRecipeCard extends React.Component {
   render() {
     return (
       <>
-        <div className="card card-container">
-          <div className="delete-container">
-            <i className="xs-icon material-icons clickable-icon" onClick={this.handleClone}>content_copy</i>
-            <i className="xs-icon material-icons clickable-icon delete" onClick={this.handleClick}>delete</i>
+        <div className="card">
+          
+          <div className="card-image">
+            <img src={this.props.recipe.recipeImage} />
           </div>
-          <span className="card-title">{this.props.recipe.recipeName}</span>
+
+          <div className="card-content">
+            <div className="card-header-container">
+              <span className="card-recipe-name">{this.props.recipe.recipeName}</span>
+              <div>
+                <i className="xs-icon material-icons clickable-icon" onClick={this.handleClone}>content_copy</i>
+                <i className="xs-icon material-icons clickable-icon delete" onClick={this.handleClick}>delete</i>
+              </div>
+            </div>
+          </div>
 
           <div className="arrow-container">
             <div className="container-arrow-left-right">

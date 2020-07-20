@@ -79,13 +79,11 @@ body {
 
 .clickable-icon {
   cursor: pointer;
-  /* border: solid black 1px; */
 }
 
-.delete-container{
-  display: inline-block;
-  position: absolute;
-  right: 5px;
+.card-header-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .xs-icon {
@@ -93,9 +91,13 @@ body {
   padding: 2px;
 }
 
-.card-container {
-  position: relative;
-  padding: 5px;
+.card .card-content {
+  padding: 10px;
+}
+
+.card-recipe-name {
+  font-size: 20px;
+  font-weight: 300;
 }
 
 .arrow-container{
