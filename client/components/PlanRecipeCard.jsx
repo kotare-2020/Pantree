@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { removeDayRecipe, moveRecipeCardDown, moveRecipeCardUp, cloneDayRecipe } from '../actions/plan'
+import { removeDayRecipe, moveRecipeCardDown, moveRecipeCardUp, cloneDayRecipe} from '../actions/plan'
+import {clearSelectedDay} from '../actions/selectedDay'
+import {browserHistory} from 'react-router'
+
 
 
 
@@ -31,6 +34,14 @@ class PlanRecipeCard extends React.Component {
     this.props.dispatch(cloneDayRecipe(currentDayColumn, recipeBeingClonedUuid))
   }
 
+  handleClickTitle=()=>{
+  this.props.dispatch(clearSelectedDay())
+  .then(()=>{
+    browserHistory.push('/')
+  })
+
+  }
+
   render() {
     return (
       <>
@@ -44,7 +55,7 @@ class PlanRecipeCard extends React.Component {
 
           </div>
          
-          <span className="card-title">{this.props.recipe.recipeName}</span>
+        <a onClick={this.handleClickTitle} ><span className="card-title">{this.props.recipe.recipeName}</span></a>
 
           <div className="arrow-container ">
 
