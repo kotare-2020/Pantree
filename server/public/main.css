@@ -1,3 +1,7 @@
+body {
+  font-family: 'Questrial', sans-serif;
+}
+
 .recipe-card{
   border:solid 1px red;
   width:100%;
@@ -14,8 +18,22 @@
   padding-top: 25vh;
 }
 
+.container {
+  margin-top: 3%;
+}
+
 .plan-container {
-  margin: 5% 5%;
+  margin: 3% 5%;
+}
+
+.plan-header {
+  font-size: 2.92rem;
+  font-weight: 400;
+}
+
+#clear-float {
+  margin-bottom: 1rem;
+  clear: both;
 }
 
 .plan {
@@ -39,6 +57,19 @@
   margin: 1.5rem;
 }
 
+.brand-navbar {
+  height: 64px;
+}
+
+#landing-about {
+  margin-top: 2rem;
+  color: white;
+}
+
+.landing-button {
+  margin-top: 2em;
+  margin-right: 0.5em;
+}
 
 .clickable-icon {
   cursor: pointer;
@@ -54,9 +85,7 @@
 .delete {
  font-size:20px;
  border: none;
-        }
-
-
+}
 
 .container-arrow-left-right{
 display:flex;
@@ -68,11 +97,6 @@ justify-content:space-between;
   flex-direction: column;
  align-items: flex-end;
 }
-
-
-
-
-
 
 
 @media only screen and (min-width: 1050px) {
