@@ -49,10 +49,6 @@ class PlanRecipeCard extends React.Component {
 
   handleClickTitle = () => {
     this.props.dispatch(clearSelectedDay())
-      // .then(() => {
-    // return   this.props.history.push(`/recipes/${this.props.recipe.recipeId}`)
-      // })
-
   }
 
   render() {
