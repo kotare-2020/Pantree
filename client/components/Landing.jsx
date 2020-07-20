@@ -9,17 +9,23 @@ import Register from './Register'
 
 class Landing extends React.Component {
     state = {
-        componentView: "signIn"
+        componentView: "Log in"
     }
 
     changeComponentView = (e) => {
-        this.setState({
-            componentView: e.target.value
-        })
+        if (this.state.componentView === "Log in") {
+            this.setState({
+                componentView: "Register"
+            })
+        } else {
+            this.setState({
+                componentView: "Log in"
+            })
+        }
     }
 
     componentDidMount = () => {
-        document.body.style.backgroundImage = 'linear-gradient(120deg, #b9f6caa1 50%, white 50%)';
+        document.body.style.backgroundImage = 'linear-gradient(120deg, rgba(2,101,139,1) 0%, rgba(90,206,163,1) 50%, rgba(255,255,255,1) 50.1%, rgba(255,255,255,1) 100%)'
         document.body.style.height = '100vh';
 
         const confirmSuccess = () => { }
@@ -45,8 +51,8 @@ class Landing extends React.Component {
                     <div className="col s2">
                     </div>
                     <div className="col s4">
-                        {this.state.componentView === "signIn" && <SignIn history={this.props.history} changeComponentView={this.changeComponentView} />}
-                        {this.state.componentView === "register" && <Register history={this.props.history} changeComponentView={this.changeComponentView} />}
+                        {this.state.componentView === "Log in" && <SignIn history={this.props.history} changeComponentView={this.changeComponentView} />}
+                        {this.state.componentView === "Register" && <Register history={this.props.history} changeComponentView={this.changeComponentView} />}
                     </div>
                     </div>
                 </div>

@@ -5,7 +5,10 @@ import {
   REMOVE_DAY_RECIPE,
   CLONE_DAY_RECIPE,
   MOVE_DAY_RECIPE_LEFT,
-  MOVE_DAY_RECIPE_RIGHT
+  // MOVE_DAY_RECIPE_RIGHT
+  MOVE_RECIPE_CARD_DOWN,
+  MOVE_RECIPE_CARD_UP,
+
 } from '../actions/plan'
 
 import { v4 as uuidv4 } from 'uuid'
@@ -19,7 +22,7 @@ const reducer = (state = initialState, action) => {
         return action.plan
       }
 
-    case SET_PLAN:
+    case SET_PLAN:resizeBy
       action.plan.forEach(day => {
         day.recipes.forEach(recipe => {
           recipe.recipeUuid = uuidv4()
@@ -122,9 +125,47 @@ const reducer = (state = initialState, action) => {
           return days
         } else return days
       })
+
+      case MOVE_RECIPE_CARD_DOWN:
+        return state.map(day => {
+          if (day.dayNumber == action.selectedDay) {
+            let index = 0
+            for(let i=0; i < day.recipes.length; i++) {
+              if(day.recipes[i].recipeUuid == action.recipeUuid){
+                index = i
+              }
+            }
+            const newIndex = index + 1
+            if (newIndex < 0 || newIndex == day.recipes.length) return day; //Already at the top or bottom.
+            let indexes = [index, newIndex].sort((a, b) => a - b)
+            day.recipes.splice(indexes[0], 2, day.recipes[indexes[1]], day.recipes[indexes[0]])
+            return day
+          } else return day
+        })
+       
+        case MOVE_RECIPE_CARD_UP:
+          return state.map(day => {
+            if (day.dayNumber == action.selectedDay) {  
+              let index = 0
+              for(let i=0; i < day.recipes.length; i++) {
+                
+                if(day.recipes[i].recipeUuid == action.recipeUuid){
+                  index = i
+                }
+              }
+              const newIndex = index -1
+              if (newIndex < 0 || newIndex == day.recipes.length) return day; //Already at the top or bottom.
+              let indexes = [index, newIndex].sort((a, b) => a - b)
+              day.recipes.splice(indexes[0], 2, day.recipes[indexes[1]], day.recipes[indexes[0]])
+              return day
+            } else return day
+          })
+
     default:
       return state
   }
 }
 
 export default reducer
+
+
