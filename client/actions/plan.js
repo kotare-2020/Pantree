@@ -3,6 +3,7 @@ export const SET_PLAN = 'SET_PLAN'
 export const UPDATE_DAY_RECIPE = 'UPDATE_DAY_RECIPE'
 export const REMOVE_DAY_RECIPE = 'REMOVE_DAY_RECIPE'
 export const MOVE_RECIPE_CARD_DOWN = 'MOVE_RECIPE_CARD_DOWN'
+export const MOVE_RECIPE_CARD_UP = 'MOVE_RECIPE_CARD_UP'
 
 import { updatePlanApi, getPlanApi, getPlanIdByUserId, createPlanApi } from '../apis/plans'
 
@@ -40,6 +41,14 @@ export const removeDayRecipe = (recipeUuid, selectedDay) => {
 export const moveRecipeCardDown = (recipeUuid, selectedDay) => {
   return {
     type: MOVE_RECIPE_CARD_DOWN,
+    selectedDay: selectedDay,
+    recipeUuid: recipeUuid,
+  }
+}
+
+export const moveRecipeCardUp = (recipeUuid, selectedDay) => {
+  return {
+    type: MOVE_RECIPE_CARD_UP,
     selectedDay: selectedDay,
     recipeUuid: recipeUuid,
   }

@@ -4,6 +4,8 @@ import {
   UPDATE_DAY_RECIPE,
   REMOVE_DAY_RECIPE,
   MOVE_RECIPE_CARD_DOWN,
+  MOVE_RECIPE_CARD_UP,
+
 } from '../actions/plan'
 
 import { v4 as uuidv4 } from 'uuid'
@@ -64,22 +66,39 @@ const reducer = (state = initialState, action) => {
       case MOVE_RECIPE_CARD_DOWN:
         return state.map(day => {
           if (day.dayNumber == action.selectedDay) {
-            console.log('before splice', day.recipes)
-
             let index = 0
             for(let i=0; i < day.recipes.length; i++) {
-              console.log('day.recipe[i]', day.recipes[i])
               if(day.recipes[i].recipeUuid == action.recipeUuid){
                 index = i
               }
             }
-
-            day.recipes.splice(index, 2, day.recipes[index + 1], day.recipes[index])
-            console.log('after splice', day.recipes)
-
+            const newIndex = index + 1
+            if (newIndex < 0 || newIndex == day.recipes.length) return day; //Already at the top or bottom.
+            var indexes = [index, newIndex].sort((a, b) => a - b)
+            day.recipes.splice(indexes[0], 2, day.recipes[indexes[1]], day.recipes[indexes[0]])
+            console.log(day)
             return day
           } else return day
         })
+       
+        case MOVE_RECIPE_CARD_UP:
+          return state.map(day => {
+            if (day.dayNumber == action.selectedDay) {  
+              var index = 0
+              for(let i=0; i < day.recipes.length; i++) {
+                
+                if(day.recipes[i].recipeUuid == action.recipeUuid){
+                  index = i
+                }
+              }
+              const newIndex = index -1
+              if (newIndex < 0 || newIndex == day.recipes.length) return day; //Already at the top or bottom.
+              var indexes = [index, newIndex].sort((a, b) => a - b)
+              day.recipes.splice(indexes[0], 2, day.recipes[indexes[1]], day.recipes[indexes[0]])
+              console.log(day)
+              return day
+            } else return day
+          })
 
     default:
       return state
