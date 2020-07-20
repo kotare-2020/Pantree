@@ -110,9 +110,7 @@ const reducer = (state = initialState, action) => {
     }
 
     // case MOVE_DAY_RECIPE_RIGHT: {
-    //   console.log(action.plans)
-    //   console.log(action.currentDayNumber)
-    //   console.log(action.recipeBeingMovedUuid)
+
     // }
 
     case REMOVE_DAY_RECIPE:

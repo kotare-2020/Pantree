@@ -12,15 +12,9 @@ class PlanColumn extends React.Component {
     return this.props.dispatch(selectedDay(this.props.dayNumber))
   }
 
-  setDayRecipes = (days) =>{
-    // const days = this.props.days
-    console.log(days)
-    return days.map((day, i) => {
-      if(day.dayNumber == this.props.dayNumber){
-        return day.recipes.map((recipe, i) => {
-          return <PlanRecipeCard key={`${recipe.recipeUuid}-${this.props.dayNumber}`} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe}/>
-        })
-      }
+  setDayRecipes = () =>{
+    return this.props.day.recipes.map((recipe, i) => {
+      return <PlanRecipeCard key={`${recipe.recipeUuid}-${this.props.dayNumber}`} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe}/>
     })
   }
 
@@ -29,7 +23,7 @@ class PlanColumn extends React.Component {
       <>
       <div className="plan-column">
         <h3>{this.props.dayNumber}</h3>
-        {this.setDayRecipes(this.props.days)}
+        {this.setDayRecipes()}
         <Link to='/recipes'><button onClick={this.handleClick}>Add</button></Link>
       </div>
       </>
@@ -38,7 +32,6 @@ class PlanColumn extends React.Component {
 }
 
 function mapStateToProps(globalState) {
-  console.log("hi")
   return {
     days: globalState.plans
   }
