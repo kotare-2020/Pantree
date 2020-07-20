@@ -38,8 +38,8 @@ class PlanRecipeCard extends React.Component {
  
           
           <div className="delete-container">
-          <i onClick={this.handleClone} className="xs-icon material-icons clickable-icon teal-text">content_copy</i>
-            <i className="xs-icon material-icons clickable-icon teal-text" onClick={this.handleClick}>delete</i>
+          <i onClick={this.handleClone} className="xs-icon material-icons clickable-icon">content_copy</i>
+            <i className="xs-icon material-icons clickable-icon" onClick={this.handleClick}>delete</i>
             {/* <a class="btn-floating btn-small waves-effect waves-light teal-text"><i class="material-icons">delete</i></a> */}
 
           </div>
