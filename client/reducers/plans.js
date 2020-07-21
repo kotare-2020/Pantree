@@ -68,6 +68,7 @@ const reducer = (state = initialState, action) => {
           let recipeBeingAdded = {
             recipeId: clonedRecipeDetails.recipeId,
             recipeName: clonedRecipeDetails.recipeName,
+            recipeImage: clonedRecipeDetails.recipeImage,
             recipeUuid: uuidv4()
           }
 
@@ -93,6 +94,7 @@ const reducer = (state = initialState, action) => {
       const copiedRecipe = {
         recipeId: action.recipeBeingMoved.recipeId,
         recipeName: action.recipeBeingMoved.recipeName,
+        recipeImage: action.recipeBeingMoved.recipeImage,
         recipeUuid: uuidv4()
       }
       
@@ -126,6 +128,7 @@ const reducer = (state = initialState, action) => {
       const copiedRecipe = {
         recipeId: action.recipeBeingMoved.recipeId,
         recipeName: action.recipeBeingMoved.recipeName,
+        recipeImage: action.recipeBeingMoved.recipeImage,
         recipeUuid: uuidv4()
       }
       
