@@ -30,7 +30,7 @@ class RecipeModal extends React.Component {
                                     <h3>{selectedRecipe.recipeName}</h3>
                                 </div>
                                 <h5>Ingredients:</h5>
-                                <ul>
+                                <ul className="browser-default">
                                     {selectedRecipe.ingredients.map((ingredient, i) => {
                                         return (
                                             <li key={i}>{ingredient.ingredientName}  <em>{ingredient.quantity} {ingredient.unit}</em></li>
