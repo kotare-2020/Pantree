@@ -43,7 +43,7 @@ class Recipes extends React.Component {
       <main className="container center-align">
         <h3>Recipes</h3>
         <div className="new-recipe">
-          <button className='btn waves-effect waves-light btn-large lighten-2' onClick={this.handleFormButton}>Add Recipe</button>
+          <button className='btn waves-effect waves-light btn-large lighten-2 new-recipe-button' onClick={this.handleFormButton}>{this.state.formButton ? "Cancel" : "Add Recipe"}</button>
           {this.state.formButton && <AddRecipe/>}
         </div>
         <div className="row">
