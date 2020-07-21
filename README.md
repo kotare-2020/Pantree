@@ -508,7 +508,10 @@ Local Suppliers = '/suppliers'
  | SAVE_PLAN | plan | save plan to db | 
  | UPDATE_DAY_RECIPE | recipeId/SelectedDay | add selected recipeId/selectedDay from globalState | 
  | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
- | MOVE_RECIPE_CARD_DOWN | clickedRecipeId & selectedDay? | increase index of recipe in plans array by one |
+ | MOVE_RECIPE_CARD_UP | clickedRecipeId & selectedDay | reduce index of recipe in plans array by one
+ | MOVE_RECIPE_CARD_DOWN | clickedRecipeId & selectedDay | increase index of recipe in plans array by one |
+ | MOVE_RECIPE_CARD_LEFT | selectedDay, recipe being moved | move recipe one day left |
+ | MOVE_RECIPE_CARD_RIGHT | selectedDay, recipe being moved | move recipe one day right |
  | CLONE_DAY_RECIPE | column of day, uuid of recipe being cloned | clone a recipe in globalState |
 
  ### loading
