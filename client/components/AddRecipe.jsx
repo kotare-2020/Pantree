@@ -40,6 +40,12 @@ class AddIngredients extends React.Component {
         }))
     }
 
+    // onKeyPress(event) {
+    //     if (event.which === 13) {
+    //       event.preventDefault();
+    //     }
+    // }
+
     handleSubmit = (e) => { 
         e.preventDefault()
         this.props.dispatch(saveRecipe(this.state.recipe, this.state.ingredients))
@@ -58,7 +64,7 @@ class AddIngredients extends React.Component {
     render() {
         let { recipe, ingredients } = this.state
         return (
-            <form onSubmit={this.handleSubmit} onChange={this.handleChange} >
+            <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
                 <label>Name : </label>
                 <input type="text" name="name" defaultValue={recipe.name}/>
                 
@@ -66,12 +72,12 @@ class AddIngredients extends React.Component {
                 <input type="url" name="image" defaultValue={recipe.image}/>
 
                 <Ingredients ingredients={ingredients} />
-                <button onClick={this.addIngredient} type="button">Add more ingredients</button>
+                <button onClick={this.addIngredient}>Add more ingredients</button>
                 
                 <label>Method : </label>
-                <input type="textarea" name="method" defaultValue={recipe.method}/>
+                <input type="text" name="method" defaultValue={recipe.method}/>
                 
-                <input type="submit" value="Submit" /> 
+                <input type="submit" value="Submit"/> 
             </form>
         )
     }
