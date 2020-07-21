@@ -88,7 +88,7 @@ class PlanRecipeCard extends React.Component {
       <div className="card hoverable">
         <div className="card-image">
           <Link to="#recipe-summary" onClick={this.openRecipeModal} className="modal-trigger">
-            <img className="responsive-img" src={this.props.recipe.recipeImage}></img>
+            <img className="card-img" src={this.props.recipe.recipeImage}></img>
           </Link>
 
           <a className="btn-small btn-floating btn-clone halfway-fab waves-effect waves-light grey darken-2" onClick={this.handleClone}>
