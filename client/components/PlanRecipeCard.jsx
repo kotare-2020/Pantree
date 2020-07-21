@@ -81,13 +81,13 @@ class PlanRecipeCard extends React.Component {
         <div className="card hoverable">
 
           <div className="card-image">
-            <img src={this.props.recipe.recipeImage}></img>
+            <img className="card-img" src={this.props.recipe.recipeImage}></img>
 
-            <a className="btn-small btn-floating btn-clone halfway-fab waves-effect waves-light" onClick={this.handleClone}>
+            <a className="btn-small btn-floating btn-clone halfway-fab waves-effect waves-light grey darken-2" onClick={this.handleClone}>
               <i className="material-icons">content_copy</i>
             </a>
 
-            <a className="btn-small btn-floating btn-delete halfway-fab waves-effect waves-light" onClick={this.handleDelete}>
+            <a className="btn-small btn-floating btn-delete halfway-fab waves-effect waves-light grey darken-2" onClick={this.handleDelete}>
               <i className="material-icons" onClick={this.handleClick}>delete</i>
             </a>
           </div>
