@@ -12,9 +12,15 @@ class PlanColumn extends React.Component {
     return this.props.dispatch(selectedDay(this.props.dayNumber))
   }
 
+  lastCardIndex = () => {
+    const dayColumn = this.props.days.find(day => day.dayNumber === this.props.dayNumber)
+    const lastIndex = dayColumn.recipes.length - 1
+    return lastIndex
+  }
+
   setDayRecipes = () => {
     return this.props.day.recipes.map((recipe, i) => {
-      return <PlanRecipeCard key={`${recipe.recipeUuid}-${this.props.dayNumber}`} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe} itemIndex={i} />
+      return <PlanRecipeCard key={`${recipe.recipeUuid}-${this.props.dayNumber}`} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe} cardIndex={i} lastCardIndex={this.lastCardIndex()}/>
     })
   }
 
