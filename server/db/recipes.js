@@ -52,7 +52,6 @@ function addRecipeIngredients(recipeIngredients, recipeId, db = connection) {
     return addIngredients(recipeIngredients.map(ingredient => {
         return {name:ingredient.name, unit:ingredient.unit}
     }))
-    // return addIngredients(recipeIngredients.map(ingredient => ingredient.name))
     .then(ingredients => {
         return db('recipes_ingredients')
             .insert(recipeIngredients.map(ingredient => {
