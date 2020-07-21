@@ -9,7 +9,7 @@ const Ingredients = (props) => {
       let quanId = `quantity-${idx}`
       return (
         <div key={idx}>
-          <label>{`Ingredient #${idx + 1}`} : </label>
+          <label>{`Ingredient #${idx + 1}`}</label>
           <input
             type="text"
             name={nameId}
@@ -19,7 +19,7 @@ const Ingredients = (props) => {
             className="name"
           />
 
-          <label>Unit (kg/each) : </label>
+          <label>Unit (kg/each)</label>
           <select
             name={unitId}
             data-id={idx}
@@ -29,8 +29,8 @@ const Ingredients = (props) => {
               <option value='each'>each</option>
               <option value='kg'>kg</option>
             </select>
-
-          <label>Quantity : </label>
+          <hr />
+          <label>Quantity</label>
           <input
             type="text"
             name={quanId}
