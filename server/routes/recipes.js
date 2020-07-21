@@ -27,7 +27,13 @@ router.get('/:recipeId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    db.addRecipe(req.body)
+    const newRecipe = {
+        name: req.body.name,
+        image: req.body.image,
+        method: JSON.stringify([req.body.method])
+    }
+    
+    db.addRecipe(newRecipe)
         .then((ids) => {
             return db.getRecipes()
             .then(recipe => {
