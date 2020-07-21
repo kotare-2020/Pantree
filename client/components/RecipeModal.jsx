@@ -1,9 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchSelectedRecipe } from '../actions/selectedRecipe'
-import { addDayRecipe } from '../actions/plan'
-import { Link } from 'react-router-dom'
-
 
 class RecipeModal extends React.Component {
 
@@ -15,12 +12,9 @@ class RecipeModal extends React.Component {
         this.props.dispatch(fetchSelectedRecipe(this.props.selectedRecipeId))
     }
 
-    //NB: Need to get modal to not display when clicked
-    // closeRecipeModal = () => {
-    //     this.setState (
-    //         { showRecipeModal: false}
-    //     )
-    // }
+    closeRecipeModal = () => {
+        this.props.closeRecipeModal()
+    }
 
     render() {
 
@@ -29,7 +23,7 @@ class RecipeModal extends React.Component {
         return (
             <>
                 {selectedRecipe &&
-                    <section className="container modal open" id="recipe-summary">
+                    <section className="container modal" id="recipe-summary">
                         <div className="row modal-content">
                             <div className="col s12 m12">
                                 <div className="center-align">
@@ -51,10 +45,9 @@ class RecipeModal extends React.Component {
                                         return <li key={i}>{step}</li>
                                     })}
                                 </ol>
-
-                                <div className="modal-footer">
-                                    <a href="#" className="waves-effect waves-green btn-flat">CLOSE</a>
-                                </div>
+                            </div>
+                            <div className="modal-footer">
+                                <a className="modal-close waves-effect waves-green btn-flat" onClick={this.closeRecipeModal}>CLOSE</a>
                             </div>
                         </div>
                     </section>

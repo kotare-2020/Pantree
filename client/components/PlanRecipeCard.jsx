@@ -68,8 +68,12 @@ class PlanRecipeCard extends React.Component {
     this.props.dispatch(cloneDayRecipe(currentDayColumn, recipeBeingClonedUuid))
   }
 
-  viewRecipeModal = () => {
+  openRecipeModal = () => {
     this.setState({ showRecipeModal: true })
+  }
+
+  closeRecipeModal = () => {
+    this.setState({ showRecipeModal: false })
   }
 
   handleClickTitle = () => {
@@ -79,11 +83,11 @@ class PlanRecipeCard extends React.Component {
   render() {
 
     return <>
-      {this.state.showRecipeModal && <RecipeModal selectedRecipeId={this.props.recipe.recipeId} />}
+      {this.state.showRecipeModal && <RecipeModal selectedRecipeId={this.props.recipe.recipeId} closeRecipeModal={this.closeRecipeModal}/>}
 
       <div className="card hoverable">
         <div className="card-image">
-          <Link to="#recipe-summary" onClick={this.viewRecipeModal} className="modal-trigger">
+          <Link to="#recipe-summary" onClick={this.openRecipeModal} className="modal-trigger">
             <img className="responsive-img" src={this.props.recipe.recipeImage}></img>
           </Link>
 

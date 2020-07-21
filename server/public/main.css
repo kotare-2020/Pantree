@@ -161,9 +161,3 @@ body {
   top: 10%; 
   transform: scaleX(1) scaleY(1);
 }
-
-.modal-overlay {
-  z-index: 1002; 
-  display: block; 
-  opacity: 0.5;
-}
