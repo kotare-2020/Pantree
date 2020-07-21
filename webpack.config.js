@@ -29,7 +29,7 @@ module.exports = {
   },
   devtool: 'source-map',
   performance: {
-    hints: process.env.NODE_ENV === 'production' ? 'warning' : false, // hide warnings about excessive bundle size unless the env is prod. It doesn't matter so much for dev
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false, // hide warnings about excessive bundle size unless the env is prod
   },
   devServer: {
     contentBase: './server/public',
