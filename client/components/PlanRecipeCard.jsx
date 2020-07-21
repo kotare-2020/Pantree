@@ -98,7 +98,7 @@ class PlanRecipeCard extends React.Component {
                 }
               </div>
               <div className="card-arrow-down">
-                {this.state.isLast
+                {this.props.cardIndex === this.props.lastCardIndex
                   ?
                   <i className="tiny material-icons hide-on-med-and-down hidden-icon">keyboard_arrow_down</i>
                   :
