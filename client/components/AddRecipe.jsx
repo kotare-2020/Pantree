@@ -16,11 +16,10 @@ class AddIngredients extends React.Component {
 
   handleChange = (e) => {
     const fieldName = e.target.className.split(" ")[0]
-    console.log(fieldName, e.target.name)
     if (["name", "unit", "quantity"].includes(fieldName)) {
       let ingredients = [...this.state.ingredients]
       ingredients[e.target.dataset.id][fieldName] = e.target.value
-      this.setState({ ingredients }, () => console.log(this.state.ingredients))
+      this.setState({ ingredients })
     } else {
       this.setState({
         recipe: {
