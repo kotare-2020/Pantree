@@ -543,10 +543,8 @@ Local Suppliers = '/suppliers'
  | saveRecipe | recipe |save the recipe to DB and then return all recipes and store in redux - thunk action |
  | fetchRecipes | recipes | retreive recipes from db and store in redux - thunk action |
  | SET_RECIPES | recipe | save recipes to store |
-<<<<<<< HEAD
- <!-- | ADD_RECIPE- | recipe | save recipe to store | -->
-=======
->>>>>>> edb411895c8362e020f9834b266cc03d0597880d
+
+
  
  ### recipe
  | type | data | purpose |
