@@ -22,18 +22,15 @@ class PlanColumn extends React.Component {
 
   render() {
     return (
-      <>
-        {/* <div className="plan-column"> */}
-        <div className="col s1 m12 l12">
-          <h4 className="plan-col-header flow-text">{this.dayOfWeek[this.props.dayNumber - 1]}</h4>
+      <div className="plan-column">
+        <h4 className="plan-col-header flow-text">{this.dayOfWeek[this.props.dayNumber - 1]}</h4>
 
-          {this.setDayRecipes()}
+        {this.setDayRecipes()}
 
-          <div className="add-btn">
-            <Link to='/recipes' className="btn-floating btn-small waves-effect waves-light teal lighten-2" onClick={this.handleClick}><i className="material-icons">add</i></Link>
-          </div>
+        <div className="add-btn">
+          <Link to='/recipes' className="btn-floating btn-small waves-effect waves-light teal lighten-2" onClick={this.handleClick}><i className="material-icons">add</i></Link>
         </div>
-      </>
+      </div>
     )
   }
 }

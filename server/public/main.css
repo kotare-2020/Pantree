@@ -37,18 +37,27 @@ body {
   clear: both;
 }
 
-/* .plan {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1;
-  justify-items: stretch;
-  min-height: calc(80vh - 64px - 22px)
-} */
+@media only screen and (min-width: 600px) {
+  .plan {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1;
+    justify-items: stretch;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .plan {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1;
+    justify-items: stretch;
+  }
+}
 
 .plan-column {
-  width:auto;
+  width: auto;
   height: auto;
-  display: flex;
   border-left: solid 1px lightgrey;
   border-right: solid 1px lightgrey;
   flex-direction: column;

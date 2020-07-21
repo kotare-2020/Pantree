@@ -36,7 +36,6 @@ class Plan extends React.Component {
 
   render() {
     const auth = this.props.auth
-    const plans = this.props.plans
 
     return (
       <div className='plan-container'>
@@ -52,13 +51,13 @@ class Plan extends React.Component {
               </button>
             </div>
             <div id='clear-float'></div>
-            <div className='row'>
+            <div className='plan'>
               {this.generateColumns()}
             </div>
           </>
         ) : (
-          <Redirect to='/' />
-        )}
+            <Redirect to='/' />
+          )}
       </div>
     )
   }

@@ -70,12 +70,12 @@ class PlanRecipeCard extends React.Component {
         <div className="card hoverable">
           
           <div className="card-image">
-            <img className="responsive-img" src={this.props.recipe.recipeImage} />
+            <img className="show-on-medium-and-up responsive-img" src={this.props.recipe.recipeImage} />
           </div>
 
           <div className="card-content">
             <div className="card-header-container">
-              <span className="card-recipe-name">{this.props.recipe.recipeName}</span>
+              <h4 className="card-recipe-name">{this.props.recipe.recipeName}</h4>
               <div>
                 <i className="xs-icon material-icons clickable-icon" onClick={this.handleClone}>content_copy</i>
                 <i className="xs-icon material-icons clickable-icon delete" onClick={this.handleClick}>delete</i>
