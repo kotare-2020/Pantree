@@ -10,17 +10,8 @@ class Plan extends React.Component {
     let columns = []
 
     for (let i = 1; i <= 7; i++) {
-      const day = this.props.plans.find(d => d.dayNumber === i) || {
-        dayNumber: i,
-        recipes: [],
-      }
-      columns.push(
-        <PlanColumn
-          key={`${day.dayNumber}-${day.recipes.length}`}
-          dayNumber={i}
-          day={day}
-        />
-      )
+      const day = this.props.plans.find(d => d.dayNumber === i) || { dayNumber: i, recipes: [] }
+      columns.push(<PlanColumn key={`${day.dayNumber}-${day.recipes.length}`} dayNumber={i} day={day}/>)
     }
 
     return columns
@@ -29,9 +20,7 @@ class Plan extends React.Component {
   handleClick = () => {
     const userId = this.props.auth.user.id
     this.props.dispatch(savePlan(userId, this.props.plans))
-    M.toast({
-      html: '<span><i class="tiny material-icons">thumb_up</i> Done!</span>',
-    })
+    M.toast({html: '<span><i class="tiny material-icons">thumb_up</i> Done!</span>'})
   }
 
   render() {
