@@ -81,7 +81,7 @@ class PlanRecipeCard extends React.Component {
         <div className="card hoverable">
 
           <div className="card-image">
-            <img className="responsive-img" src={this.props.recipe.recipeImage}></img>
+            <img src={this.props.recipe.recipeImage}></img>
 
             <a className="btn-small btn-floating btn-clone halfway-fab waves-effect waves-light" onClick={this.handleClone}>
               <i className="material-icons">content_copy</i>
@@ -93,10 +93,15 @@ class PlanRecipeCard extends React.Component {
           </div>
 
           <div className="card-content">
-            <Link to={`/recipes/${this.props.recipe.recipeId}`} onClick={this.handleClickTitle}><h6>{this.props.recipe.recipeName}</h6></Link>
-            <div className="arrow-container">
+            <div className="card-title-and-up-down-arrows">
+              <div className="card-title">
+                <Link to={`/recipes/${this.props.recipe.recipeId}`} onClick={this.handleClickTitle}>
+                  <h6>{this.props.recipe.recipeName}</h6>
+                </Link>
+              </div>
 
-              <div className="container-arrow-up-down">
+              <div className="card-arrow-up-down">
+                <div className="card-arrow-up">
                 {this.props.itemIndex != 0
                   ?
                   <i className="tiny material-icons clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
@@ -104,30 +109,28 @@ class PlanRecipeCard extends React.Component {
                   <i className="tiny material-icons hidden-icon">keyboard_arrow_up</i>
                 }
               </div>
-
-              <div className="container-arrow-up-down">
+              <div className="card-arrow-down">
                 {!this.state.isLastColumnRecipe
                   ?
                   <i className="tiny material-icons clickable-icon" onClick={this.handleClickDown}>keyboard_arrow_down</i>
                   :
                   <i className="tiny material-icons hidden-icon">keyboard_arrow_down</i>}
               </div>
-
-              <div className="container-arrow-left-right">
-                {this.props.dayNumber != 1
-                  ?
-                  <i className="tiny material-icons clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
-                  :
-                  <i className="tiny material-icons hidden-icon">keyboard_arrow_left</i>
-                }
-                {this.props.dayNumber != 7
-                  ?
-                  <i className="tiny material-icons clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i>
-                  :
-                  <i className="tiny material-icons hidden-icon">keyboard_arrow_left</i>
-                }
-              </div>
-
+            </div>
+            </div>
+            <div className="card-arrow-left-right">
+              {this.props.dayNumber != 1
+                ?
+                <i className="tiny material-icons clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
+                :
+                <i className="tiny material-icons hidden-icon">keyboard_arrow_left</i>
+              }
+              {this.props.dayNumber != 7
+                ?
+                <i className="tiny material-icons clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i>
+                :
+                <i className="tiny material-icons hidden-icon">keyboard_arrow_left</i>
+              }
             </div>
           </div>
         </div>
