@@ -40,6 +40,8 @@ class AddIngredients extends React.Component {
         }))
     }
 
+ 
+
     // onKeyPress(event) {
     //     if (event.which === 13) {
     //       event.preventDefault();
@@ -64,21 +66,33 @@ class AddIngredients extends React.Component {
     render() {
         let { recipe, ingredients } = this.state
         return (
+            <div className="row">
             <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+
+                <div className="col s8 offset-s2 new-recipe-header">
                 <label>Name : </label>
                 <input type="text" name="name" defaultValue={recipe.name}/>
                 
                 <label>Image URL : </label>
                 <input type="url" name="image" defaultValue={recipe.image}/>
+                </div>
 
+                <div className="col s3">
                 <Ingredients ingredients={ingredients} />
-                <button onClick={this.addIngredient}>Add more ingredients</button>
-                
+                <button className="btn-floating btn-medium waves-effect waves-light teal lighten-2 add-ingredient" onClick={this.addIngredient}>+</button>
+                </div>
+
+                <div className="col s8 offset-s1">
+                    <div className="input-field">
                 <label>Method : </label>
-                <input type="text" name="method" defaultValue={recipe.method}/>
+                <textarea className="materialize-textarea" type="text" name="method" defaultValue={recipe.method}></textarea>
+                    </div>
+                </div>
                 
-                <input type="submit" value="Submit"/> 
+                <input 
+                className="btn waves-effect waves-light btn-large right" type="submit" value="Save"/> 
             </form>
+            </div>
         )
     }
 }

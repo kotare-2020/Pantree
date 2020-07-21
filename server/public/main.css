@@ -170,3 +170,11 @@ body {
   top: 10%; 
   transform: scaleX(1) scaleY(1);
 }
+
+.new-recipe-header{
+  margin: 30px 0;
+}
+
+.add-ingredient{
+  font-size:large;
+}
