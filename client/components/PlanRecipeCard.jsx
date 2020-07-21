@@ -5,10 +5,14 @@ import { removeDayRecipe, moveRecipeCardDown, moveRecipeCardUp, moveRecipeCardLe
 import { clearSelectedDay } from '../actions/selectedDay'
 import { Link } from 'react-router-dom'
 
-
-
+import RecipeModal from './RecipeModal'
 
 class PlanRecipeCard extends React.Component {
+
+  state = {
+    showRecipeModal: false
+  }
+
   handleClick = e => {
     this.props.dispatch(
       removeDayRecipe(this.props.recipe.recipeUuid, this.props.dayNumber)
@@ -47,48 +51,47 @@ class PlanRecipeCard extends React.Component {
     this.props.dispatch(cloneDayRecipe(currentDayColumn, recipeBeingClonedUuid))
   }
 
-  handleClickTitle = () => {
-    this.props.dispatch(clearSelectedDay())
+  viewRecipeModal = () => {
+    this.setState({ showRecipeModal: true })
   }
 
   render() {
 
+    return <>
+      {this.state.showRecipeModal && <RecipeModal selectedRecipeId={this.props.recipe.recipeId} />}
 
-    return (
-      <>
-        <div className="card card-container">
-          <div className="delete-container">
-            <i className="xs-icon material-icons clickable-icon" onClick={this.handleClone}>content_copy</i>
-            <i className="xs-icon material-icons clickable-icon delete" onClick={this.handleClick}>delete</i>
-          </div>
-
-          <Link  to={`/recipes/${this.props.recipe.recipeId}`} onClick={this.handleClickTitle} ><span className="card-title">{this.props.recipe.recipeName}</span></Link>
-
-          <div className="arrow-container">
-            <div className="container-arrow-left-right">
-              {this.props.dayNumber != 1
-                ?
-                <i className="tiny material-icons clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
-                :
-                <i className="tiny material-icons hidden-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
-              }
-              {this.props.dayNumber != 7
-                ?
-                <i className="tiny material-icons clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i>
-                :
-                <i className="tiny material-icons hidden-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
-              }
-            </div>
-
-            <div className="container-arrow-up-down">
-              <i className="tiny material-icons clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
-              <i className="tiny material-icons clickable-icon " onClick={this.handleClickDown}>keyboard_arrow_down</i>
-            </div>
-
-          </div>
+      <div className="card card-container">
+        <div className="delete-container">
+          <i className="xs-icon material-icons clickable-icon" onClick={this.handleClone}>content_copy</i>
+          <i className="xs-icon material-icons clickable-icon delete" onClick={this.handleClick}>delete</i>
         </div>
-      </>
-    )
+
+        <Link onClick={this.viewRecipeModal} className="modal-trigger" to="#recipe-summary"><span className="card-title modal-trigger">{this.props.recipe.recipeName}</span></Link>
+
+        <div className="arrow-container">
+          <div className="container-arrow-left-right">
+            {this.props.dayNumber != 1
+              ?
+              <i className="tiny material-icons clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
+              :
+              <i className="tiny material-icons hidden-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
+            }
+            {this.props.dayNumber != 7
+              ?
+              <i className="tiny material-icons clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i>
+              :
+              <i className="tiny material-icons hidden-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
+            }
+          </div>
+
+          <div className="container-arrow-up-down">
+            <i className="tiny material-icons clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
+            <i className="tiny material-icons clickable-icon " onClick={this.handleClickDown}>keyboard_arrow_down</i>
+          </div>
+
+        </div>
+      </div>
+    </>
   }
 }
 
