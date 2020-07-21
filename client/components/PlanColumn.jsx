@@ -23,7 +23,7 @@ class PlanColumn extends React.Component {
   render() {
     return (
       <div className="plan-column">
-        <h4 className="plan-col-header flow-text">{this.dayOfWeek[this.props.dayNumber - 1]}</h4>
+        <h4 className="plan-col-header">{this.dayOfWeek[this.props.dayNumber - 1]}</h4>
 
         {this.setDayRecipes()}
 

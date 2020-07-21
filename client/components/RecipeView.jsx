@@ -22,7 +22,8 @@ class RecipeView extends React.Component {
     handleAdd = () => {
         const recipeDetails = {
             recipeId: this.props.selectedRecipe.recipeId,
-            recipeName: this.props.selectedRecipe.recipeName
+            recipeName: this.props.selectedRecipe.recipeName,
+            recipeImage: this.props.selectedRecipe.recipeImage
         }
         this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
     }

@@ -91,52 +91,44 @@ body {
   cursor: pointer;
 }
 
-.card-header-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.xs-icon {
-  font-size:20px;
-  padding: 2px;
-}
-
 .card .card-content {
   padding: 10px;
 }
 
-.card-recipe-name {
-  font-size: 20px;
-  font-weight: 300;
-  max-width: 70%;
+.card h6 {
+  margin: 1%;
+  margin-top: 0.8rem; 
 }
 
-.arrow-container{
-  display: flex;
+.arrow-container {
+  display: block;
   justify-content: space-between;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 5rem;
 }
 
-.delete {
- font-size:20px;
- border: none;
+.container-arrow-up-down {
+  display: flex;
+  height: 1rem;
+  justify-content: flex-end;
+  min-width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .container-arrow-left-right{
- display:flex;
- align-items: flex-end;
- width: fit-content;
+  display: flex;
+  height: 1rem;
+  justify-content: space-between;
+ }
+
+
+.btn-clone {
+  right: 10px !important;
 }
 
-.container-arrow-up-down{
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-end;
-  align-items: center;
-  width: fit-content;
+.btn-delete {
+  right: 50px !important;
 }
 
 .inactive-icon {
