@@ -338,7 +338,18 @@ Response Body:
 Response Body:
 ```js
 {
-// recipeId
+// recipeId, allRecipes
+}
+```
+
+### POST recipe
+
+***POST*** /recipes/:recipeID/ingredients
+
+Response Body:
+```js
+{
+// ingredients
 }
 ```
 
