@@ -31,8 +31,6 @@ router.post('/', (req, res) => {
 
     if (methodValue[(methodValue.length -1)] == ''){
         methodValue.pop()
-    } else {
-        return methodValue
     }
     
     const newRecipe = {
