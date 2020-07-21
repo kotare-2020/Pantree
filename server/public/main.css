@@ -29,6 +29,7 @@ body {
 .plan-header {
   font-size: 2.92rem;
   font-weight: 400;
+  padding: 0 0.75rem;
 }
 
 #clear-float {
@@ -36,13 +37,13 @@ body {
   clear: both;
 }
 
-.plan {
+/* .plan {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1;
   justify-items: stretch;
   min-height: calc(80vh - 64px - 22px)
-}
+} */
 
 .plan-column {
   width:auto;
@@ -98,6 +99,7 @@ body {
 .card-recipe-name {
   font-size: 20px;
   font-weight: 300;
+  max-width: 70%;
 }
 
 .arrow-container{

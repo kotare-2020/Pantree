@@ -67,10 +67,10 @@ class PlanRecipeCard extends React.Component {
   render() {
     return (
       <>
-        <div className="card">
+        <div className="card hoverable">
           
           <div className="card-image">
-            <img src={this.props.recipe.recipeImage} />
+            <img className="responsive-img" src={this.props.recipe.recipeImage} />
           </div>
 
           <div className="card-content">
