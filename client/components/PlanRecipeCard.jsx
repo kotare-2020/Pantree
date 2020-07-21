@@ -9,20 +9,25 @@ class PlanRecipeCard extends React.Component {
 
   state = {
     showRecipeModal: false,
-    isLastColumnRecipe: false
+    isFirstOrLast: ''
   }
 
   componentDidMount() {
-    this.determineIfLastColumnRecipe()
+    this.determineIfFirstOrLastCard()
   }
 
-  determineIfLastColumnRecipe = () => {
-    const dayNumber = this.props.dayNumber
-    const recipeUuid = this.props.recipe.recipeUuid
+  determineIfFirstOrLastCard = () => {
+    let cardIndex = this.props.
+    if (this.props)
 
+    console.log("item index")
+    console.log(this.props.itemIndex)
+
+    const dayNumber = this.props.dayNumber
     const dayColumn = this.props.days.find(day => day.dayNumber === dayNumber)
-    const dayColumnLastIndex = dayColumn.recipes.length - 1
-    const recipeIndex = dayColumn.recipes.findIndex(recipe => recipe.recipeUuid === recipeUuid)
+    const dayColumnLength = dayColumn.recipes.length - 1
+
+    if (this.props.itemIndex === )
 
     if (dayColumnLastIndex === recipeIndex) {
       this.setState({
