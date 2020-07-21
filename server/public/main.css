@@ -29,28 +29,44 @@ body {
 .plan-header {
   font-size: 2.92rem;
   font-weight: 400;
+  padding: 0 0.75rem;
 }
 
 #clear-float {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   clear: both;
 }
 
-.plan {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1;
-  justify-items: stretch;
-  min-height: calc(80vh - 64px - 22px)
+@media only screen and (min-width: 600px) {
+  .plan {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1;
+    justify-items: stretch;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .plan {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1;
+    justify-items: stretch;
+  }
 }
 
 .plan-column {
-  width:auto;
+  width: auto;
   height: auto;
-  display: flex;
-  border: solid 1px black;
+  border-left: solid 1px lightgrey;
+  border-right: solid 1px lightgrey;
   flex-direction: column;
-  padding: 5px
+  padding: 10px
+}
+
+.plan-col-header {
+  margin-top: 0;
+  padding-bottom: 0.2em;
 }
 
 .space-around {
@@ -73,51 +89,46 @@ body {
 
 .clickable-icon {
   cursor: pointer;
-  /* border: solid black 1px; */
 }
 
-.delete-container{
-  display: inline-block;
-  position: absolute;
-  right: 5px;
+.card .card-content {
+  padding: 10px;
 }
 
-.xs-icon {
-  font-size:20px;
-  padding: 2px;
+.card h6 {
+  margin: 1%;
+  margin-top: 0.8rem; 
 }
 
-.card-container {
-  position: relative;
-  padding: 5px;
-}
-
-.arrow-container{
-  display: flex;
+.arrow-container {
+  display: block;
   justify-content: space-between;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 5rem;
 }
 
-.delete {
- font-size:20px;
- border: none;
+.container-arrow-up-down {
+  display: flex;
+  height: 1rem;
+  justify-content: flex-end;
+  min-width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 .container-arrow-left-right{
- display:flex;
- align-items: flex-end;
- width: fit-content;
+  display: flex;
+  height: 1rem;
+  justify-content: space-between;
+ }
+
+
+.btn-clone {
+  right: 10px !important;
 }
 
-.container-arrow-up-down{
-  display: flex;
-  flex-direction: column;
-  justify-content:flex-end;
-  align-items: center;
-  width: fit-content;
+.btn-delete {
+  right: 50px !important;
 }
 
 .inactive-icon {
@@ -129,7 +140,7 @@ body {
 }
 
 .add-btn {
-  width: 100%;
+  text-align: center;
 }
 
 @media only screen and (min-width: 1050px) {

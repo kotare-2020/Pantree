@@ -9,11 +9,11 @@ class Plan extends React.Component {
   generateColumns() {
     let columns = []
 
-
     for (let i = 1; i <= 7; i++) {
       const day = this.props.plans.find(d => d.dayNumber === i) || { dayNumber: i, recipes: [] }
       columns.push(<PlanColumn key={`${day.dayNumber}-${day.recipes.length}`} dayNumber={i} day={day}/>)
     }
+
     return columns
   }
 
@@ -25,9 +25,9 @@ class Plan extends React.Component {
 
   render() {
     const auth = this.props.auth
-    const plans = this.props.plans
 
     return (
+
       <div className='plan-container'>
         {auth.isAuthenticated ? (
           <>
@@ -40,12 +40,14 @@ class Plan extends React.Component {
                 <i className='material-icons left'>save</i>
               </button>
             </div>
-            <div id="clear-float"></div>
-            <div className='plan'>{this.generateColumns()}</div>
+            <div id='clear-float'></div>
+            <div className='plan'>
+              {this.generateColumns()}
+            </div>
           </>
         ) : (
-          <Redirect to='/' />
-        )}
+            <Redirect to='/' />
+          )}
       </div>
     )
   }

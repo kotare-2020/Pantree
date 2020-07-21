@@ -8,6 +8,7 @@ class RecipeThumbnail extends React.Component {
     const recipeDetails = {
       recipeId: this.props.id,
       recipeName: this.props.name,
+      recipeImage: this.props.image
     }
 
     this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
