@@ -1,7 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import { removeDayRecipe, moveRecipeCardDown, moveRecipeCardUp, moveRecipeCardLeft, moveRecipeCardRight, cloneDayRecipe } from '../actions/plan'
+
+import { clearSelectedDay } from '../actions/selectedDay'
+import { Link } from 'react-router-dom'
+
+
+
 
 class PlanRecipeCard extends React.Component {
   state = {
@@ -64,7 +69,13 @@ class PlanRecipeCard extends React.Component {
     this.props.dispatch(cloneDayRecipe(currentDayColumn, recipeBeingClonedUuid))
   }
 
+  handleClickTitle = () => {
+    this.props.dispatch(clearSelectedDay())
+  }
+
   render() {
+
+
     return (
       <>
         <div className="card hoverable">
@@ -82,7 +93,7 @@ class PlanRecipeCard extends React.Component {
           </div>
 
           <div className="card-content">
-            <h6>{this.props.recipe.recipeName}</h6>
+            <Link to={`/recipes/${this.props.recipe.recipeId}`} onClick={this.handleClickTitle}><h6>{this.props.recipe.recipeName}</h6></Link>
             <div className="arrow-container">
 
               <div className="container-arrow-up-down">

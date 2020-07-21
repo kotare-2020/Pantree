@@ -6,6 +6,7 @@ const Ingredients = (props) => {
     props.ingredients.map((val, idx)=> {
       let nameId = `name-${idx}`
       let unitId = `unit-${idx}`
+      let quanId = `quantity-${idx}`
       return (
         <div key={idx}>
           <label>{`Ingredient #${idx + 1}`}</label>
@@ -14,17 +15,29 @@ const Ingredients = (props) => {
             name={nameId}
             data-id={idx}
             id={nameId}
-            value={props.ingredients[idx].name} 
+            defaultValue={props.ingredients[idx].name} 
             className="name"
           />
+
           <label>Unit (kg/each)</label>
-          <input
-            type="text"
+          <select
             name={unitId}
             data-id={idx}
-            id={unitId}
-            value={props.ingredients[idx].unit} 
-            className="unit"
+            id={unitId} 
+            defaultValue={props.ingredients[idx].unit} 
+            className="unit option">
+              <option value='each'>each</option>
+              <option value='kg'>kg</option>
+            </select>
+
+          <label>Quantity</label>
+          <input
+            type="text"
+            name={quanId}
+            data-id={idx}
+            id={quanId}
+            defaultValue={props.ingredients[idx].quantity} 
+            className="quantity"
           />
         </div>
       )

@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { fetchSelectedRecipe } from '../actions/selectedRecipe'
 import { addDayRecipe } from '../actions/plan'
 import { Link } from 'react-router-dom'
+import pluralize from 'pluralize'
+
 
 
 class RecipeView extends React.Component {
@@ -30,6 +32,11 @@ class RecipeView extends React.Component {
 
     render() {
 
+        console.log(pluralize('pumpkin', 2))
+        console.log(pluralize('pumpkin', 0.5))
+        console.log(pluralize('pumpkin', 1))
+
+
         const selectedRecipe = this.props.selectedRecipe
 
         return (
@@ -44,10 +51,12 @@ class RecipeView extends React.Component {
                                     <img src={selectedRecipe.image} alt={`image of ${selectedRecipe.recipeName}`} width="600px" height="450px" />
                                 </div>
                                 <h5>Ingredients:</h5>
+
                                 <ul>
                                     {selectedRecipe.ingredients.map((ingredient, i) => {
                                         return (
-                                            <li key={i}>{ingredient.ingredientName}  <em>{ingredient.quantity} {ingredient.unit}</em></li>
+                                            <li key={i}>  <em> {ingredient.quantity > 1 ? pluralize(ingredient.ingredientName, ingredient.quantity) : ingredient.ingredientName} {ingredient.quantity} {ingredient.unit != 'each' && ingredient.unit}  </em></li>
+                                            
                                         )
                                     })
                                     }
@@ -61,12 +70,24 @@ class RecipeView extends React.Component {
                                 </ol>
 
                                 <div className="card-action center-align">
-                                    <Link to="/plan">
+                                    
+                                   {this.props.selectedDay ?
+                                    <>
+                                   <Link to="/plan">
                                         <button className="waves-effect waves-light btn space-around" onClick={this.handleAdd}>Add to Day {this.props.selectedDay}</button>
                                     </Link>
                                     <Link to="/recipes">
                                         <button className="waves-effect waves-light btn space-around">Back to Recipes</button>
                                     </Link>
+                                      </>
+                                       :
+                                       <>
+                                    <Link to="/plan">
+                                        <button className="waves-effect waves-light btn space-around">Back to Plan</button>
+                                    </Link>
+                                    </>
+                                       }
+
                                 </div>
                             </div>
                         </div>

@@ -149,3 +149,7 @@ body {
       margin: 0 auto;
   }
 }
+
+.option {
+  display: block;
+}

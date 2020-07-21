@@ -2,9 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink, Link } from 'react-router-dom'
 import { logoutUser } from '../actions/auth'
+import { clearSelectedDay } from '../actions/selectedDay'
 
 const Nav = props => {
   const { logout } = props
+  const { clearDay } = props
+
   return (
     <div className="navbar-fixed">
       <nav>
@@ -19,6 +22,9 @@ const Nav = props => {
             </li>
             <li>
               <NavLink to="/shopping-list">Shopping list</NavLink>
+            </li>
+            <li>
+              <NavLink to="/recipes" onClick={() => {clearDay()}}>Recipes</NavLink>
             </li>
             <li>
               <NavLink to="/suppliers">Local suppliers</NavLink>
@@ -38,8 +44,10 @@ const Nav = props => {
 const mapDispatchToProps = dispatch => {
   return {
     logout: () => dispatch(logoutUser()),
+    clearDay: () => dispatch(clearSelectedDay())
   }
 }
+
 const mapStateToProps = ({ auth }) => {
   return {
     auth,
