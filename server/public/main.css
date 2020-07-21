@@ -90,7 +90,7 @@ body {
   width: 8%;
 }
 
-.card-arrow-left-right{
+.card .card-arrow-left-right {
   height: 1rem;
   display: flex;
   justify-content: space-between;
@@ -130,14 +130,6 @@ body {
 
 .clickable-icon {
   cursor: pointer;
-}
-
-.arrow-container {
-  display: block;
-  justify-content: space-between;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .btn-clone {
