@@ -25,7 +25,7 @@ class RecipeView extends React.Component {
         const recipeDetails = {
             recipeId: this.props.selectedRecipe.recipeId,
             recipeName: this.props.selectedRecipe.recipeName,
-            recipeImage: this.props.selectedRecipe.recipeImage
+            recipeImage: this.props.selectedRecipe.image
         }
         this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
     }

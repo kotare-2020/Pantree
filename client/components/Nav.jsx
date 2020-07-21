@@ -3,24 +3,14 @@ import { connect } from 'react-redux'
 import { NavLink, Link } from 'react-router-dom'
 import { logoutUser } from '../actions/auth'
 import { clearSelectedDay } from '../actions/selectedDay'
-// import { savePlan } from "../actions/plan"
 
 const Nav = props => {
   const { logout } = props
   const { clearDay } = props
-  // const { saveMyPlan } = props
-  // const callback= () => props.history.push('/shopping-list')
 
-
-  // const handleClick = () => {
-  //   const userId = props.auth.user.id
-  
-    
-  //   saveMyPlan(userId, props.plans)
-  //   M.toast({html: '<span><i class="tiny material-icons">thumb_up</i> Plan Saved!</span>'})
-  // }
-
-
+  const handleClick = () => {
+    M.toast({html: '<span><i class="tiny material-icons">thumb_up</i> Plan saved!</span>'})
+  }
   
 
   return (
@@ -36,7 +26,7 @@ const Nav = props => {
               <NavLink to="/plan">My plan</NavLink>
             </li>
             <li>
-              <NavLink  to="/shopping-list">Shopping list</NavLink>
+              <NavLink onClick={handleClick} to="/shopping-list">Shopping list</NavLink>
             </li>
             <li>
               <NavLink to="/recipes" onClick={() => {clearDay()}}>Recipes</NavLink>
