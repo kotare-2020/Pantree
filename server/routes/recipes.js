@@ -27,10 +27,18 @@ router.get('/:recipeId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+    const methodValue = req.body.method.split('.')
+
+    if (methodValue[(methodValue.length -1)] == ''){
+        methodValue.pop()
+    } else {
+        return methodValue
+    }
+    
     const newRecipe = {
         name: req.body.name,
         image: req.body.image,
-        method: JSON.stringify([req.body.method])
+        method: JSON.stringify(methodValue)
     }
     
     db.addRecipe(newRecipe)
