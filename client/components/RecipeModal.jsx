@@ -15,29 +15,21 @@ class RecipeModal extends React.Component {
         this.props.dispatch(fetchSelectedRecipe(this.props.selectedRecipeId))
     }
 
-    // componentDidUpdate(prevProps) {
-    //     const id = this.props.match.params.id
-    //     if (prevProps.match.params.id != id) {
-    //         this.props.dispatch(fetchSelectedRecipe(id))
-    //     }
+    //NB: Need to get modal to not display when clicked
+    // closeRecipeModal = () => {
+    //     this.setState (
+    //         { showRecipeModal: false}
+    //     )
     // }
 
-    closeRecipeModal = () => {
-        this.setState (
-            { showRecipeModal: false}
-        )
-    }
-
     render() {
-        console.log(this.props.selectedRecipeId)
-        console.log(this.props)
+
         const selectedRecipe = this.props.selectedRecipe
 
         return (
             <>
                 {selectedRecipe &&
-
-                    <main className="container modal open" id="recipe-summary">
+                    <section className="container modal open" id="recipe-summary">
                         <div className="row modal-content">
                             <div className="col s12 m12">
                                 <div className="center-align">
@@ -61,13 +53,11 @@ class RecipeModal extends React.Component {
                                 </ol>
 
                                 <div className="modal-footer">
-                                    <a href="/plans" className="waves-effect waves-green btn-flat" onClick={this.closeRecipeModal}>CLOSE</a>
+                                    <a href="#" className="waves-effect waves-green btn-flat">CLOSE</a>
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="model-overlay"></div> */}
-                    </main>
-
+                    </section>
                 }
             </>
         )
@@ -75,7 +65,6 @@ class RecipeModal extends React.Component {
 }
 
 function mapStateToProps(globalState) {
-    console.log(globalState)
     return {
         selectedRecipe: globalState.selectedRecipe
     }

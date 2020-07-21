@@ -29,9 +29,10 @@ function getPlanByPlanId(planId, db = connection) {
     .where("plans.id", planId)
     .select(
       "recipes.id as recipeId",
+      "recipes.image as recipeImage",
       "plans.id as planId",
       "plans_recipes.day_number as dayNumber",
-      " recipes.name as recipeName"
+      "recipes.name as recipeName"
     )
     .then((days) => {
       return days.reduce((reducedPlan, planAndRecipes) => {
@@ -45,6 +46,7 @@ function getPlanByPlanId(planId, db = connection) {
         reducedPlan[day].recipes.push({
           recipeId: planAndRecipes.recipeId,
           recipeName: planAndRecipes.recipeName,
+          recipeImage: planAndRecipes.recipeImage
         })
 
         return reducedPlan

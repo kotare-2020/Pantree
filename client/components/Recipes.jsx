@@ -11,10 +11,11 @@ class Recipes extends React.Component {
     this.props.dispatch(fetchRecipes())
   }
 
-  handleAdd = (recipeId, recipeName) => {
+  handleAdd = (recipeId, recipeName, recipeImage) => {
     const recipeDetails = {
       recipeId: recipeId,
       recipeName: recipeName,
+      recipeImage: recipeImage
     }
     this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
   }
