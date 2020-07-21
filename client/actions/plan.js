@@ -85,7 +85,11 @@ export const savePlan = (userId, plan) => {
   return dispatch => {
     getPlanIdByUserId(userId)
     .then(result => {
-        updatePlanApi(result.planId, plan)
+        console.log('action',result);
+        
+      return updatePlanApi(result.planId, plan)
+      
+      
       })
       .catch(err => {
         console.log('savePlan has Broken')

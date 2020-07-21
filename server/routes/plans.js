@@ -37,8 +37,11 @@ router.post('/:id', (req, res) => {
 router.patch('/:id', (req, res) => {
   const id = req.params.id
   const plan = req.body
+
   db.editPlan(id, plan)
-    .then(res.sendStatus(200))
+    .then(()=>{
+      return res.sendStatus(200)
+    })
     .catch(err => {
       res.status(500).send('it broke :/')
       console.log(err)
