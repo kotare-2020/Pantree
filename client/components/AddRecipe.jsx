@@ -66,11 +66,11 @@ class AddIngredients extends React.Component {
                 <input type="url" name="image" defaultValue={recipe.image}/>
 
                 <Ingredients ingredients={ingredients} />
-                <button onClick={this.addIngredient}>Add more ingredients</button>
-
+                <button onClick={this.addIngredient} type="button">Add more ingredients</button>
+                
                 <label>Method : </label>
-                <input type="text" name="method" defaultValue={recipe.method}/>
-
+                <input type="textarea" name="method" defaultValue={recipe.method}/>
+                
                 <input type="submit" value="Submit" /> 
             </form>
         )
