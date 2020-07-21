@@ -9,26 +9,6 @@ class PlanRecipeCard extends React.Component {
 
   state = {
     showRecipeModal: false,
-    isLastColumnRecipe: false
-  }
-
-  componentDidMount() {
-    this.determineIfLastColumnRecipe()
-  }
-
-  determineIfLastColumnRecipe = () => {
-    const dayNumber = this.props.dayNumber
-    const recipeUuid = this.props.recipe.recipeUuid
-
-    const dayColumn = this.props.days.find(day => day.dayNumber === dayNumber)
-    const dayColumnLastIndex = dayColumn.recipes.length - 1
-    const recipeIndex = dayColumn.recipes.findIndex(recipe => recipe.recipeUuid === recipeUuid)
-
-    if (dayColumnLastIndex === recipeIndex) {
-      this.setState({
-        isLastColumnRecipe: true
-      })
-    }
   }
 
   handleDelete = e => {
@@ -110,19 +90,20 @@ class PlanRecipeCard extends React.Component {
 
             <div className="card-arrow-up-down">
               <div className="card-arrow-up">
-                {this.props.itemIndex != 0
+                {this.props.cardIndex === 0
                   ?
-                  <i className="tiny material-icons hide-on-med-and-down clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
-                  :
                   <i className="tiny material-icons hide-on-med-and-down hidden-icon">keyboard_arrow_up</i>
+                  :
+                  <i className="tiny material-icons hide-on-med-and-down clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
                 }
               </div>
               <div className="card-arrow-down">
-                {!this.state.isLastColumnRecipe
+                {this.props.cardIndex === this.props.lastCardIndex
                   ?
-                  <i className="tiny material-icons hide-on-med-and-down clickable-icon" onClick={this.handleClickDown}>keyboard_arrow_down</i>
+                  <i className="tiny material-icons hide-on-med-and-down hidden-icon">keyboard_arrow_down</i>
                   :
-                  <i className="tiny material-icons hide-on-med-and-down hidden-icon">keyboard_arrow_down</i>}
+                  <i className="tiny material-icons hide-on-med-and-down clickable-icon" onClick={this.handleClickDown}>keyboard_arrow_down</i>
+                }
               </div>
             </div>
           </div>
