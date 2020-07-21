@@ -104,32 +104,32 @@ class PlanRecipeCard extends React.Component {
                 <div className="card-arrow-up">
                 {this.props.itemIndex != 0
                   ?
-                  <i className="tiny material-icons clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
+                  <i className="tiny material-icons hide-on-med-and-down clickable-icon" onClick={this.handleClickUp}>keyboard_arrow_up</i>
                   :
-                  <i className="tiny material-icons hidden-icon">keyboard_arrow_up</i>
+                  <i className="tiny material-icons hide-on-med-and-down hidden-icon">keyboard_arrow_up</i>
                 }
               </div>
               <div className="card-arrow-down">
                 {!this.state.isLastColumnRecipe
                   ?
-                  <i className="tiny material-icons clickable-icon" onClick={this.handleClickDown}>keyboard_arrow_down</i>
+                  <i className="tiny material-icons hide-on-med-and-down clickable-icon" onClick={this.handleClickDown}>keyboard_arrow_down</i>
                   :
-                  <i className="tiny material-icons hidden-icon">keyboard_arrow_down</i>}
+                  <i className="tiny material-icons hide-on-med-and-down hidden-icon">keyboard_arrow_down</i>}
               </div>
             </div>
             </div>
             <div className="card-arrow-left-right">
               {this.props.dayNumber != 1
                 ?
-                <i className="tiny material-icons clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
+                <i className="tiny material-icons hide-on-med-and-down clickable-icon" onClick={this.handleClickLeft} >keyboard_arrow_left</i>
                 :
-                <i className="tiny material-icons hidden-icon">keyboard_arrow_left</i>
+                <i className="tiny material-icons hide-on-med-and-down hidden-icon">keyboard_arrow_left</i>
               }
               {this.props.dayNumber != 7
                 ?
-                <i className="tiny material-icons clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i>
+                <i className="tiny material-icons hide-on-med-and-down clickable-icon" onClick={this.handleClickRight}>keyboard_arrow_right</i>
                 :
-                <i className="tiny material-icons hidden-icon">keyboard_arrow_left</i>
+                <i className="tiny material-icons hide-on-med-and-down hidden-icon">keyboard_arrow_left</i>
               }
             </div>
           </div>
