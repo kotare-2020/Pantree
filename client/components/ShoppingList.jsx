@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { fetchShoppingList } from '../actions/shoppingList'
+import {savePlan} from '../actions/plan'
 import pluralize from 'pluralize'
 
 // auth is mapped to props so we can get the userId, should prob eventually refactor so that we get userId from somewhere else
@@ -9,11 +10,13 @@ class ShoppingList extends React.Component {
     
     componentDidMount() {
         const userId = this.props.auth.user.id
-        this.props.dispatch(fetchShoppingList(userId))
+        const plans = this.props.plans
+
+        this.props.dispatch(fetchShoppingList(userId, plans))
     }
     
     render() {
-        console.log(pluralize('potato', 2))
+        
         return (
             <div className="container">
                 <div className="shoppinglist">
@@ -28,7 +31,7 @@ class ShoppingList extends React.Component {
                     <tbody>
                     {this.props.shoppingList.map(ingredient => {
                         return (
-                        <tr>
+                        <tr key={`shopping${ingredient.ingredientId}`}>
                             <td>{ingredient.quantity > 1 ? pluralize(ingredient.ingredientName, ingredient.quantity) : ingredient.ingredientName}</td>
                             <td className="right-align">{ingredient.quantity} {ingredient.ingredientUnit != 'each' && ingredient.ingredientUnit}</td>
                         </tr>
@@ -46,7 +49,8 @@ class ShoppingList extends React.Component {
 function mapStateToProps (globalState) {
     return {
         auth: globalState.auth,
-        shoppingList: globalState.shoppingList
+        shoppingList: globalState.shoppingList,
+        plans : globalState.plans
     }
 }
 
