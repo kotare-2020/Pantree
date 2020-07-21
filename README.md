@@ -505,14 +505,16 @@ Local Suppliers = '/suppliers'
  | --- | --- | --- |
  | GET_PLAN | plan | retreive plan from the db and store in redux, set loading : true |
  | SET_PLAN | plan | save plan to store |
- | SAVE_PLAN | plan | save plan to db | 
  | UPDATE_DAY_RECIPE | recipeId/SelectedDay | add selected recipeId/selectedDay from globalState | 
- | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
- | MOVE_RECIPE_CARD_UP | clickedRecipeId & selectedDay | reduce index of recipe in plans array by one
- | MOVE_RECIPE_CARD_DOWN | clickedRecipeId & selectedDay | increase index of recipe in plans array by one |
- | MOVE_RECIPE_CARD_LEFT | selectedDay, recipe being moved | move recipe one day left |
- | MOVE_RECIPE_CARD_RIGHT | selectedDay, recipe being moved | move recipe one day right |
  | CLONE_DAY_RECIPE | column of day, uuid of recipe being cloned | clone a recipe in globalState |
+  | MOVE_DAY_RECIPE_LEFT | selectedDay, recipe being moved | move recipe one day left |
+  | MOVE_DAY_RECIPE_RIGHT | selectedDay, recipe being moved | move recipe one day right |
+ | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
+ | MOVE_RECIPE_CARD_DOWN | clickedRecipeId & selectedDay | increase index of recipe in plans array by one |
+ | MOVE_RECIPE_CARD_UP | clickedRecipeId & selectedDay | reduce index of recipe in plans array by one
+  | savePlan | userId, plan | save plan to db - thunk action | 
+  | fetchPlan | id | get plan from db - thunk action | 
+  | createPlan | userId | create a new plan in db - thunk action | 
 
  ### loading
  | type | data | purpose |
@@ -531,7 +533,7 @@ Local Suppliers = '/suppliers'
  | saveRecipe | recipe |save the recipe to DB and then return all recipes and store in redux - thunk action |
  | fetchRecipes | recipes | retreive recipes from db and store in redux - thunk action |
  | SET_RECIPES | recipe | save recipes to store |
- | ADD_RECIPE | recipe | save recipe to store |
+ <!-- | ADD_RECIPE- | recipe | save recipe to store | -->
  
  ### recipe
  | type | data | purpose |
