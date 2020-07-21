@@ -32,11 +32,6 @@ class RecipeView extends React.Component {
 
     render() {
 
-        console.log(pluralize('pumpkin', 2))
-        console.log(pluralize('pumpkin', 0.5))
-        console.log(pluralize('pumpkin', 1))
-
-
         const selectedRecipe = this.props.selectedRecipe
 
         return (

@@ -18,7 +18,7 @@ class PlanColumn extends React.Component {
     })
   }
 
-  dayOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+  dayOfWeek = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun']
 
   render() {
     return (

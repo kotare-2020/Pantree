@@ -12,7 +12,9 @@ export function updatePlanApi(planId, plan) {
   return request
   .patch(`${plansUrl}/${planId}`)
   .send(plan)
-  .then(response => response.body)
+  .then(response =>{
+    return response.status
+   } )
 }
 
 export function getPlanIdByUserId(userId) {
