@@ -11,20 +11,22 @@ const Ingredients = (props) => {
         <div key={idx}>
           <label>{`Ingredient #${idx + 1}`} : </label>
           <input
+            onChange={props.handleChange}
             type="text"
             name={nameId}
             data-id={idx}
             id={nameId}
-            defaultValue={props.ingredients[idx].name} 
+            value={props.ingredients[idx].name} 
             className="name"
           />
 
           <label>Unit (kg/each) : </label>
           <select
+            onChange={props.handleChange}
             name={unitId}
             data-id={idx}
             id={unitId} 
-            defaultValue={props.ingredients[idx].unit} 
+            value={props.ingredients[idx].unit} 
             className="unit option">
               <option value='each'>each</option>
               <option value='kg'>kg</option>
@@ -32,11 +34,12 @@ const Ingredients = (props) => {
 
           <label>Quantity : </label>
           <input
+            onChange={props.handleChange}
             type="text"
             name={quanId}
             data-id={idx}
             id={quanId}
-            defaultValue={props.ingredients[idx].quantity} 
+            value={props.ingredients[idx].quantity} 
             className="quantity"
           />
         </div>
