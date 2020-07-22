@@ -35,4 +35,5 @@ function addIngredients(ingredientList, db = connection) {
 
 module.exports = {
   addIngredients,
+  getIngredientsByName
 }
