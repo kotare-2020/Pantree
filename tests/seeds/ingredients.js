@@ -19,7 +19,7 @@ exports.seed = function(knex) {
         {id: 12, name: 'baby spinach', unit: 'kg'},
         {id: 13, name: 'canned chickpeas', unit: 'kg'},
         {id: 14, name: 'cherry tomatoes', unit: 'kg'},
-        {id: 15, name: 'hummus with beetroot & roasted garlic', unit: 'kg'},
+        {id: 15, name: 'Just Hummus with Beetroot & Roasted Garlic', unit: 'kg'},
         {id: 16, name: 'pitted black olives', unit: 'each'},
         {id: 17, name: 'canned chopped tomatoes', unit: 'kg'},
         {id: 18, name: 'canned black beans', unit: 'kg'},

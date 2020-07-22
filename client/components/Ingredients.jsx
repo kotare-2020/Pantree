@@ -26,7 +26,7 @@ const Ingredients = (props) => {
             name={unitId}
             data-id={idx}
             id={unitId} 
-            value={props.ingredients[idx].unit} 
+            value={props.ingredients[idx].unit}
             className="unit option">
               <option value='each'>each</option>
               <option value='kg'>kg</option>
