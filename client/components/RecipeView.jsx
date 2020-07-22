@@ -6,8 +6,7 @@ import { Link } from 'react-router-dom'
 import pluralize from 'pluralize'
 
 
-
-class RecipeView extends React.Component {
+export class RecipeView extends React.Component {
 
     componentDidMount() {
         const id = this.props.match.params.id
