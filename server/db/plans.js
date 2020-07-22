@@ -1,27 +1,42 @@
 const connection = require("./connection")
 
-function createPlan(user_id, plan, db = connection) {
-  return db("plans")
-  .where("user_id", user_id)
-  .insert(plan)
+function createPlan(newPlan, db = connection) {
+  return db("plans").insert(newPlan, "id")
 }
 
 function editPlan(id, plan, db = connection) {
-  return db("plans")
-  .where("id", id)
-  .update(plan)
+  return db("plans_recipes")
+    .where("plan_id", id)
+    .delete()
+    .then(() => {
+      return Promise.all(
+        plan.map((day) => {
+          return Promise.all(
+            day.recipes.map((recipe) => {
+              const updatedPlansRecipe = {
+                plan_id: id,
+                day_number: day.dayNumber,
+                recipe_id: recipe.recipeId,
+              }
+              return db("plans_recipes").insert(updatedPlansRecipe, "plan_id")
+            })
+          )
+        })
+      )
+    })
 }
 
-function getPlanById(planId, db = connection) {
+function getPlanByPlanId(planId, db = connection) {
   return db("plans")
     .join("plans_recipes", "plans.id", "plans_recipes.plan_id")
     .join("recipes", "plans_recipes.recipe_id", "recipes.id")
     .where("plans.id", planId)
     .select(
       "recipes.id as recipeId",
+      "recipes.image as recipeImage",
       "plans.id as planId",
       "plans_recipes.day_number as dayNumber",
-      " recipes.name as recipeName"
+      "recipes.name as recipeName"
     )
     .then((days) => {
       return days.reduce((reducedPlan, planAndRecipes) => {
@@ -35,6 +50,7 @@ function getPlanById(planId, db = connection) {
         reducedPlan[day].recipes.push({
           recipeId: planAndRecipes.recipeId,
           recipeName: planAndRecipes.recipeName,
+          recipeImage: planAndRecipes.recipeImage,
         })
 
         return reducedPlan
@@ -46,14 +62,12 @@ function getPlanById(planId, db = connection) {
 }
 
 function getPlanIdByUserId(userId, db = connection) {
-  return db("plans")
-    .where("user_id", userId)
-    .select("id as planId")
+  return db("plans").where("user_id", userId).select("id as planId")
 }
 
 module.exports = {
   createPlan,
-  getPlanById,
+  getPlanByPlanId,
   editPlan,
   getPlanIdByUserId,
 }

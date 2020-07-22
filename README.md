@@ -121,7 +121,7 @@ As a user, I want:
 - To go back to the recipe catalogue if I choose not to add a recipe from View mode
 - To view my shopping list, so I can see the total ingredients required for my entire weekly plan
 - To see a list of local suppliers with fresh, sustainable produce
-- A nav bar on all screens except the landing page, so that I can navigate between My plan, Shopping list, Local suppliers, or Log out
+- A nav bar on all screens except the landing page, so that I can navigate between My plan, Shopping list, Recipes, Local suppliers, or Log out
 
 ## Stretch
 
@@ -139,6 +139,8 @@ As a user, I want:
 - Pantree to suggest wine pairings with my meals and the option to add the wine to my shopping cart
 - Pantree to suggest places where I can get my sustainably sourced produce
 - To export my shopping list to another tool of my choice (eg. google shopping list, trello, etc.)
+- The ability to click on recipes from my plan page and view selected recipe details without being able to add recipe to plan.
+- The ability to click on recipes from the navbar and view recipe catalogue without being able to add recipes to plan.
 
 ## Wireframes
 
@@ -212,7 +214,7 @@ As a user, I want:
  | Column Name | Data Type |
  | --- | --- |
  | id | Integer |
- | email | String |
+ | username | String |
  | hash | String |
 
 ### plans (1 to many)
@@ -241,14 +243,14 @@ As a user, I want:
 
 ```js
 {
-  plan:
-  selectedDay: 1,
-  loading: false,
   auth: 
-  recipes: [...],
-  selectedRecipe: // id
   message: "...",
-  shoppingList: [{...}]
+  plans: [{},{}]
+  recipes: [{},{}],
+  selectedDay: integer,
+  selectedRecipe: // id
+  // loading: false,
+  shoppingList: [{},{}]
 }
 ```
 
@@ -257,8 +259,36 @@ As a user, I want:
 ***Reducers***
 
 ```js
+// AddIngredients
 {
-  shoppingList: // result
+  ingredients: [
+      {name:"", unit:""}
+  ]
+}
+
+// AddRecipe
+{
+  name: '',
+  image: '',
+  method: '',
+}
+
+// Landing 
+{
+  componentView: "Log in"
+}
+
+// Register
+{
+  username: '',
+  password: '',
+  confirm_password: '',
+}
+
+// SignIn
+{
+  username: '',
+  password: ''
 }
 ```
 
@@ -331,6 +361,39 @@ Response Body:
 }
 ```
 
+### POST recipe
+
+***POST*** /recipes
+
+Response Body:
+```js
+{
+// recipeId, allRecipes
+}
+```
+
+### POST recipe
+
+***POST*** /recipes/:recipeID/ingredients
+
+Response Body:
+```js
+{
+// ingredients
+}
+```
+
+### POST ingredients 
+
+***POST*** /ingredients 
+
+Response Body:
+```js
+[
+// ingredientIds
+]
+```
+
 ### Get shopping list
 
 ***Get*** /shopping-list/:planId
@@ -353,7 +416,7 @@ Response Body:
 ]
 ```
 
-***POST*** /plans/
+***POST*** /plans/id
 
 Request Body:
 ```js
@@ -371,11 +434,29 @@ Response Body:
 
 ***PATCH*** /plans/:planId
 
-Request Body:
-```js
-{
-  // same content as GET /plans/:planId
-}
+```JSON
+ [
+    { 
+      "dayNumber": 1,
+      "recipes": [
+        { 
+          "recipeId": 1,
+          "recipeName": "pancake"
+        },
+        {
+          "recipeId": 2,
+          "recipeName": "stew",
+        }
+      ],
+      "dayNumber": 2,
+      "recipes": [{"..."}, {"..."}]
+    }
+  ]
+
+```
+***GET*** /plans/:userId
+```JSON
+2
 ```
 
 Response Body:
@@ -405,7 +486,7 @@ View = 'recipes/:recipeId'
 
 Shopping List = '/shopping-list'    
 
-Local Suppliers = '/supplier'      
+Local Suppliers = '/suppliers'      
 
 ### Views (Client Side)
   | name | purpose |
@@ -421,6 +502,8 @@ Local Suppliers = '/supplier'
   | Recipes | Recipes page |
   | RecipeThumbnail | Child of Recipes, a card showing basic details about a recipe stored in the Pantree recipe book |
   | RecipeView | A page showing a detailed view of a recipe |
+  | AddRecipe | A form for adding new recipes to recipes  |
+  | Ingredients  | Populates data for individual ingredients to be added via AddRecipe  |
   | ShoppingList | A page showing a users shopping list, based on their meal plan |
   | Suppliers | A page showing a list of local suppliers with sustainably sourced produce |
 
@@ -432,9 +515,16 @@ Local Suppliers = '/supplier'
  | --- | --- | --- |
  | GET_PLAN | plan | retreive plan from the db and store in redux, set loading : true |
  | SET_PLAN | plan | save plan to store |
- | SAVE_PLAN | plan | save plan to db | 
  | UPDATE_DAY_RECIPE | recipeId/SelectedDay | add selected recipeId/selectedDay from globalState | 
+ | CLONE_DAY_RECIPE | column of day, uuid of recipe being cloned | clone a recipe in globalState |
+  | MOVE_DAY_RECIPE_LEFT | selectedDay, recipe being moved | move recipe one day left |
+  | MOVE_DAY_RECIPE_RIGHT | selectedDay, recipe being moved | move recipe one day right |
  | REMOVE_DAY_RECIPE | recipeId/SelectedDay | remove selected recipeId/SelectDay from globalState |
+ | MOVE_RECIPE_CARD_DOWN | clickedRecipeId & selectedDay | increase index of recipe in plans array by one |
+ | MOVE_RECIPE_CARD_UP | clickedRecipeId & selectedDay | reduce index of recipe in plans array by one
+  | savePlan | userId, plan | save plan to db - thunk action | 
+  | fetchPlan | id | get plan from db - thunk action | 
+  | createPlan | userId | create a new plan in db - thunk action | 
 
  ### loading
  | type | data | purpose |
@@ -445,13 +535,16 @@ Local Suppliers = '/supplier'
  | type | data | purpose |
  | --- | --- | --- |
  | SET_DAY | selected_day | set specific day to add recipe to |
- 
+ | CLEAR_DAY |  | set selected day to NUll (initialSate) |
+
   ### recipes
  | type | data | purpose |
  | --- | --- | --- |
+ | saveRecipe | recipe |save the recipe to DB and then return all recipes and store in redux - thunk action |
  | fetchRecipes | recipes | retreive recipes from db and store in redux - thunk action |
  | SET_RECIPES | recipe | save recipes to store |
- | ~~SAVE_RECIPES~~ | ~~recipe~~ | ~~save recipes to db~~ - Stretch |
+
+
  
  ### recipe
  | type | data | purpose |

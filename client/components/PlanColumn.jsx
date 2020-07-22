@@ -8,34 +8,44 @@ import { selectedDay } from '../actions/selectedDay'
 import PlanRecipeCard from './PlanRecipeCard'
 
 class PlanColumn extends React.Component {
-
-  handleClick = ()=> {
+  handleClick = () => {
     return this.props.dispatch(selectedDay(this.props.dayNumber))
   }
 
-  setDayRecipes = ()=>{
-    const days = this.props.days
-    return days.map((day,i) => {
-      if(day.dayNumber == this.props.dayNumber){
-        return <PlanRecipeCard key={i} days={this.props.days}/>
-      }
+  lastCardIndex = () => {
+    const dayColumn = this.props.days.find(day => day.dayNumber === this.props.dayNumber)
+    const lastIndex = dayColumn.recipes.length - 1
+    return lastIndex
+  }
+
+  setDayRecipes = () => {
+    return this.props.day.recipes.map((recipe, i) => {
+      return <PlanRecipeCard key={`${recipe.recipeUuid}-${this.props.dayNumber}`} days={this.props.days} dayNumber={this.props.dayNumber} recipe={recipe} cardIndex={i} lastCardIndex={this.lastCardIndex()}/>
     })
   }
 
+  dayOfWeek = ['Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun']
 
-  render(){
+  render() {
     return (
-      <>
       <div className="plan-column">
-        <h3>{this.props.dayNumber}</h3>
+        <h4 className="plan-col-header">{this.dayOfWeek[this.props.dayNumber - 1]}</h4>
+
         {this.setDayRecipes()}
-        <Link to='/recipes'><button onClick={this.handleClick}>Add</button></Link>
+
+        <div className="add-btn">
+          <Link to='/recipes' className="btn-floating btn-small waves-effect waves-light teal lighten-2" onClick={this.handleClick}><i className="material-icons">add</i></Link>
+        </div>
       </div>
-      </>
     )
   }
 }
 
+function mapStateToProps(globalState) {
+  return {
+    days: globalState.plans
+  }
+}
 
 
-export default connect()(PlanColumn)
+export default connect(mapStateToProps)(PlanColumn)
