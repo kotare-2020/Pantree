@@ -20,34 +20,25 @@ class RecipeThumbnail extends React.Component {
     return (
       <div className='col s4 m4'>
         <div className='card medium hoverable'>
+
           <div className='card-image'>
             <img
               src={recipe.image}
-              alt={`Photo of ${recipe.name}`}
-            />
+              alt={`Photo of ${recipe.name}`} />
           </div>
-          <div className='card-title'>
-            <h5>{recipe.name}</h5>
-          </div>
-          <div className='card-action'>
 
-            {this.props.selectedDay &&
-
-
-
-            <Link to='/plan'>
-              <button
-                className='waves-effect waves-light btn'
-                onClick={this.handleAdd}>
-                Add to Day {recipe.selectedDay}
-              </button>
+          <div className='recipe-card-content'>
+            <span class="card-title">{recipe.name}</span>
+            <div className='card-action'>
+              {this.props.selectedDay &&
+                <Link to='/plan' onClick={this.handleAdd}>
+                  Add to day {recipe.selectedDay}
+                </Link>
+              }
+              <Link to={`/recipes/${recipe.id}`}>
+                View recipe
             </Link>
-  }
-            <Link to={`/recipes/${recipe.id}`}>
-              <button className='waves-effect waves-light btn'>
-                View Recipe
-              </button>
-            </Link>
+            </div>
           </div>
         </div>
       </div>
