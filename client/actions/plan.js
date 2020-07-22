@@ -88,6 +88,11 @@ export const savePlan = (userId, plan) => {
         console.log('action',result);
         
       return updatePlanApi(result.planId, plan)
+      .then((result)=>{
+           console.log(result)
+           
+      })
+     
       
       
       })
@@ -111,9 +116,14 @@ export const fetchPlan = id => {
 }
 
 export const createPlan = userId => {
+
   return dispatch => {
+    console.log('create actions', userId);
+    
     createPlanApi(userId)
       .then(() => {
+        console.log("also action",userId);
+        
         return dispatch(fetchPlan(userId))
       })
       .catch(err => {

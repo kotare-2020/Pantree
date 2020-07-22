@@ -42,6 +42,8 @@ class Register extends React.Component {
       <>
         <h4>Create a new account</h4>
         {auth.errorMessage && <span>{auth.errorMessage}</span>}
+
+        <form onSubmit={this.handleSubmit} >
         <label>
           Username
           <input
@@ -57,7 +59,7 @@ class Register extends React.Component {
         <label>
           Password
           <input
-            required
+           required
             placeholder="Password"
             type="password"
             name="password"
@@ -81,7 +83,7 @@ class Register extends React.Component {
         </label>
         <button
           className="landing-button waves-effect waves-light btn"
-          onClick={this.handleSubmit}
+          type="submit"
         >
           Sign up
         </button>
@@ -91,6 +93,7 @@ class Register extends React.Component {
         >
           Back to sign in
         </button>
+        </form>
       </>
     )
   }
