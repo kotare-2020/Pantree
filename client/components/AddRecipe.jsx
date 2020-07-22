@@ -51,6 +51,8 @@ class AddIngredients extends React.Component {
         method: "",
       },
       ingredients: [{ name: "", unit: "kg", quantity: null }],
+    }, () => {
+      this.props.handleFormViewState()
     })
   }
 
