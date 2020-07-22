@@ -24,14 +24,17 @@ class RecipeThumbnail extends React.Component {
             <img
               src={recipe.image}
               alt={`Photo of ${recipe.name}`}
-              height='240px'
             />
           </div>
-          <div className='card-title center-align'>
+          <div className='card-title'>
             <h5>{recipe.name}</h5>
           </div>
-          <div className='card-action center-align'>
+          <div className='card-action'>
+
             {this.props.selectedDay &&
+
+
+
             <Link to='/plan'>
               <button
                 className='waves-effect waves-light btn'
