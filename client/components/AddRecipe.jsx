@@ -11,7 +11,7 @@ class AddIngredients extends React.Component {
         "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg",
       method: "",
     },
-    ingredients: [{ name: "", unit: "kg", quantity: null }],
+    ingredients: [{ name: "", unit: "kg", quantity: 0 }],
   }
 
   handleChange = (e) => {
@@ -35,7 +35,7 @@ class AddIngredients extends React.Component {
     this.setState((prevState) => ({
       ingredients: [
         ...prevState.ingredients,
-        { name: "", unit: "", quantity: null },
+        { name: "", unit: "", quantity: 0 },
       ],
     }))
   }
@@ -50,7 +50,7 @@ class AddIngredients extends React.Component {
           "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg",
         method: "",
       },
-      ingredients: [{ name: "", unit: "kg", quantity: null }],
+      ingredients: [{ name: "", unit: "kg", quantity: 0 }],
     }, () => {
       this.props.handleFormViewState()
     })
@@ -63,14 +63,14 @@ class AddIngredients extends React.Component {
         <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <div className="col s8 offset-s2 new-recipe-header">
             <label>Name</label>
-            <input type="text" name="name" onChange={this.handleChange} value={recipe.name} />
+            <input type="text" name="name" onChange={this.handleChange} value={recipe.name} required/>
 
             <label>Image URL</label>
             <input type="url" name="image" onChange={this.handleChange} value={recipe.image} />
           </div>
 
           <div className="col s3">
-            <Ingredients ingredients={ingredients} />
+            <Ingredients handleChange={this.handleChange} ingredients={ingredients} />
             <a
               className="btn-floating btn-medium waves-effect waves-light teal lighten-2"
               onClick={this.addIngredient}>
