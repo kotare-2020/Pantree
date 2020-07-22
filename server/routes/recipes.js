@@ -27,7 +27,7 @@ router.get('/:recipeId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const methodValue = req.body.method.split('.')
+    const methodValue = req.body.method.split('\n')
 
     if (methodValue[(methodValue.length -1)] == ''){
         methodValue.pop()
