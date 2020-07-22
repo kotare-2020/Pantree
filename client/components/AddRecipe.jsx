@@ -61,7 +61,7 @@ class AddIngredients extends React.Component {
         <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <div className="col s8 offset-s2 new-recipe-header">
             <label>Name : </label>
-            <input type="text" name="name" onChange={this.handleChange} value={recipe.name} />
+            <input type="text" name="name" onChange={this.handleChange} value={recipe.name} required/>
 
             <label>Image URL : </label>
             <input type="url" name="image" onChange={this.handleChange} value={recipe.image} />
