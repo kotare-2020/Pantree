@@ -28,7 +28,7 @@ class RecipeThumbnail extends React.Component {
           </div>
 
           <div className='recipe-card-content'>
-            <span class="card-title">{recipe.name}</span>
+            <span className="card-title">{recipe.name}</span>
             <div className='card-action'>
               {this.props.selectedDay &&
                 <Link to='/plan' onClick={this.handleAdd}>

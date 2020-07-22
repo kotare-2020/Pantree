@@ -67,8 +67,7 @@ body {
 }
 
 .card .recipe-card-content {
-  padding: 2rem;
-  height: 10rem;
+  padding: 12px 24px;
 }
 
 .card .card-title-and-up-down-arrows {
