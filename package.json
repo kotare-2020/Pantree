@@ -28,6 +28,7 @@
   },
   "jest": {
     "setupFiles": [
+      "./tests/client/setup.js",
       "./tests/setup-dotenv.js"
     ]
   },
