@@ -174,3 +174,14 @@ body {
   top: 10%; 
   transform: scaleX(1) scaleY(1);
 }
+
+.container-recipe-view {
+  max-width: 900px;
+}
+
+.recipe-view-img {
+  object-fit: cover;
+  max-height: 500px;
+  max-width: 100%;
+  width: 900px;
+}
