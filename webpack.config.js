@@ -8,7 +8,7 @@ module.exports = {
     path: path.join(__dirname, 'server/public'),
     filename: 'bundle.js',
   },
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'development', // use 'development' unless process.env.NODE_ENV is defined
@@ -29,7 +29,7 @@ module.exports = {
   },
   devtool: 'source-map',
   performance: {
-    hints: process.env.NODE_ENV === 'production' ? 'warning' : false, // hide warnings about excessive bundle size unless the env is prod. It doesn't matter so much for dev
+    hints: process.env.NODE_ENV === 'production' ? 'warning' : false, // hide warnings about excessive bundle size unless the env is prod
   },
   devServer: {
     contentBase: './server/public',

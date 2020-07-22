@@ -27,7 +27,6 @@ class Plan extends React.Component {
     const auth = this.props.auth
 
     return (
-
       <div className='plan-container'>
         {auth.isAuthenticated ? (
           <>
