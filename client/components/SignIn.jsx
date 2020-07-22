@@ -6,8 +6,8 @@ import { fetchPlan } from '../actions/plan'
 
 class SignIn extends React.Component {
   state = {
-    username: '',
-    password: ''
+    username:'',
+    password:'',
   }
 
   handleChange = (e) => {
@@ -16,10 +16,13 @@ class SignIn extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const confirmSuccess = () => this.props.history.push('/plan')
+  
 
+    const confirmSuccess = () => this.props.history.push('/plan')
+    
     let { username, password } = this.state
     this.props.dispatch(loginUser({ username, password }, confirmSuccess))
+    
   }
 
   render() {
@@ -37,7 +40,7 @@ class SignIn extends React.Component {
           <input required placeholder="Password" type="password" name="password" autoComplete="current-password" value={this.state.password} onChange={this.handleChange} />
         </label>
 
-        <button className="landing-button waves-effect waves-light btn" onClick={this.handleSubmit}>Sign in</button>
+        <button className="landing-button waves-effect waves-light btn" type="submit">Sign in</button>
         <button className="landing-button waves-effect waves-light btn" onClick={this.props.changeComponentView}>Create new account</button>
       </form>
     )
