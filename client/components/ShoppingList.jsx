@@ -32,7 +32,7 @@ class ShoppingList extends React.Component {
                     {this.props.shoppingList.map(ingredient => {
                         return (
                         <tr key={`shopping${ingredient.ingredientId}`}>
-                            <td>{ingredient.quantity > 1 ? pluralize(ingredient.ingredientName, ingredient.quantity) : ingredient.ingredientName}</td>
+                            <td>{ingredient.quantity > 1 ? pluralize(capitaliseShoppingListItem(ingredient.ingredientName, ingredient.quantity)) : capitaliseShoppingListItem(ingredient.ingredientName)}</td>
                             <td className="right-align">{ingredient.quantity} {ingredient.ingredientUnit != 'each' && ingredient.ingredientUnit}</td>
                         </tr>
                         )
@@ -44,6 +44,10 @@ class ShoppingList extends React.Component {
             </div>
         )
     }
+}
+
+function capitaliseShoppingListItem (item) {
+    return item.charAt(0).toUpperCase() + item.slice(1)
 }
 
 function mapStateToProps (globalState) {
