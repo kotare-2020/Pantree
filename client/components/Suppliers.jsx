@@ -16,7 +16,7 @@ const LocalSuppliers = props => {
           <p>Monday - Friday: 8am - 7pm</p>
           <p>Saturday - Sunday: 9am - 6pm</p>
           <h5>Website:</h5>
-          <a href="https://commonsenseorganics.co.nz/">
+          <a target="_blank" href="https://commonsenseorganics.co.nz/">
             <p>commonsenseorganics.co.nz</p>
           </a>
         </div>
@@ -38,7 +38,7 @@ const LocalSuppliers = props => {
           </p>
           <p>Orders are done online through the LOKAI app.</p>
           <h5>Website:</h5>
-          <a href="https://lokai.nz/">
+          <a target="_blank" href="https://lokai.nz/">
             <p>lokai.nz</p>
           </a>
         </div>
@@ -59,7 +59,7 @@ const LocalSuppliers = props => {
           <h5>Phone:</h5>
           <p>021 440 487</p>
           <h5>Website:</h5>
-          <a href="https://urbanharvest.co.nz/">
+          <a target="_blank" href="https://urbanharvest.co.nz/">
             <p>urbanharvest.co.nz</p>
           </a>
         </div>
@@ -78,7 +78,7 @@ const LocalSuppliers = props => {
           <h5>Phone:</h5>
           <p>04 3899 555</p>
           <h5>Website:</h5>
-          <a href="http://newtowngreengrocer.co.nz/">
+          <a target="_blank" href="http://newtowngreengrocer.co.nz/">
             <p>newtowngreengrocer.co.nz</p>
           </a>
         </div>
