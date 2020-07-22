@@ -23,6 +23,7 @@ class RecipeThumbnail extends React.Component {
 
           <div className='card-image'>
             <img
+              className='recipe-card-img'
               src={recipe.image}
               alt={`Photo of ${recipe.name}`} />
           </div>
@@ -37,7 +38,7 @@ class RecipeThumbnail extends React.Component {
               }
               <Link to={`/recipes/${recipe.id}`}>
                 View recipe
-            </Link>
+              </Link>
             </div>
           </div>
         </div>
