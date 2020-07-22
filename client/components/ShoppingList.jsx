@@ -33,7 +33,7 @@ class ShoppingList extends React.Component {
                         return (
                         <tr key={`shopping${ingredient.ingredientId}`}>
                             <td>{ingredient.quantity > 1 ? pluralize(ingredient.ingredientName, ingredient.quantity) : ingredient.ingredientName}</td>
-                            <td className="right-align">{ingredient.quantity} {ingredient.ingredientUnit != 'each' && ingredient.ingredientUnit}</td>
+                            <td className="right-align">{ingredient.quantity.toPrecision(2)} {ingredient.ingredientUnit != 'each' && ingredient.ingredientUnit}</td>
                         </tr>
                         )
                     })}
