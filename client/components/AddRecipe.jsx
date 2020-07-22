@@ -2,6 +2,7 @@ import React from "react"
 import Ingredients from "./Ingredients"
 import { connect } from "react-redux"
 import { saveRecipe } from "../actions/recipes"
+import pluralize from 'pluralize'
 
 class AddIngredients extends React.Component {
   state = {
@@ -35,14 +36,22 @@ class AddIngredients extends React.Component {
     this.setState((prevState) => ({
       ingredients: [
         ...prevState.ingredients,
-        { name: "", unit: "", quantity: 0 },
+        { name: "", unit: "kg", quantity: 0 },
       ],
     }))
   }
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.dispatch(saveRecipe(this.state.recipe, this.state.ingredients))
+    let newIngredients = this.state.ingredients
+
+    newIngredients.map(ingredient => {
+      ingredient.name = ingredient.name.toLowerCase()
+      ingredient.name = pluralize(ingredient.name, 1)
+      return ingredient
+    })
+
+    this.props.dispatch(saveRecipe(this.state.recipe, newIngredients))
     this.setState({
       recipe: {
         name: "",
