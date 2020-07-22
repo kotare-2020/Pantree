@@ -13,7 +13,7 @@ export function setShoppingList(list) {
 export function fetchShoppingList(userId, plan) {
 
     return dispatch => {
-        getPlanIdByUserId(userId)
+        return getPlanIdByUserId(userId)
         .then(planId => {
             const id = planId.planId
             return updatePlanApi(id, plan)
