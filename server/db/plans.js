@@ -1,25 +1,29 @@
 const connection = require("./connection")
 
 function createPlan(newPlan, db = connection) {
-  return db("plans")
-  .insert(newPlan)
+  return db("plans").insert(newPlan, "id")
 }
 
 function editPlan(id, plan, db = connection) {
   return db("plans_recipes")
-  .where("plan_id", id).delete()
-  .then(() => {
-    return Promise.all(plan.map(day => {
-      return Promise.all(day.recipes.map(recipe => {
-        const updatedPlansRecipe = {
-          plan_id: id,
-          day_number: day.dayNumber,
-          recipe_id: recipe.recipeId
-        }
-        return db("plans_recipes").insert(updatedPlansRecipe)
-      }))
-    }))
-  })
+    .where("plan_id", id)
+    .delete()
+    .then(() => {
+      return Promise.all(
+        plan.map((day) => {
+          return Promise.all(
+            day.recipes.map((recipe) => {
+              const updatedPlansRecipe = {
+                plan_id: id,
+                day_number: day.dayNumber,
+                recipe_id: recipe.recipeId,
+              }
+              return db("plans_recipes").insert(updatedPlansRecipe, "plan_id")
+            })
+          )
+        })
+      )
+    })
 }
 
 function getPlanByPlanId(planId, db = connection) {
@@ -46,7 +50,7 @@ function getPlanByPlanId(planId, db = connection) {
         reducedPlan[day].recipes.push({
           recipeId: planAndRecipes.recipeId,
           recipeName: planAndRecipes.recipeName,
-          recipeImage: planAndRecipes.recipeImage
+          recipeImage: planAndRecipes.recipeImage,
         })
 
         return reducedPlan
@@ -58,9 +62,7 @@ function getPlanByPlanId(planId, db = connection) {
 }
 
 function getPlanIdByUserId(userId, db = connection) {
-  return db("plans")
-    .where("user_id", userId)
-    .select("id as planId")
+  return db("plans").where("user_id", userId).select("id as planId")
 }
 
 module.exports = {
