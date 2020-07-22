@@ -17,7 +17,7 @@ const Nav = props => {
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper teal darken-1">
-          <a href="/" className="brand-logo left">
+          <a href="/" className="hide-on-med-and-down brand-logo left">
             <img className="brand-logo left brand-navbar"src="/images/brand/pantree-logo.svg" />
           </a>
           

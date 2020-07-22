@@ -11,7 +11,7 @@ class AddIngredients extends React.Component {
         "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg",
       method: "",
     },
-    ingredients: [{ name: "", unit: "kg", quantity: null }],
+    ingredients: [{ name: "", unit: "kg", quantity: 0 }],
   }
 
   handleChange = (e) => {
@@ -35,7 +35,7 @@ class AddIngredients extends React.Component {
     this.setState((prevState) => ({
       ingredients: [
         ...prevState.ingredients,
-        { name: "", unit: "", quantity: null },
+        { name: "", unit: "", quantity: 0 },
       ],
     }))
   }
@@ -50,7 +50,9 @@ class AddIngredients extends React.Component {
           "https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg",
         method: "",
       },
-      ingredients: [{ name: "", unit: "kg", quantity: null }],
+      ingredients: [{ name: "", unit: "kg", quantity: 0 }],
+    }, () => {
+      this.props.handleFormViewState()
     })
   }
 
@@ -60,26 +62,25 @@ class AddIngredients extends React.Component {
       <div className="row">
         <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
           <div className="col s8 offset-s2 new-recipe-header">
-            <label>Name : </label>
+            <label>Name</label>
             <input type="text" name="name" onChange={this.handleChange} value={recipe.name} required/>
 
-            <label>Image URL : </label>
+            <label>Image URL</label>
             <input type="url" name="image" onChange={this.handleChange} value={recipe.image} />
           </div>
 
           <div className="col s3">
-            <Ingredients ingredients={ingredients} />
-            <button
-              className="btn-floating btn-medium waves-effect waves-light teal lighten-2 add-ingredient"
-              onClick={this.addIngredient}
-            >
-              +
-            </button>
+            <Ingredients handleChange={this.handleChange} ingredients={ingredients} />
+            <a
+              className="btn-floating btn-medium waves-effect waves-light teal lighten-2"
+              onClick={this.addIngredient}>
+                <i className="material-icons">add</i>
+            </a>
           </div>
 
           <div className="col s8 offset-s1">
             <div className="input-field">
-              <label>Method : </label>
+              <label>Method</label>
               <textarea
                 className="materialize-textarea"
                 type="text"
