@@ -44,8 +44,12 @@ export class RecipeView extends React.Component {
             <ul className="browser-default">
               {selectedRecipe.ingredients.map((ingredient, i) => {
                 return (
-                  <li key={i}> {ingredient.quantity > 1 ? pluralize(ingredient.ingredientName, ingredient.quantity) : ingredient.ingredientName} <em> {ingredient.quantity} {ingredient.unit != 'each' && ingredient.unit}  </em></li>
-
+                  <li key={i}> 
+                    {ingredient.quantity} {ingredient.unit != 'each' && `${ingredient.unit} `}
+                    {ingredient.quantity > 1
+                      ? pluralize(ingredient.ingredientName, ingredient.quantity)
+                      : ingredient.ingredientName}
+                  </li>
                 )
               })
               }
