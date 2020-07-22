@@ -7,6 +7,12 @@ import { fetchRecipes } from '../actions/recipes'
 import AddRecipe from './AddRecipe'
 
 class Recipes extends React.Component {
+
+  state = {
+    formButton:false
+  }
+
+
   componentDidMount() {
     this.props.dispatch(fetchRecipes())
   }
@@ -20,12 +26,25 @@ class Recipes extends React.Component {
     this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
   }
 
+  handleFormButton = () => {
+    if(this.state.formButton == false){
+        this.setState({
+            formButton:true
+        })
+    } else if (this.state.formButton == true){
+        this.setState({
+            formButton:false
+        })
+    }
+}
+
   render() {
     return (
       <main className="container center-align">
         <h3>Recipes</h3>
         <div className="new-recipe">
-          <AddRecipe/>
+          <button className='btn waves-effect waves-light btn-large lighten-2 new-recipe-button' onClick={this.handleFormButton}>{this.state.formButton ? "Cancel" : "Add Recipe"}</button>
+          {this.state.formButton && <AddRecipe/>}
         </div>
         <div className="row">
           {this.props.recipes.map(recipe => {

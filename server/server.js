@@ -9,8 +9,6 @@ const recipesRoutes = require('./routes/recipes')
 const ingredientsRoutes = require('./routes/ingredients')
 const shoppingListRoutes = require('./routes/shopping-list')
 
-// const blah = require('./db/ingredients')
-
 const server = express()
 
 server.use(express.json())
