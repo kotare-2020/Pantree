@@ -25,7 +25,7 @@ exports.seed = function(knex) {
           ])
         },
         {
-          id: 3, name: 'Pumpkin Soup', image: 'https://media.cookingandbeer.com/pumpkincurrysoup5.jpg', method: JSON.stringify([
+          id: 3, name: 'Pumpkin Soup', image: 'http://media.cookingandbeer.com/pumpkincurrysoup5.jpg', method: JSON.stringify([
             `Cut the pumpkin into 3cm / 2.25" slices. Cut into 4cm / 1.5" chunks.`,
             "Place the pumpkin, onion, garlic, broth and water in a pot - liquid won't quite cover all the pumpkin. Bring to a boil, uncovered, then reduce heat and let simmer rapidly until pumpkin is tender (check with butter knife) - about 10 minutes.",
             "Remove from heat and use a stick blender to blend until smooth (Note 3 for blender).",
