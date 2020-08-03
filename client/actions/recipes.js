@@ -1,23 +1,13 @@
-import { getRecipes, addRecipe } from '../apis/recipes'
+import { getRecipes, addRecipe, addRecipeIngredients } from '../apis/recipes'
 
 export const SET_RECIPES = 'SET_RECIPES'
-// export const ADD_RECIPE = 'ADD_RECIPE'
 
-// export function addRecipe (recipe) {
-//     return {
-//         type: ADD_RECIPE,
-//         recipe: recipe
-//     }
-// }
-
-export function saveRecipe (recipe) {
+export function saveRecipe (recipe, ingredients) {
     return dispatch => {
         addRecipe(recipe)
-        .then(() => {
-            return getRecipes()
-        })
-        .then(recipes => {
-            dispatch(setRecipes(recipes))
+        .then(data => {
+            dispatch(setRecipes(data.allRecipes))
+            return addRecipeIngredients(ingredients, data.id)
         })
     }
 }

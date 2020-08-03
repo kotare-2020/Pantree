@@ -5,8 +5,15 @@ export const REMOVE_DAY_RECIPE = 'REMOVE_DAY_RECIPE'
 export const MOVE_RECIPE_CARD_DOWN = 'MOVE_RECIPE_CARD_DOWN'
 export const MOVE_RECIPE_CARD_UP = 'MOVE_RECIPE_CARD_UP'
 export const CLONE_DAY_RECIPE = 'CLONE_DAY_RECIPE'
+export const MOVE_DAY_RECIPE_LEFT = 'MOVE_DAY_RECIPE_LEFT'
+export const MOVE_DAY_RECIPE_RIGHT = 'MOVE_DAY_RECIPE_RIGHT'
 
-import { updatePlanApi, getPlanApi, getPlanIdByUserId, createPlanApi } from '../apis/plans'
+import {
+  updatePlanApi,
+  getPlanApi,
+  getPlanIdByUserId,
+  createPlanApi,
+} from '../apis/plans'
 
 export const getPlan = (id, plan) => {
   return {
@@ -35,7 +42,23 @@ export const cloneDayRecipe = (currentDayColumn, recipeBeingClonedUuid) => {
   return {
     type: CLONE_DAY_RECIPE,
     currentDayColumn: currentDayColumn,
-    recipeBeingClonedUuid: recipeBeingClonedUuid
+    recipeBeingClonedUuid: recipeBeingClonedUuid,
+  }
+}
+
+export const moveRecipeCardLeft = (currentDayNumber, recipeBeingMoved) => {
+  return {
+    type: MOVE_DAY_RECIPE_LEFT,
+    currentDayNumber: currentDayNumber,
+    recipeBeingMoved: recipeBeingMoved,
+  }
+}
+
+export const moveRecipeCardRight = (currentDayNumber, recipeBeingMoved) => {
+  return {
+    type: MOVE_DAY_RECIPE_RIGHT,
+    currentDayNumber: currentDayNumber,
+    recipeBeingMoved: recipeBeingMoved,
   }
 }
 
@@ -66,15 +89,18 @@ export const moveRecipeCardUp = (recipeUuid, selectedDay) => {
 export const savePlan = (userId, plan) => {
   return dispatch => {
     getPlanIdByUserId(userId)
-    .then(result => {
-        updatePlanApi(result.planId, plan)
+      .then(result => {
+        console.log('action', result)
+
+        return updatePlanApi(result.planId, plan).then(result => {
+          console.log(result)
+        })
       })
       .catch(err => {
         console.log('savePlan has Broken')
       })
   }
 }
-
 
 export const fetchPlan = id => {
   return dispatch => {
@@ -98,4 +124,4 @@ export const createPlan = userId => {
         console.log('createPlan has Broken')
       })
   }
-} 
+}

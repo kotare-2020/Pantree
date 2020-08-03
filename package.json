@@ -28,15 +28,18 @@
   },
   "jest": {
     "setupFiles": [
+      "./tests/client/setup.js",
       "./tests/setup-dotenv.js"
     ]
   },
   "dependencies": {
     "authenticare": "^0.4.7",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.21.2",
     "npm-run-all": "^4.1.5",
     "pg": "^8.3.0",
+    "pluralize": "^8.0.0",
     "superagent": "^5.2.2",
     "uuid": "^8.2.0",
     "webpack": "^4.43.0"

@@ -5,37 +5,58 @@ import { fetchRecipes } from '../actions/recipes'
 // import { removeDayRecipe } from '../actions/plan'
 
 import AddRecipe from './AddRecipe'
-import AddIngredients from './AddIngredients'
 
 class Recipes extends React.Component {
+  state = {
+    formButton: false
+  }
+
   componentDidMount() {
     this.props.dispatch(fetchRecipes())
   }
 
-  handleAdd = (recipeId, recipeName) => {
+  handleAdd = (recipeId, recipeName, recipeImage) => {
     const recipeDetails = {
       recipeId: recipeId,
       recipeName: recipeName,
+      recipeImage: recipeImage
     }
     this.props.dispatch(addDayRecipe(recipeDetails, this.props.selectedDay))
   }
 
+  handleFormViewState = () => {
+    if (this.state.formButton == false) {
+      this.setState({
+        formButton: true
+      })
+    } else if (this.state.formButton == true) {
+      this.setState({
+        formButton: false
+      })
+    }
+  }
+
   render() {
     return (
-      <main className="container center-align">
-        <h3>Recipes</h3>
-        <div className="new-recipe">
-          <AddRecipe/>
-          <AddIngredients/>
+      <div className='container'>
+        <div className='plan-header'>
+          <span className='left'>Recipes</span>
+          <div className='new-recipe right'>
+            <button className='btn waves-effect waves-light btn-large lighten-2 new-recipe-button' onClick={this.handleFormViewState}>{this.state.formButton ? "Cancel" : "Add Recipe"}</button>
+          </div>
         </div>
+        <div id='clear-float'></div>
+        {this.state.formButton && <AddRecipe handleFormViewState={this.handleFormViewState}/>}
+        {!this.state.formButton &&
         <div className="row">
           {this.props.recipes.map(recipe => {
             return (
-              <RecipeThumbnail key={recipe.recipeId} name={recipe.recipeName} image={recipe.image} id={recipe.recipeId} selectedDay={this.props.selectedDay} />
+              <RecipeThumbnail key={recipe.recipeId} name={recipe.recipeName} image={recipe.image} id={recipe.recipeId} selectedDay={this.props.selectedDay}/>
             )
           })}
         </div>
-      </main>
+        }
+      </div>
     )
   }
 }

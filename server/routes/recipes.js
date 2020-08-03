@@ -27,12 +27,24 @@ router.get('/:recipeId', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    db.addRecipe(req.body)
-        .then(() => {
+    const methodValue = req.body.method.split('\n')
+
+    if (methodValue[(methodValue.length -1)] == ''){
+        methodValue.pop()
+    }
+    
+    const newRecipe = {
+        name: req.body.name,
+        image: req.body.image,
+        method: JSON.stringify(methodValue)
+    }
+    
+    db.addRecipe(newRecipe)
+        .then((ids) => {
             return db.getRecipes()
-        })
-        .then(recipe => {
-            res.json(recipe)
+            .then(recipe => {
+                res.json({ id: ids[0], allRecipes: recipe })
+            })
         })
         .catch(err => {
             res.status(500).send('cannot add recipe')
@@ -42,7 +54,6 @@ router.post('/', (req, res) => {
 
 router.post('/:recipeId/ingredients', (req, res) => {
     const id = req.params.recipeId
-    console.log(req.body)
     db.addRecipeIngredients(req.body, id)
         .then(ingredients => {
             res.json(ingredients)

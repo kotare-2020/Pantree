@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const cors = require('cors')
 
 const authRoutes = require('./routes/auth')
 const userRoutes = require('./routes/users')
@@ -8,12 +9,11 @@ const recipesRoutes = require('./routes/recipes')
 const ingredientsRoutes = require('./routes/ingredients')
 const shoppingListRoutes = require('./routes/shopping-list')
 
-// const blah = require('./db/ingredients')
-
 const server = express()
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
+server.use(cors())
 
 server.use('/api/v1', authRoutes)
 server.use('/api/v1/users', userRoutes)
