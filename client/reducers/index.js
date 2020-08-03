@@ -6,7 +6,7 @@ import selectedRecipe from './selectedRecipe'
 import plans from './plans'
 import selectedDay from './selectedDay'
 import shoppingList from './shoppingList'
-
+import planNeedsFetching from './planNeedsFetching'
 
 export default combineReducers({
     auth,
@@ -15,4 +15,5 @@ export default combineReducers({
     plans,
     selectedDay,
     shoppingList,
+    planNeedsFetching,
 })

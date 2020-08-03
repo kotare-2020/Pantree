@@ -5,10 +5,8 @@ import { addDayRecipe } from '../actions/plan'
 import { Link } from 'react-router-dom'
 import pluralize from 'pluralize'
 
-
 export class RecipeView extends React.Component {
   componentDidMount() {
-    console.log(this.props)
     const id = this.props.match.params.id
     this.props.dispatch(fetchSelectedRecipe(id))
   }

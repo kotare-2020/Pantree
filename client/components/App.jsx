@@ -15,6 +15,7 @@ export const App = props => {
   return (
     <Router>
       <Switch>
+        {/* need to create public route so that user doesn't always get redirected to plan */}
         <Route exact path='/'>
           {props.auth.isAuthenticated ? <Redirect to ='/plan' /> : <Landing />}
         </Route>

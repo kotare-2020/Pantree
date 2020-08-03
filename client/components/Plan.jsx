@@ -1,12 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { fetchPlan, savePlan } from '../actions/plan'
+import { setPlanNeedsFetching } from '../actions/planNeedsFetching'
 
 import PlanColumn from './PlanColumn'
 
 class Plan extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchPlan(this.props.auth.user.id))
+    if (this.props.planNeedsFetching) {
+      this.props.dispatch(fetchPlan(this.props.auth.user.id))
+      this.props.dispatch(setPlanNeedsFetching(false))
+    }
   }
 
   generateColumns() {
@@ -56,11 +61,12 @@ class Plan extends React.Component {
   }
 }
 
-const mapStateToProps = ({ auth, plans }) => {
+const mapStateToProps = globalState => {
   return {
-    auth,
-    plans,
+    auth: globalState.auth,
+    plans: globalState.plans,
+    planNeedsFetching: globalState.planNeedsFetching,
   }
 }
 
-export default connect(mapStateToProps)(Plan)
+export default withRouter(connect(mapStateToProps)(Plan))

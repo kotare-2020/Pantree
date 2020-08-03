@@ -1,5 +1,6 @@
 import { getUserTokenInfo, isAuthenticated, removeUser } from '../utils/auth'
 import { login, register } from '../apis/auth'
+import { setPlanNeedsFetching } from './planNeedsFetching'
 
 export function requestLogin() {
   return {
@@ -59,6 +60,7 @@ function receiveLogout() {
 export function logoutUser() {
   return dispatch => {
     dispatch(requestLogout())
+    dispatch(setPlanNeedsFetching(true))
     removeUser()
     dispatch(receiveLogout())
   }

@@ -15,12 +15,8 @@ class SignIn extends React.Component {
   handleSubmit = e => {
     e.preventDefault()
 
-    const confirmSuccess = () => {
-      this.props.history.push('/plan')
-    }
-
     let { username, password } = this.state
-    this.props.dispatch(loginUser({ username, password }, confirmSuccess))
+    this.props.dispatch(loginUser({ username, password }))
   }
 
   render() {
