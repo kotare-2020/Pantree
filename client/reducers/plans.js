@@ -8,7 +8,6 @@ import {
   MOVE_DAY_RECIPE_RIGHT,
   MOVE_RECIPE_CARD_DOWN,
   MOVE_RECIPE_CARD_UP,
-
 } from '../actions/plan'
 
 import { v4 as uuidv4 } from 'uuid'

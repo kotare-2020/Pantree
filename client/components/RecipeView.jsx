@@ -1,23 +1,33 @@
 import React from 'react'
+import { matchPath } from 'react-router'
 import { connect } from 'react-redux'
 import { fetchSelectedRecipe } from '../actions/selectedRecipe'
 import { addDayRecipe } from '../actions/plan'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import pluralize from 'pluralize'
 
-
 export class RecipeView extends React.Component {
-
   componentDidMount() {
-    const id = this.props.match.params.id
+    const match = this.setMatch()
+    const id = match.params.id
     this.props.dispatch(fetchSelectedRecipe(id))
   }
 
   componentDidUpdate(prevProps) {
-    const id = this.props.match.params.id
+    const match = this.setMatch()
+    const id = match.params.id
     if (prevProps.match.params.id != id) {
       this.props.dispatch(fetchSelectedRecipe(id))
     }
+  }
+
+  setMatch = () => {
+    const match = matchPath(this.props.history.location.pathname, {
+      path: '/recipes/:id',
+      exact: true,
+      strict: false
+    })
+    return match
   }
 
   handleAdd = () => {
@@ -96,4 +106,4 @@ function mapStateToProps(globalState) {
   }
 }
 
-export default connect(mapStateToProps)(RecipeView)
+export default withRouter(connect(mapStateToProps)(RecipeView))
