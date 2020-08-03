@@ -1,6 +1,5 @@
 import { getUserTokenInfo, isAuthenticated, removeUser } from '../utils/auth'
 import { login, register } from '../apis/auth'
-import { createPlan, fetchPlan } from '../actions/plan'
 
 export function requestLogin() {
   return {
@@ -35,12 +34,6 @@ export function loginUser(creds, confirmSuccess) {
       .then(userInfo => {
         return dispatch(receiveLogin(userInfo))
       })
-      .then(userInfo => {
-        return dispatch(fetchPlan(userInfo.user.id))
-      })
-      .then(() => {
-        return confirmSuccess()
-      })
       .catch(err => {
         dispatch(loginError(err))
       })
@@ -65,7 +58,6 @@ function receiveLogout() {
 
 export function logoutUser() {
   return dispatch => {
-    document.location = '/#/'
     dispatch(requestLogout())
     removeUser()
     dispatch(receiveLogout())
@@ -90,7 +82,6 @@ export function checkAuth(confirmSuccess) {
     if (isAuthenticated()) {
       const userInfo = getUserTokenInfo()
       dispatch(receiveLogin(userInfo))
-      dispatch(fetchPlan(userInfo.id))
       confirmSuccess()
     }
   }

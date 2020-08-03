@@ -66,11 +66,9 @@ const Nav = props => {
 }
 
 const mapDispatchToProps = dispatch => {
-  // const callback= () => props.history.push('/shopping-list')
   return {
     logout: () => dispatch(logoutUser()),
     clearDay: () => dispatch(clearSelectedDay()),
-    // saveMyPlan:(id, plan) => dispatch(savePlan(id, plan), callback )
   }
 }
 
