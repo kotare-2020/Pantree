@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
+import { HashRouter as Router, Switch } from 'react-router-dom'
 
+import PublicRoute from './PublicRoute'
 import PrivateRoute from './PrivateRoute'
 
 import Landing from './Landing'
@@ -15,10 +16,7 @@ export const App = props => {
   return (
     <Router>
       <Switch>
-        {/* need to create public route so that user doesn't always get redirected to plan */}
-        <Route exact path='/'>
-          {props.auth.isAuthenticated ? <Redirect to ='/plan' /> : <Landing />}
-        </Route>
+        <PublicRoute exact path='/' component={Landing} />
 
         <PrivateRoute path='/plan' component={Plan} />
         <PrivateRoute path='/shopping-list' component={ShoppingList} />
