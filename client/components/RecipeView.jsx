@@ -8,21 +8,26 @@ import pluralize from 'pluralize'
 
 export class RecipeView extends React.Component {
   componentDidMount() {
-    const match = matchPath(this.props.history.location.pathname, {
-      path: '/recipes/:id',
-      exact: true,
-      strict: false
-    })
-
+    const match = this.setMatch()
     const id = match.params.id
     this.props.dispatch(fetchSelectedRecipe(id))
   }
 
   componentDidUpdate(prevProps) {
+    const match = this.setMatch()
     const id = match.params.id
     if (prevProps.match.params.id != id) {
       this.props.dispatch(fetchSelectedRecipe(id))
     }
+  }
+
+  setMatch = () => {
+    const match = matchPath(this.props.history.location.pathname, {
+      path: '/recipes/:id',
+      exact: true,
+      strict: false
+    })
+    return match
   }
 
   handleAdd = () => {
