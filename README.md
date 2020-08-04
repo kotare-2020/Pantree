@@ -237,8 +237,6 @@ Response Body:
 
 #### ingredients
 
-Many Users attend Many Meetings
-
 | Column Name | Data Type |
 | ----------- | --------- |
 | id          | Integer   |
