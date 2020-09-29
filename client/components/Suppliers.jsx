@@ -5,7 +5,7 @@ const LocalSuppliers = (props) => {
     <div className="container">
       <h3>Local suppliers</h3>
       <div className="row">
-        <div className="col s5">
+        <div className="col s6">
           <h4>
             <strong>Commonsense Organics</strong>
           </h4>
@@ -21,9 +21,8 @@ const LocalSuppliers = (props) => {
             <p>commonsenseorganics.co.nz</p>
           </a>
         </div>
-        <div className="col s1"></div>
 
-        <div className="col s5">
+        <div className="col s6">
           <h4>
             <strong>LOKAI</strong>
           </h4>
@@ -40,8 +39,10 @@ const LocalSuppliers = (props) => {
             <p>lokai.nz</p>
           </a>
         </div>
+        </div>
 
-        <div className="col s5">
+      <div className="row">
+        <div className="col s6">
           <h4>
             <strong>Urban Harvest</strong>
           </h4>
@@ -57,9 +58,7 @@ const LocalSuppliers = (props) => {
             <p>urbanharvest.co.nz</p>
           </a>
         </div>
-        <div className="col s1"></div>
-
-        <div className="col s5">
+        <div className="col s6">
           <h4>
             <strong>Newtown Green Grocer</strong>
           </h4>
