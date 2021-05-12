@@ -15,7 +15,7 @@
 
 🚀 Take a look at:
 
-- The live app [here](https://pantree-app.herokuapp.com/)!
+- The live app [here](https://pantreee.herokuapp.com/)!
 - Our [CONTRIBUTING.md](/CONTRIBUTING.md) - basic guide on our branching strategy
 - Our [PROJECT.md](/PROJECT.md) - this has more details about what the project entailed and our initial planning documentation. If you'd like to know about the origins of the app, take a look.
 
