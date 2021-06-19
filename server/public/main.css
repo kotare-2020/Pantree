@@ -37,7 +37,7 @@ body {
   clear: both;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 500px) {
   .plan {
     display: grid;
     grid-template-columns: 1fr;
@@ -46,7 +46,8 @@ body {
   }
 }
 
-@media only screen and (min-width: 1366px) {
+
+@media only screen and (min-width: 1200px) {
   .plan {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
