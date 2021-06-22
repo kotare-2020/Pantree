@@ -19,19 +19,6 @@ The notes below have been kept for historical purposes -- they show our initial 
 
 ---
 
-## Roles
-
-As part of the project we were encouraged for each person in the team to have a useful role. As a team we decided on these roles and their relevant responsibilities.
-
-| Who | Role | Responsibilities |
-| --- | --- | --- |
-| Joe | Product Owner | <li>Doubles as Project Lead</li><li>Voice of customer</li><li>Scrum master</li><li>Keep product documentation up to date</li><li>Deployment to Heroku</li> |
-| Fai | Git Floater | <li>Knowing where everyone's at with the code</li><li>Guiding when conflicts arise</li><li>Deals with issues after code is submitted to GitHub</li><li>Making sure that the person responsible for a conflict deals with it</li> |
-| Jefferson | Vibes and fun checker | <li>Be aware of the state of the group and individuals</li><li>Call out when the vibe isn't good</li><li>Respond appropriately when someone's vibe drops</li><li>Stop everyone at 4pm to make sure team has some fun</li> |
-| Ben | Front-end tech lead | <li>Making sure everyone follows set conventions</li><li>Leads solving technical problems during the coding process, first port of call but doesn’t need to be the expert - just guide people to a solution</li><li>Keeping technical documentation up to date</li><li>Final call on technical decisions / approaches / standardisation</li> |
-| Rose | Back-end tech lead | Same as front-end tech lead but for back-end |
-| Aisyah | Co-helper | <li>Float around</li><li>Pitch in when needed or available</li> |
-
 ## User flow
 
 | Page | Route | Details |
